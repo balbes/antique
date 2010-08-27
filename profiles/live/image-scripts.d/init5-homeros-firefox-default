@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+[ -n "$GLOBAL_HOMEROS" ] || exit 0
+
+subst s/'pref("browser.shell.checkDefaultBrowser", true);'/'pref("browser.shell.checkDefaultBrowser", false);'/ /etc/mozilla/firefox/current/defaults/preferences/firefox.js

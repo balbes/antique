@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=IP Phone
+X-Alterator-PackageList=phone
+X-Alterator-Required=no
+Name[ru_RU]=Интернет-телефон
+Categories=KDE;KDE4

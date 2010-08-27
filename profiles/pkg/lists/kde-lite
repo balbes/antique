@@ -1,0 +1,171 @@
+# tags: kde, base, cd
+
+# KDE4: GENERAL
+#
+kde4base
+kde4graphics
+
+# kde4network
+# USELESS without NFS / SAMBA servers: kde4network-filesharing
+kde4network-kdnssd
+kde4network-kget
+kde4network-kopete
+kde4network-kppp
+kde4network-krdc
+kde4network-krfb
+branding-altlinux-desktop-kde4-settings
+
+# kde4pim
+
+
+kde4multimedia
+
+
+# kde4artwork
+kde4artwork-desktopthemes
+kde4artwork-screensavers
+# kde4artwork-screensavers3d
+# kde4artwork-xscreensaver
+# kde4artwork-xscreensaver3d
+kde4artwork-sounds
+kde4artwork-styles-phase-widgets
+kde4artwork-color-schemes
+
+
+#kde4games
+
+# TO BIG kde4games-kgoldrunner
+kde4games-katomic
+kde4games-kblackbox
+# TO BIG kde4games-ktuberling
+kde4games-kbounce
+kde4games-kspaceduel
+kde4games-kreversi
+kde4games-kolf
+kde4games-konquest
+kde4games-ksame
+kde4games-kmahjongg
+kde4games-kbattleship
+kde4games-kiriki
+kde4games-ksudoku
+kde4games-bovo
+kde4games-kjumpingcube
+kde4games-klines
+kde4games-kmines
+kde4games-knetwalk
+kde4games-kpat
+kde4games-kshisen
+kde4games-ksquares
+# TO BIG kde4games-kfourinline
+kde4games-lskat
+kde4games-kdiamond
+kde4games-kollision
+kde4games-kubrick
+kde4games-kblocks
+kde4games-kbreakout
+# TO BIG kde4games-ksirk
+kde4games-kapman
+kde4games-killbots
+kde4games-bomber
+
+# kde4toys
+kde4-styles-qtcurve
+kde4base-workspace
+kde4-i18n-ru
+# kde4admin -- XXX(s): can't install metapackage, because depends on kde4admin-print
+kde4admin-kcron
+kde4admin-ksystemlog
+# kde4utils -- XXX(s): can't install metapackage, because depends on kde4utils-print
+kde4utils-kgpg
+# kde4utils-superkaramba -- XXX(s): widget system
+kde4utils-ark
+kde4utils-okteta
+kde4utils-kcalc
+kde4utils-kcharselect
+kde4utils-kdessh
+kde4utils-kdf
+kde4utils-kfloppy
+kde4utils-ktimer
+kde4utils-sweeper
+
+
+# KDE4: ADDITIONS
+#kde4-ktorrent
+#kde4-amarok
+kde4plasma-addons
+kdebluetooth4
+plasma-applet-networkmanager
+
+# XXX(?) fake-kdebase-wm
+#kde4base-workspace-kdm 
+#kde4base-dolphin
+#kde4network-kdnssd
+#kde4multimedia-kmix
+#kde4graphics-ksnapshot
+#kde4pim-akregator
+#kde4utils-ark
+#kde4utils-kcalc
+#kde4multimedia
+
+# XXX(s)KDE3 smb4k
+
+# XXX(s)not need fot kde4: kde-icon-theme-tango
+# tango-icon-theme-extras
+# gtk2-themes-qtcurve
+
+# KDE3
+#
+# openoffice.org-kde
+
+# PRINTING
+#
+#cups
+#printer-drivers-base
+
+# OFFICE
+#
+openoffice.org
+openoffice.org-langpack-ru
+openoffice.org-kde4
+fbreader
+
+# NETWORK USER APPS
+# XXX: see network.in for the same packages
+#
+firefox
+firefox-ru
+firefox-settings-kdesktop
+mozilla-plugin-adobe-flash
+# xulrunner-gnome-support
+# KDE3 kdeaddons-konqueror
+wireless-tools
+wpa_supplicant
+ppp-pppoe
+dbus-tools-gui
+# gtk
+#avahi-ui
+avahi-daemon
+avahi-tools
+libnss-mdns
+menu-icons-default
+ConsoleKit-x11
+
+# Web Camera
+ucview
+
+# Office
+openoffice.org
+openoffice.org-langpack-ru
+fbreader
+# stardict-gtk
+qstardict
+stardict-mueller7
+stardict-slovnyk_en-ru
+stardict-slovnyk_ru-en
+
+# SPECIAL PACKAGES FOR ALT PRODUCTS
+#
+krb5-ticket-watcher
+
+# ConsoleKit
+ConsoleKit

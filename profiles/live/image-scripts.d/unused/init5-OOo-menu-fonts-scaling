@@ -1,0 +1,42 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Scale fonts in menus to 80 %
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+# https://bugzilla.altlinux.org/show_bug.cgi?id=14064
+# http://article.gmane.org/gmane.linux.altlinux.community/79106
+
+NAME="init5-OOo-menu-fonts-scaling"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+word=""
+
+[ -d /lib64 ] && word=64
+
+config="/usr/lib${word}/openoffice.org/basis3.1/share/registry/schema/org/openoffice/Office/Common.xcs"
+
+if [ -f "$config" ]; then
+    verbose "Modify OOo config..."
+    sed -i -e '/FontScaling/,/prop/ s/100/80/' "$config"
+else
+    verbose "Can't modify OOo config. Did you install OOo?"
+fi
+
+verbose "finished"

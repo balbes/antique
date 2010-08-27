@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Create /image directory.
+# There are propagator will mount CD-ROM.
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="stage1-propagator"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+dir="/image"
+
+# stage1 need this
+verbose "Create directory for propagator $dir"
+mkdir -p "$dir"
+test -d "$dir" && verbose "$dir created" || verbose "can't create dir $dir"
+
+verbose "finished"

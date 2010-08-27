@@ -1,0 +1,19 @@
+# tags: base, ltsp
+
+# ltsp
+ltsp-server-basic
+
+alterator-ltsconf
+
+alsa-plugins
+
+syslinux
+mkisofs
+
+kde-settings-kded-no_media_popup
+
+docs-install_ltsp
+docs-issue-desktop_personal
+
+# FIXME: altbug #20421
+installer-feature-ltsp-stage3

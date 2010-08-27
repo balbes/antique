@@ -1,0 +1,12 @@
+# tags: hardware, mobile
+
+firmware-acx100
+firmware-ipw2100
+firmware-ipw2200
+firmware-iwl3945
+firmware-iwl4965
+firmware-prism54
+firmware-rt73
+
+# https://bugzilla.altlinux.org/show_bug.cgi?id=16737
+#NetworkManager-gnome

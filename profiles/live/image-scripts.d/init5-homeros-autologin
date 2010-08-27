@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+[ -n "$GLOBAL_HOMEROS" ] || exit 0
+
+cat <<EOF >>/etc/X11/gdm/custom.conf
+
+[daemon]
+AutomaticLoginEnable=true
+AutomaticLogin=altlinux
+EOF

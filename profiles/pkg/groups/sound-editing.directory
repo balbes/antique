@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Sound editing
+X-Alterator-PackageList=sound-editing
+X-Alterator-Required=no
+Name[ru_RU]=Обработка звука
+Categories=KDE;KDE4;GNOME;XFCE

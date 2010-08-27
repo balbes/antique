@@ -1,0 +1,8 @@
+# tags: gnome, multimedia, cd
+#xmms-minimal
+xmms
+xmms-in-*
+xmms-out-alsa
+xmms-out-crossfade
+xmms-out-diskwriter
+gxine

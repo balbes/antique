@@ -1,0 +1,22 @@
+xauth
+screen
+sysstat
+
+alterator
+alterator-l10n
+alterator-fbi
+alterator-net-eth dhcpcd
+alterator-root
+alterator-datetime
+alterator-logs
+alterator-root
+
+alterator-mkve
+alterator-beancounters
+kvm
+
+# bind (according to installer-feature-resolver-bind-stage3)
+bind
+
+# SysV Shared Memory defaults (for e.g. PostgreSQL)
+installer-feature-shm-defaults-stage3

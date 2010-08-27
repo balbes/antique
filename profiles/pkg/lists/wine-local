@@ -1,0 +1,11 @@
+haspd=2.0-alt0.M40.8
+haspd-modules=2.0-alt0.M40.8
+libwine=20071130-alt0.M40.7
+libwine-gl=20071130-alt0.M40.7
+wine=20071130-alt0.M40.7
+wine-etersoft-local=1.0.8-alt0.M40.7
+
+dosemu
+dosemu-freedos
+qemu
+

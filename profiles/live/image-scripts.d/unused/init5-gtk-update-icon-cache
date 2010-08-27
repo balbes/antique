@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for d in `find /usr/share/icons -mindepth 1 -maxdepth 1 -type d`; do
+    gtk-update-icon-cache --force --ignore-theme-index --quiet $d
+done

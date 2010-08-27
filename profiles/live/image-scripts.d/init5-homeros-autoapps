@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+[ -n "$GLOBAL_HOMEROS" ] || exit 0
+
+#cd /etc
+
+#while read l; do
+#    if ! echo "$l" | egrep -q 'mingetty.*tty5'; then
+#	echo "$l" >> ./inittab.new
+#    fi
+#done < /etc/inittab
+
+cat <<EOF >> /etc/inittab
+
+# emacspeak is always available on 8th virtual console;
+espk:2345:respawn:/bin/openvt -c 8 -e -- /bin/su - -c /usr/local/bin/emacs-with-linux-term
+EOF
+
+#rm -f /etc/inittab
+#mv ./inittab.new ./inittab
+
+cat <<EOF > /usr/local/bin/emacs-with-linux-term
+#!/bin/sh
+
+TERM=linux /usr/bin/emacs "\$@"
+exit \$?
+
+EOF
+
+chmod 755 /usr/local/bin/emacs-with-linux-term

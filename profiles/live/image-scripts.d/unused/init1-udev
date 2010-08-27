@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Make symbolik link from /proc/mounts to /etc/mtab
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init1-udev"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+verbose "make symbol link from /proc/mounts to /etc/mtab"
+ln -sf /proc/mounts /etc/mtab
+
+verbose "finished"

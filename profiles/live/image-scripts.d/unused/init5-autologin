@@ -1,0 +1,36 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Setup autologin
+
+
+#     REQUIRES
+#
+# autlogin package
+
+
+#     INFO
+#
+
+NAME="init5-autologin"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+CONFIG="/etc/sysconfig/autologin"
+
+verbose "Setup $CONFIG"
+#setup autologin 
+cat <<E_O_F >> "$CONFIG" 
+USER=altlinux 
+AUTOLOGIN=yes 
+E_O_F 
+
+verbose "finished"

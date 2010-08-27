@@ -1,0 +1,172 @@
+# tags: antique, cd
+
+# gkrellm *************************************
+gkrellm-gkrellmpc
+gkrellm-gkrellmms
+
+# Файловые менеджеры ***********************
+tuxcmd
+tuxcmd-gvfs
+tuxcmd-modules
+
+# требует gvfs, которая есть у tuxcmd-gvfs
+pcmanfm2
+
+# Graphics **********************************
+fbv
+evince-gtk
+gpicview
+gqview
+xpdf
+epdfview
+djview4
+xchm
+pybookreader
+
+# Compression ************************
+xarchiver
+
+# Получение файлов из Сети *****************
+transmission-gtk
+aMule
+
+# Мультимедиа ******************************
+smplayer
+deadbeef
+mpc
+mpd
+ffmpeg
+
+# xmms ---------------------------
+xmms-out-crossfade
+xmms-in-vtx
+xmms-in-flac
+xmms-in-modplug
+xmms-skins
+xmms-in-bonk
+xmms-status-plugin
+xmms-in-wma
+xmms-eff-eq
+xmms-in-tta
+xmmsctrl
+xmms-in-mikmod
+xmms-in-faad
+xmms-out-diskwriter
+xmms-osd
+xmms-imms
+xmms-infopipe
+xmms-in-vorbis
+libxmms
+xmms-eff-defx
+xmms-in-speex
+xmms-sndfile
+xmms-in-mac
+xmms-out-alsa
+xmms-in-cdparanoia
+xmms-eff-normalize
+xmms-fmradio
+xmms
+xmms-alarm
+xmms-scrobbler
+#wmxmms
+#xmms-ladspa
+xmms-skin-winamp5
+
+# а почему бы и нет
+parole
+parole-plugins
+#parole-browser-plugin	-а это только для firefox
+
+# Web & Mailing & Networking ****************
+claws-mail
+claws-mail-plugin-gtkhtml2
+claws-mail-plugin-trayicon
+claws-mail-plugin-bogofilter
+gfa
+links2
+dillo
+
+#samba
+samba-client
+samba-client-cups
+pidgin-mini
+qutim
+twinkle
+gftp-gtk
+pyneighborhood
+telnet
+rdesktop
+vpnc
+chestnut-dialer-gtk2
+ucview
+
+# system monitoring ******************
+htop
+
+## Look & feels ******************************
+gtk-qt-engine
+gtk2-themes-qtcurve
+xscreensaver
+xscreensaver-frontend
+skippy
+
+# Games *************************************
+xboard
+xfreecell
+xpat2
+gtkballs
+freeciv	
+xmahjongg
+
+## Hardware *********************************
+brasero
+gnomebaker
+xfburn
+xsane
+gscan2pdf
+wifi-radar
+gtkam
+flphoto
+
+# Printing **********************************
+cups
+printer-drivers-base
+hplip-hpijs
+hplip-sane
+
+# Emulators **************************
+wine
+dosemu
+dosemu-freedos
+dosemu-plugins-x-sdl
+dosemu-plugins-sound
+
+# Terminals ************************
+lxde-lxterminal
+rxvt-unicode
+
+# system monitoring ******************
+lxde-lxtask
+
+# Optional *****************************
+lxde-lxdm
+lxdm-conf
+
+# for design ***********************
+PyPanel
+gmrun
+qtrayvolman
+gkrellm
+gkrellm-launch
+gkrellm-kam
+gkrellm-xkb
+gkrellm-moon
+gkrellm-volume
+gkrellm-ibam
+gkrellm-shoot
+gkrellm-alltraxclock2
+gkrellm-weather
+mutt1.5
+finch-mini
+minicom
+pilot-link

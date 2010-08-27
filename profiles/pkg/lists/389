@@ -1,0 +1,23 @@
+389-admin
+389-adminutil
+389-ds
+389-dsgw
+389-admin-console
+389-console
+389-ds-console
+
+xauth
+screen
+
+alterator
+alterator-l10n
+alterator-fbi
+alterator-net-eth dhcpcd
+alterator-root
+alterator-datetime
+alterator-logs
+alterator-root
+
+sysstat
+
+perl-ldap

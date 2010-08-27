@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mkdir -p "$WORKDIR"/syslinux
+MEMTEST="$(find /boot/ -name 'memtest*' -print -quit)"
+[ -z "$MEMTEST" ] ||
+	cp -f "$MEMTEST" "$WORKDIR"/syslinux/memtest

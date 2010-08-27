@@ -1,0 +1,38 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Define utility that will mount tmpfs on top RO rootfs.
+
+
+#     REQUIRES
+#
+# Utility at /etc/init.d/remount_rw
+
+
+#     INFO
+#
+# use package remount_rw
+
+NAME="init1-rwroot"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+REMOUNT_RW="/etc/init.d/remount_rw"
+
+if [ -f "$REMOUNT_RW" ]; then
+    verbose "Use ALT rootfs to RW romounter"
+    chmod +x "$REMOUNT_RW"
+    echo "REMOUNT_ROOTFS_RW_COMMAND=$REMOUNT_RW" >> /etc/sysconfig/init
+else
+    verbose "Can't find $REMOUNT_RW"
+fi
+
+verbose "finished"

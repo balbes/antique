@@ -1,0 +1,19 @@
+#!/bin/sh
+
+LOADER_SUFFIX=
+[ "$INFO_BOOT_TYPE" = syslinux ] && LOADER_SUFFIX=.syslinux
+
+cd "$WORKDIR"
+exec >syslinux/$INFO_BOOT_TYPE.cfg
+
+cat ../.in/isolinux/common
+
+[ -r altinst ] && cat ../.in/isolinux/install$LOADER_SUFFIX
+
+[ -r rescue ] && cat ../.in/isolinux/rescue$LOADER_SUFFIX
+
+[ -r live ] && cat ../.in/isolinux/live$LOADER_SUFFIX
+
+[ -r syslinux/memtest ] && cat ../.in/isolinux/memtest
+
+true

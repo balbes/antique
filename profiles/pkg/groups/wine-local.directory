@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Wine@etersoft Local
+X-Alterator-PackageList=wine-local
+X-Alterator-License=wine-local
+Name[ru_RU]=Wine@etersoft Local
+X-Alterator-Conflicts=emulators
+Categories=KDE;KDE4

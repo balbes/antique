@@ -1,0 +1,28 @@
+################################################################
+## services
+alterator-squid
+apache2-httpd-prefork
+apache2-mod_php5
+postgresql8.3-server
+postgresql8.3-perl
+postgresql8.3-python
+postgresql8.3-tcl
+postgresql8.3-server
+postgresql8.3-perl
+postgresql8.3-python
+postgresql8.3-tcl
+squid
+# c-icap-skf
+anonftp
+vsftpd
+alterator-vsftpd
+apache2-httpd-prefork
+apache2-mod_php5
+MySQL-server
+MySQL-htmlhelp
+phpMyAdmin
+phpMyAdmin-apache2
+tftp-server
+dhcp-server
+nfs-server
+syslinux

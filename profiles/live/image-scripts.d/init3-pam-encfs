@@ -1,0 +1,43 @@
+#!/bin/sh
+
+[ "$GLOBAL_CRYPT_HOMES" = "encfs" ] || exit 0
+
+NAME="init3-pam-encfs"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+verbose "Setup pam_encfs.so"
+sed -i \
+    -e ":1 /^auth/ b2" \
+    -e "{n;b1}" \
+    -e ":2 /^auth[[:space:]]\+required/ {n;b2}" \
+    -e "/^auth[[:space:]]\+sufficient/ {s/\(^auth[[:space:]]\+\)sufficient\(.*\)/\1required\2/;x;s/.*/auth     sufficient     pam_encfs.so/;x;G;b3}" \
+    -e "{x;s/.*/auth     required       pam_encfs.so/;G;b3}" \
+    -e ":3 {n;b3}" \
+  /etc/pam.d/system-auth
+if ! grep -q "^auth" /etc/pam.d/system-auth; then
+  echo "Error in PAM configuration" 1>&2
+  echo "/etc/pam.d/system-auth:" 1>&2
+  cat /etc/pam.d/system-auth 1>&2
+  exit 1
+fi
+
+verbose "Configure pam_encfs.so"
+cat - <<EOF > /etc/security/pam_encfs.conf
+drop_permissions
+fuse_default allow_root,nonempty
+EOF
+
+if ! grep -q "user_allow_other" /etc/fuse.conf 2>/dev/null; then
+  verbose "Configure fuse: user_allow_other"
+  echo "user_allow_other" >> /etc/fuse.conf
+fi
+
+verbose "finished"

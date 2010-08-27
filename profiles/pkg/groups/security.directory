@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Security
+X-Alterator-PackageList=security
+Name[ru_RU]=Безопасность и защита
+Categories=KDE;KDE4;GNOME;XFCE

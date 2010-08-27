@@ -1,0 +1,166 @@
+#!/bin/bash 
+
+find_coord() {
+import -window root -depth 8 -interlace none test.png
+visgrep  test.png $1.pat| tr , ' '
+}
+
+click_next() {
+	coord=`find_coord next`
+	while [ -z "$coord" ] ; do
+		xte "key Tab"
+		sleep 5
+		coord=`find_coord next`
+	done
+	xte "key  "
+	sleep 5 
+}
+
+wait_screen() {
+	coord=`find_coord $1`
+	echo -n Waiting $1.
+	while [ -z "$coord" ] ; do
+		sleep 10;
+		coord=`find_coord $1`
+		echo -n .
+	done
+	echo found
+}
+
+die() {
+	echo $1
+	exit 1
+}
+
+shot() {
+import -window root -quality 50 $1
+
+}
+
+rm -f hda
+qemu-img create hda 12G
+qemu -no-reboot -k en-us -hda hda -cdrom $1 -boot d &
+qemu_pid=$!
+sleep 10;
+
+
+wait_screen boot
+coord=`find_coord boot`
+xte "mousemove $coord" "mouseclick 1" 
+sleep 3 
+
+xte "key Down"
+xte "key Return"
+
+
+wait_screen splash
+
+wait_screen language
+
+click_next
+
+wait_screen license
+
+xte "key Tab"
+sleep 5
+xte "key Tab"
+sleep 5
+xte "key Tab"
+sleep 5
+xte "key Tab"
+sleep 5
+
+
+xte "key  "
+sleep 5
+
+xte "key Tab"
+sleep 5
+
+xte "key Tab"
+sleep 5
+
+click_next
+wait_screen kbd
+
+shot kbd.jpg
+
+click_next
+wait_screen timezone
+
+shot timezone.jpg
+
+click_next
+wait_screen datetime
+shot datetime.jpg
+
+click_next
+wait_screen vm
+
+shot vm.jpg
+
+click_next
+wait_screen basesystem
+
+shot base.jpg
+
+wait_screen savesettings
+
+shot savesettings.jpg
+
+wait_screen lilo
+
+click_next
+wait_screen addons
+shot addons.jpg
+
+click_next
+wait_screen pack1
+shot pack1.jpg
+
+click_next
+wait_screen pack2
+shot pack2.jpg
+
+wait_screen root
+shot root.jpg
+
+xte "key Tab" "sleep 3" "key Tab" "sleep 3" "key Tab" "sleep 3" "str 123" "key Tab" "sleep 3" "str 123"
+
+
+click_next
+wait_screen user
+shot user.jpg
+xte  "key Tab" "sleep 3" "key Tab" "sleep 3" "str test"
+xte "key Tab" "sleep 3" "key Tab" "str 123" 
+xte "sleep 3" "key Tab" "sleep 3" "str 123"
+
+click_next
+wait_screen net
+shot net.jpg
+
+click_next
+wait_screen x11
+shot x11.jpg
+
+click_next
+wait_screen finish
+xte "key Tab" "sleep 3"  "key Tab" "sleep 3" "key  "
+
+wait_screen black
+echo waiting qemu
+wait $qemu_pid
+echo stopped
+
+echo startig qemu
+qemu -no-reboot -k en-us -hda hda &
+echo done
+
+wait_screen sysboot
+shot sysboot.jpg
+
+wait_screen syssplash
+shot syssplash.jpg
+
+wait_screen sysxdm
+shot sysxdm.jpg

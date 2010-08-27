@@ -1,0 +1,39 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# For all installed kernels create modules dependencies.
+
+
+#     REQUIRES
+#
+
+
+#     INFO
+# -a, --all            Probe all modules
+# -F kernelsyms        Use the file instead of the current kernel symbols.
+# Out:  /lib/modules/{NAME}/modules.dep
+# modules.alias and modules.*map (used by mkinitrd)
+
+NAME="init3-depmod"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+if [ -x /sbin/depmod ]; then
+    for i in /lib/modules/*; do
+        verbose "Create modules dependencies for $(basename $i)"
+        map="/boot/System.map-$(basename $i)"
+        if [ -f "$map" ]; then
+            /sbin/depmod -a -F "$map" "$(basename $i)"
+        fi
+    done
+fi
+
+verbose "finished"

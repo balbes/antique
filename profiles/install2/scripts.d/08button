@@ -1,0 +1,3 @@
+#!/bin/sh
+cd $WORKDIR
+[ ! -d /proc/acpi/ ] || echo button >> ./etc/modules

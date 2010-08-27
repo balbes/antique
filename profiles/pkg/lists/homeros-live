@@ -1,0 +1,23 @@
+gnome-default
+gnome-a11y
+openoffice.org
+openoffice.org-gnome
+openoffice.org-langpack-ru
+firefox
+firefox-ru
+
+# Screen readers;
+# Emacspeak comes by separate list;
+orca
+yasr
+
+# Speech output;
+voiceman-config-mbrola-ru_tts
+espeak 
+
+# End-user requests;
+partimage
+sudo
+
+# Homeros stuff;
+etcskel-homeros

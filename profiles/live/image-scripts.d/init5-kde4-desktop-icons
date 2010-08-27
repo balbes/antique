@@ -1,0 +1,56 @@
+#!/bin/sh -efu
+
+#     DESCRIPTION
+#
+# Add icons to Desktop.
+
+
+#     REQUIRES
+#
+# Already added LiveCD user.
+
+
+#     INFO
+#
+
+NAME="init5-kde4-desktop-icons"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+liveuser="altlinux"
+home="/home/$liveuser"
+
+if ! [ -d "$home" ]; then
+    verbose "Can't find home directory for LiveCD user: $home"
+    exit 0
+fi
+
+kde4dst="$home/Desktop"
+mkdir -p "$kde4dst"
+
+##
+# Icons for copy:
+#
+livecdinst="/usr/share/applications/livecd-install.desktop"
+icons="${icons-} $livecdinst"
+
+for i in $icons; do
+    if [ -r "$i" ]; then
+        verbose "Copy $i to $kde4dst"
+        cp "$i" "$kde4dst"
+        chown -R "$liveuser"."$liveuser" "$kde4dst"
+	# Allow .desktop file run without prompt in KDE4 with 'Folder View' as desktop type
+	chmod +x "$kde4dst/$(basename $i)"
+    else
+        verbose "Can't find file: $i"
+    fi
+done
+
+verbose "finished"

@@ -1,0 +1,5 @@
+Q: why would build bail out like this:
+   E: Package filesystem has no installation candidate
+
+A: you run it on x86_64 with proper sources.list, but default arch is i586 so
+   add --with-arch=x86_64 explicitly by now; this will likely change in future.

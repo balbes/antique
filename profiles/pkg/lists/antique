@@ -1,0 +1,63 @@
+# tags: antique, base
+
+#synaptic *****************************
+synaptic
+synaptic-usermode
+
+#alterator ***************************
+alterator-browser-qt
+alterator-standalone
+alterator-xkb
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-nsswitch
+alterator-profile
+alterator-proxy
+
+#others for system *******************
+hal-laptop
+dbus-tools
+dbus-tools-gui
+tk
+
+#features
+installer-feature-xdm-reboot
+installer-feature-no-xconsole
+installer-feature-hack-version
+branding-altlinux-desktop-indexhtml
+antique-default-settings
+
+### icewm ****************************
+icewm
+icewm-startup-xxkb
+icewm-startup
+icewm-startup-update-menus
+icewm-theme-elegance
+
+# Fonts ******************************
+fonts-ttf-liberation
+fonts-ttf-linuxlibertine
+fonts-ttf-oldstandard
+
+# Web, Mailing, Networking ***********
+wget
+net-tools
+
+# Utilites ***************************
+cdrkit-utils
+wodim
+
+## Look & feels **********************
+tango-icon-theme
+
+# Other useful ***********************
+pcmciautils
+pm-utils
+pmount
+pam_mount
+autofs
+prelink
+packages-info-i18n-ru
+pinfo
+hda-verb

@@ -1,0 +1,54 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Autologin at kdm to user "altlinux"
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-kdm-autologin"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+#KDMRC="/etc/X11/kdm*/kdmrc"
+
+# default runlevel
+# FIXME: use installer-feature?
+[ -z "$runlevel" ] && runlevel=5 
+subst "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," /etc/inittab 
+
+#setup autologin
+ls -1 /etc/X11/kdm*/kdmrc | while read KDMRC
+do
+if [ -f "$KDMRC" ]; then
+    verbose "Modify $KDMRC for autologin"
+    cp "$KDMRC" "$KDMRC.orig"
+    subst 's/#AutoLoginEnable=.*/AutoLoginEnable=true/' "$KDMRC" 
+    subst 's/#AutoLoginUser=.*/AutoLoginUser=altlinux/' "$KDMRC"
+    # Auto restart session X-server crashes:
+    subst 's/#AutoReLogin=.*/AutoReLogin=true/' "$KDMRC" 
+    subst 's/#GreetString=.*/GreetString=ALT Linux Live/' "$KDMRC" 
+    subst 's/#PreselectUser=.*/PreselectUser=Default/' "$KDMRC" 
+    subst 's/#DefaultUser=.*/DefaultUser=altlinux/' "$KDMRC" 
+    
+# XXX: NOT NECESSARY (stanv)   subst 's/#AutoLoginPass=.*/AutoLoginPass=""/' "$KDMRC" 
+else
+    verbose "Can't find $KDMRC, did you install kde-settings-lite-kdm ?"
+fi
+done
+
+verbose "finished"

@@ -1,0 +1,137 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Start up KDE4 first time.
+#
+
+
+#     REQUIRES
+#
+# Run as hasher rooter.
+#
+
+#     INFO
+#
+# Hrrrr. Start KDE4 in hasher chroot environments.
+# If you know how to optimize KDE4 time startup, let me know.
+#
+
+
+NAME="init5-kde4-firsttime"
+GLOBAL_VERBOSE=1
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+liveuser="altlinux"
+home="/home/$liveuser"
+
+if ! [ -d "$home" ]; then
+    verbose "Can't find home directory for LiveCD user: $home"
+    exit 0
+fi
+
+DBUS_LAUNCH="/usr/bin/dbus-launch"
+QDBUS="/usr/bin/qdbus-qt4"
+XVFBRUN="/usr/bin/xvfb-run -screen 0 1920x1200x8"
+KQUIT="/usr/share/kde4/autostart/quit.desktop"
+STARTKDE="/usr/lib/kde4bin/startkde"
+
+if ! [ -x "$DBUS_LAUNCH" ]; then
+    verbose "Can't find $DBUS_LAUNCH"
+    exit 0
+fi
+
+if ! [ -x "$QDBUS" ]; then
+    verbose "Can't find $QDBUS"
+    exit 0
+fi
+
+if ! [ -x "$XVFBRUN" ]; then
+    verbose "Can't find $XVFBRUN"
+    exit 0
+fi
+  
+# remove systemwide message bus status file
+rm -rf /var/run/messagebus.pid
+
+# Если запускать системный dbus, процессы kde4 перестают почему-то видеть dbus сессионный
+# service messagebus start
+
+# remove any existing dbus-sessions. See dbus-launch(1).
+rm -rf /root/.dbus
+rm -rf /root/.kde4
+rm -rf /var/tmp/kdecache-root
+
+if [ -x "$DBUS_LAUNCH" -a -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    verbose "start session dbus"
+    eval `$DBUS_LAUNCH --sh-syntax --exit-with-session 2>/dev/null`
+    export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
+fi
+
+mkdir -p "$(dirname "$KQUIT")"
+
+verbose "Create $KQUIT"
+cat << __EOF__ > "$KQUIT"
+[Desktop Entry]
+Exec=bash -c "sleep 5 && qdbus-qt4 org.kde.ksmserver /KSMServer logout 0 0 1"
+Type=Application
+Name=LiveCD QUIT
+X-KDE-StartupNotify=false
+X-KDE-autostart-phase=2
+OnlyShowIn=KDE;
+__EOF__
+chmod 644 "$KQUIT"
+
+if [ -d "/etc/skel/.kde4" ]; then
+    verbose "Copy skel settings"
+    rm -rf "/root/.kde4"
+    cp -a -f "/etc/skel/.kde4" "/root/"
+else
+    verbose "skel settings for KDE4 not found"
+fi
+
+
+verbose "Start KDE4"
+"$XVFBRUN" "$STARTKDE"
+
+verbose "remove: $KQUIT"
+rm -rf "$KQUIT"
+
+if [ -n "$TMPDIR" ]; then
+	verbose "cleanup: $TMPDIR"
+	find "$TMPDIR" -mindepth 1 -maxdepth 1 -exec rm -rf -- '{}' '+'
+fi
+
+find "/root/.kde4" | while read f
+do
+    if [ -L "$f" ]; then
+        verbose "remove symbollink: $f"
+        rm -f "$f"
+    fi
+done
+
+verbose "subst: root -> $liveuser"
+find "/root/.kde4" -type f -exec sed -i -e "s/root/$liveuser/g" {} \;
+
+rm -rf /root/.kde4/share/apps/RecentDocuments
+
+for i in "/root/.kde4" "/root/.xine"; do
+    [ -e "$i" ] || continue
+    verbose "Save $i"
+    chown -R $liveuser.$liveuser "$i"
+    cp -a -f "$i" "$home/"
+done
+
+# kde4 cache:
+rm -rf "/var/tmp/kdecache-$liveuser"
+mv -f "/var/tmp/kdecache-root" "/var/tmp/kdecache-$liveuser"
+chown -R $liveuser.$liveuser "/var/tmp/kdecache-$liveuser"
+
+verbose "finished"

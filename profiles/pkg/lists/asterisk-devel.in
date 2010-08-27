@@ -1,0 +1,7 @@
+# пакеты для сборки Asterisk
+appliance-build-pbx
+gdb
+
+kernel-headers-modules-@KERNEL_MOD@
+kernel-headers-dahdi-@KERNEL_MOD@
+

@@ -1,0 +1,317 @@
+# tags: disk, server, cd
+
+# servers
+cvs-pserver
+dhcp-server
+popa3d
+postfix-cyrus postfix-dovecot postfix-html postfix-ldap postfix-mysql postfix-pcre postfix-pgsql postfix-tls
+rsync-server
+samba samba-doc samba-swat
+scanlogd
+slocate
+smartmontools
+subversion-server-dav subversion-server-standalone
+talk talk-server
+vsftpd
+
+# editor
+emacs22-erc
+emacs22-gnus
+emacs22-leim
+emacs-common
+hexedit
+vim-enhanced
+xemacs-nox
+
+# mailer
+mutt
+
+# devel
+bc
+ctags
+emacs-git git-cvs git-doc git-email git-gui gitk git-server git-svn gitweb
+findsym
+flex
+gdb
+gear
+hasher
+help2man
+indent
+jdkgcj
+john
+ksymoops
+ltrace
+patchutils
+rpm-build-java
+rpm-utils
+srpmcmp
+valgrind
+xdelta
+
+# fs
+dosfstools
+ntfsprogs
+squashfsprogs
+
+# scsi
+sdparm
+sg3_utils
+
+# network tools
+dsniff
+iftop
+mtr
+nmap
+pptp-client
+scanssh
+tcptraceroute
+telnet
+whois
+
+# mc :(
+mc
+
+# hasher repo reqs
+setup filesystem rpm fakeroot
+basesystem rpm-build kernel-headers-common sisyphus_check
+
+# mkimage repo reqs
+mar
+mkisofs
+propagator
+squashfsprogs
+syslinux
+
+# kernel
+kernel-build-tools
+kernel-doc-std
+kernel-headers-modules-un-def
+kernel-headers-un-def
+
+# docs
+docs-issue-server
+
+# virt
+qemu-user
+kqemu-common
+kernel-modules-kqemu-un-def
+
+# misc
+acct
+adjtimex
+apt-scripts
+autossh
+cpuburn
+fhs
+mtree
+vlock
+xauth
+
+# cert
+libzmalloc
+
+# etc
+apt-rsync
+bash-doc
+bash-examples
+bind-doc
+bzip2-doc
+bzlib-devel-static
+cfdisk
+db4.4-utils
+dnet
+dovecot-doc
+evms-cli
+expat
+gawk-doc
+gd2-utils
+gpm
+iproute2-doc
+iptables-ipv6
+isoutils
+kbdrate
+look
+lua5
+lua5-doc
+###nfs-clients
+###nfs-server
+openssh-askpass-common
+openssl-doc
+pam0_timestamp
+pam-doc
+pam_userpass-devel
+###pciutils-devel-static
+pciutils-devel
+perl-full
+python-dev
+setproctitle-devel
+strace-utils
+tcl-devel
+terminfo-extra
+tftp
+tinycdb
+python-module-trac-fcgi
+xml-utils
+zlib-devel-static
+
+# alexsid@
+jabberd2
+
+# at@
+grepmail
+libxslt-devel libxslt-devel-doc python-modules-libxslt xsltproc
+perl-Email-MIME-Modifier
+perl-Image-Info
+perl-Text-CSV_XS
+rss2mail2
+screen
+tig
+zsh
+
+# asy@
+clamav clamav-manual libclamav-devel
+#cyrus-imapd cyrus-imapd-doc cyrus-imapd-murder cyrus-imapd-utils
+#quagga
+
+# bga@
+amanda amanda-client amanda-devel
+mailman mailman-docs
+squid
+trac
+trac-spawn-fcgi
+xfsdump
+
+# dlebkov@
+courier-imap
+courier-maildrop
+flow-tools-devel
+freetds-utils libfreetds-devel
+ipsec-tools
+nagios-doc nagios-full
+openldap-clients openldap-servers openldap-doc
+rrd-perl python-module-rrd rrd-tcl rrd-utils
+
+# enp@
+#drbd
+#heartbeat
+
+# force@
+bonnie
+bridge-utils
+ccze
+ddrescue
+disktype
+dmidecode
+dump rmt
+#exim
+finger
+greylistd
+hddtemp
+iptstate
+joe
+#spamassassin
+lshw
+lsof
+microcode_ctl
+mod_geoip
+p0f
+star
+sysstat
+x86info
+perl-Apache-DBI
+perl-Config-Simple
+perl-Crypt-OpenSSL-Bignum
+perl-Crypt-OpenSSL-RSA
+perl-Crypt-OpenSSL-Random
+perl-Event
+perl-File-Tail
+perl-GD2
+perl-Geography-Countries
+#perl-Gnome2 perl-Gnome2-Canvas
+perl-IP-Country
+perl-IPC-Run
+perl-Image-ExifTool
+perl-Image-MetaData-JPEG
+perl-Mail-DKIM
+perl-Mail-DomainKeys
+perl-Mail-SPF-Query
+perl-Net-CIDR-Lite
+perl-Net-DNS
+perl-Net-Netmask
+perl-Parse-Syslog
+perl-Sys-Hostname-Long
+
+# icesik@
+#phpMyAdmin-apache2-php5 phpMyAdmin
+
+# lakostis@
+#drbd
+MySQL-client MySQL-server libMySQL libMySQL-devel
+cdrkit
+nginx
+
+# legion@
+ash
+consolelocker
+
+# lioka@
+acl
+attr
+
+# mike@
+apache apache-devel apache-manual apache-suexec
+#dev MAKEDEV
+dstat
+enca
+mod_limitipconn
+mod_ssl
+monit
+wget
+
+# mithraen@
+bontmia
+nginx
+pgtcl
+ppp-pppoe
+tcl-syslog
+
+
+# raorn@
+sysfsutils
+vim-spell-en vim-spell-ru
+#vim-plugin-*
+#wireshark
+
+# solo@
+apache2-devel apache2-manual apache2-suexec
+
+# vvk@
+ebtables
+#lighttpd
+mailgraph-apache2 mailgraph-apache mailgraph-nginx
+#mailgraph-*
+minicom
+queuegraph-apache2 queuegraph-apache queuegraph-nginx
+#queuegraph-*
+apache2-mod_auth_mysql mod_auth_mysql
+pflogsumm-cgi
+pfqueue
+policyd-weight
+#postgrey-dogwatch
+pptpd
+redirector-dbl
+#seiroswiki
+spam_check
+unreal unreal-doc
+#zabbix-agent zabbix-common zabbix-doc zabbix-mysql zabbix-pgsql zabbix-phpfrontend zabbix-phpfrontend-apache
+
+#1c-tools
+
+# vitty@
+389-admin
+389-adminutil
+389-ds
+389-dsgw
+389-admin-console
+389-console
+389-ds-console

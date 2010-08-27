@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+
+[ -d "$WORKDIR/ALTLinux/RPMS.addon" ] || exit 0
+cd "$WORKDIR"
+
+rm -fr syslinux docs altinst rescue live

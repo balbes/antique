@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#     
+#     2. Define console font. (Alt-F[0-6])
+#     All other settings done via `livecd-setlocale' && alterator
+
+
+#     REQUIRES
+#
+#     Nothing
+
+NAME="init3-locales"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+SYSFONT="UniCyrExt_8x16"
+
+mkdir -p /etc/sysconfig 
+
+verbose "Set consolefont to $SYSFONT"
+
+cat <<E_O_F >> /etc/sysconfig/consolefont
+SYSFONT="$SYSFONT"
+E_O_F
+
+verbose "finished"

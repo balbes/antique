@@ -1,0 +1,49 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Turn off nepomukserver startup when user login in KDE4.
+
+
+#     REQUIRES
+#
+# branding-altlinux-desktop-kde4-settings
+
+
+#     INFO
+#
+
+NAME="init5-nepomukServer-turnoff"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+CFGDIR="/home/altlinux/.kde4/share/config"
+CONFIG="$CFGDIR/nepomukserverrc"
+
+if ! [ -d "$CFGDIR" ]; then
+    verbose "Can't find $CFGDIR, please install branding-altlinux-desktop-kde4-settings"
+    exit 0
+fi
+
+cat << EOF > "$CONFIG"
+[Basic Settings]
+Start Nepomuk=false
+
+[Service-nepomukmigration1]
+autostart=false
+
+[Service-nepomukstrigiservice]
+autostart=false
+EOF
+
+chmod 600 "$CONFIG"
+chown altlinux:altlinux "$CONFIG"
+
+verbose "finished"

@@ -1,0 +1,77 @@
+# interactivesystem
+sudo
+etcnet-defaults-server
+xauth
+man-pages
+gpm
+
+# network tools
+ifplugd
+arpwatch
+dhcpcd
+bind
+wireless-tools
+bridge-utils
+
+# disk tools
+quota
+
+# clients
+nfs-clients
+
+# installer features
+avahi-daemon
+avahi-tools
+installer-feature-nfs-server-stage3
+installer-feature-network-shares-stage3
+installer-feature-powerbutton-stage3
+installer-feature-apache2-userdir-stage3
+installer-feature-apache2-indexhtml-stage3
+installer-feature-ulogd-stage3
+installer-feature-hotstandby-stage3
+installer-feature-mail-init-stage3
+
+
+# alterator
+alterator-fbi
+alterator-firsttime
+alterator-distro-chainmail
+
+alterator-bacula
+bacula-director-sqlite3
+
+alterator-bind
+alterator-dhcp
+alterator-kdc
+alterator-ldap-groups
+alterator-ldap-users
+alterator-net-iptables
+alterator-net-domain
+alterator-net-eth
+alterator-net-pptp
+alterator-net-openvpn
+alterator-openldap
+alterator-openvpn-server
+alterator-squid
+alterator-squidmill
+alterator-quota
+alterator-trust
+alterator-vsftpd
+alterator-xinetd
+alterator-postfix-dovecot
+alterator-ulogd
+alterator-hotstandby
+
+publish-acc-to-console
+
+# servers
+dovecot
+postfix-dovecot
+nfs-server
+
+apache2
+apache2-mod_ssl
+
+# debug
+strace
+tcpdump

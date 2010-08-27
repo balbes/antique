@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=RunaWFE Client 
+X-Alterator-PackageList=runa-client
+X-Alterator-Required=yes
+
+Name[ru_RU]=RunaWFE Клиент
+Categories=KDE;KDE4

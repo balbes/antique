@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Emulators
+X-Alterator-PackageList=emulators
+Name[ru_RU]=Эмуляторы
+X-Alterator-Conflicts=wine-local
+Categories=KDE;KDE4;GNOME

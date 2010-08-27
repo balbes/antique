@@ -1,0 +1,51 @@
+# tags: gnome, contrib, dvd
+
+# nautilus extensions
+nautilus-image-converter
+nautilus-sendto
+nautilus-sendto-bluetooth
+nautilus-sendto-evolution
+nautilus-sendto-pidgin
+
+# more applets
+gnome-applets-extra-sensors
+
+# GIMP plugins
+gimp-plugin-wavelet-denoise
+gimp-plugin-separateplus
+gimp-script-ISONoiseReduction
+
+# moc and plugins
+moc-player
+moc-plugin-wavpack
+moc-plugin-vorbis
+moc-plugin-speex
+moc-plugin-sndfile
+moc-plugin-musepack
+moc-plugin-mp3
+moc-plugin-flac
+moc-plugin-ffmpeg
+
+djvu-viewer
+gnochm
+audacity
+catdoc
+wget
+convmv
+X-Downloader
+transmission
+#ManDVD
+jpilot
+brasero
+gnome-specimen
+
+# Mobile phone management
+wammu
+gnokii
+
+# compiz addons
+compizconfig-backend-gconf
+#emerald
+
+# IRC client
+xchat

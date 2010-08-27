@@ -1,0 +1,108 @@
+mkimage multi-distro profiles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is the ALT Linux based distribution profile collection
+which is used with mkimage to build installable and/or live
+media images.
+
+For the impatient: make sure you have hasher(1) working
+and dive into make-distro script to bake an image.
+
+Intro
+~~~~~
+
+While it's a bit complicated (sometimes even convoluted),
+it's also being constantly refactored as the things become
+more apparent: we would copypaste at times but then come
+around with an idea of what exactly needs to be generalized
+in practice.  Linux distributions is an evolving scene,
+you know, so it proved to be inefficient to try and design
+all things beforehand for mere us.
+
+Here's the general structure (in relevance order):
+
+./ -- toplevel Makefile, auxiliary makefiles, docs
+  profiles/ -- subprofile directories, stage1 Makefile
+  tests/ -- automated installation tests
+  bin/ -- helper scripts
+
+profiles/ is the largest part of the tree and contains:
+  pkg/ -- package collection related metadata
+  scripts.d/ -- stage1 hooks
+  isofiles/ -- contents are added to image root
+  isolinux/ -- media loader configuration[1]
+  install2/ -- second stage (alterator off livecd)
+  rescue/ -- rescue mini livecd
+  live/ -- livecd-generating Makefile and hooks
+  main/ -- generation of image's RPMS.main/
+  contrib/ -- RPMS.contrib/ in the image
+  addon/ -- RPMS.addon/ for a separate image
+  ltsp/ -- RPMS.ltsp/ (holds some main-conflicting packages[3])
+  out/ -- image file will land here (if not configured)
+  kernel-pae/, lite-edu/ -- legacy?
+
+profiles/pkg/ contains metadata for distro's packages:
+  lists/ -- package list files[4]
+  groups/ -- descriptions for stage3-installable lists[5]
+  licenses/ -- additional license texts for non-free lists
+  tags/ -- directories named by tag with links to tagged lists[6]
+
+bin/ holds generic helper scripts (not hooks):
+  check-pkg-list -- checks given pkglist(s) against apt-cache pkgnames
+  existor -- (stdin)filelist * suffixes, output only existing files
+  generate-modversion -- convenient kernel version parts
+  pkgdups.sh -- helps weed duplicate packages from package lists
+  lists2tags -- extracts tags from given pkg/lists
+  tags2lists -- ANDs tags to output lists matching them all
+
+Footnotes
+~~~~~~~~~
+
+[1] tests/:
+    currently abandoned due to difficulties of maintaining
+    sample images with different designs, were used with 4.0
+
+[2] profiles/isolinux/:
+    see also profiles/scripts.d/03-syslinux
+
+[3] profiles/ltsp/:
+    due to apt-get --print-uris being employed for components,
+    it's not feasible to put conflicting packages into single
+    RPMS.main; which is unfortunate since otherwise this one
+    and potentially quite a few other package collection would
+    better be put into main
+
+[4] profiles/pkg/lists/*:
+    these support "# comment" and might be substituted
+    by configure script if adjusted so; a special form
+    "# tags: tag1, tag2, ..." is used to categorize lists
+    (so far no distro target uses tags to build even if
+    it's already possible in the simplest all-AND form)
+
+[5] profiles/pkg/groups/*:
+    freedesktop files with additional X-Alterator-* tags
+    used currently by alterator-pkg (if it's included in
+    install-steps file of corresponding installer-distro-*)
+
+[6] profiles/pkg/tags/:
+    this directory is autopopulated via "make all" in pkg/;
+    please take care not to invent unneeded tags, consult
+    devel-distro@ in case of doubt
+
+References
+~~~~~~~~~~
+
+* http://www.altlinux.org/Mkimage:
+  short intro page for mkimage
+* http://www.altlinux.org/Mkimage/Desktop:
+  crash course into mkimage-profiles-desktop
+* http://www.altlinux.org/WhiteLabel:
+  refactoring considerations
+
+Blame
+~~~~~
+
+* Alexey Gladkov <legion@altlinux> for mkimage
+* Anton Boyarshonov <boyarsh@altlinux> for mkimage-profiles-desktop
+* Michael Shigorin <mike@altlinux> for wiki pages referenced above,
+  casual havoc during profile rewrites, and this text too

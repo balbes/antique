@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dial-Up
+X-Alterator-PackageList=dial-up
+Name[ru_RU]=Доступ в Интернет через телефонные сети
+Categories=KDE;KDE4

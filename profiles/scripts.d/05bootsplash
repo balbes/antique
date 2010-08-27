@@ -1,0 +1,18 @@
+#!/bin/sh
+
+RESOLUTION_DEFAULT="800x600"
+
+splash=/sbin/splash
+[ -x "$splash" ] ||
+	{ echo >&2 "Executable $splash not found"; exit 0; }
+
+configdir=/etc/bootsplash/themes/current/config
+[ -d "$configdir" ] ||
+	{ echo >&2 "Directory $configdir not found"; exit 0; }
+
+themefile="$configdir/bootsplash-$RESOLUTION_DEFAULT.cfg"
+[ -f "$themefile" ] ||
+	{ echo >&2 "File $themefile not found"; exit 0; }
+
+mkdir -p /bootsplash
+$splash -f -s "$themefile" > /bootsplash/bootsplash

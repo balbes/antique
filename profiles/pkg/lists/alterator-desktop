@@ -1,0 +1,18 @@
+# tags: alterator, desktop
+
+alterator-browser-qt
+alterator-standalone
+alterator-xkb
+
+alterator-mkbootflash
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-nsswitch
+alterator-packages
+alterator-pkg
+alterator-profile
+alterator-proxy
+
+alterator-bacula
+bacula-director-sqlite3

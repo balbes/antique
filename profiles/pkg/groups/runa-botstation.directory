@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=RunaWFE Botstantion
+X-Alterator-PackageList=runa-botstation
+X-Alterator-Required=yes
+X-Alterator-Conflicts=runa-editor
+Categories=KDE;KDE4

@@ -1,0 +1,57 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Add policy for HAL
+
+
+#     REQUIRES
+#
+
+
+#     INFO
+# $ lshal | grep 'powe.*can'
+#   power_management.can_hibernate = false  (bool)
+#   power_management.can_suspend = true  (bool)
+#   power_management.can_suspend_hybrid = false  (bool)
+#
+#   suspend_hybrid is a blend of suspend and hibernate.  It performs all
+#   the tasks needed to put the system into hibernate mode (including writing the
+#   memory image to disk), and then puts the system into suspend mode.
+#
+#   power_management.can_hibernate (bool)     Yes  If hibernation support is compiled into the kernel.
+#   NB. This may not mean the machine is able to hibernate successfully. 
+#   http://people.freedesktop.org/~david/hal-spec/hal-spec.html
+
+
+NAME="init3-hal"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+CFG="/etc/hal/fdi/policy/55-hibernation-off.fdi"
+
+cat >> "$CFG" << __EOF__
+<?xml version="1.0" encoding="UTF-8"?>
+<deviceinfo version="0.2">
+  <device>
+
+  <!-- MKIMAGE HOOK: TURN OFF HIBERNATION FOR LIVECD -->
+  <!-- MKIMAGE HOOK: REMOVE RELATED ICONS FROM KDE4 STARTUP MENU -->
+
+    <match key="info.udi" string="/org/freedesktop/Hal/devices/computer">
+      <merge key="power_management.can_suspend" type="bool">false</merge>
+      <merge key="power_management.can_hibernate" type="bool">false</merge>
+      <merge key="power_management.can_suspend_hybrid" type="bool">false</merge>
+    </match>
+  </device>
+</deviceinfo>
+__EOF__
+
+verbose "finished"

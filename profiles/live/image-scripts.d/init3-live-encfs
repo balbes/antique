@@ -1,0 +1,20 @@
+#!/bin/sh
+
+[ "$GLOBAL_CRYPT_HOMES" = "encfs" ] || exit 0
+
+NAME="init3-live-encfs"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+# Mount valumes with encrypted home directories.
+verbose "Turn on livecd-encfs service"
+/sbin/chkconfig livecd-encfs on
+
+verbose "finished"

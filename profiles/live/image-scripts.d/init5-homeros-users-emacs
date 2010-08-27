@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+[ -n "$GLOBAL_HOMEROS" ] || exit 0
+
+cp -r \
+/etc/skel.homeros/.emacs.d  \
+/etc/skel.homeros/.gnus  \
+/home/altlinux/
+
+cat <<EOF > /home/altlinux/.emacs
+
+;; Disabling backup files;
+(setq make-backup-files nil)
+
+;; enabling  auditory icons;
+(setq-default emacspeak-use-auditory-icons t)
+(setq emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon)
+
+;; Disable startup screen;
+(setq inhibit-startup-screen t)
+
+EOF
+
+cp -r \
+/home/altlinux/.emacs.d \
+/home/altlinux/.emacs \
+/home/altlinux/.gnus \
+/root
+
+chown -R altlinux:altlinux /home/altlinux/

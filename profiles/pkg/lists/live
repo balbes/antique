@@ -1,0 +1,184 @@
+# tags: live
+
+# INIT 3
+#
+acl
+usbutils
+screen
+acpid
+acpi
+anacron
+remount_rw
+vim-minimal
+mc
+sound-scripts
+alsa-utils
+bootsplash
+apt
+udev
+dbus
+hal
+livecd-setlocale
+livecd-hostname
+livecd-fstab
+livecd-install
+livecd-save-nfs
+# instead powersave
+hal-laptop
+pciutils
+lm_sensors
+rsync
+rmt
+interactivesystem
+su
+system-report
+mkbootflash
+mtools
+isoutils
+pmount
+netcat
+gfxboot
+bootsplash
+memtest86+
+strace
+binutils
+syslogd
+glibc-utils
+glibc-gconv-modules
+glibc-nss
+glibc-timezones
+glibc-locales
+shadow-utils
+pm-utils
+libshell
+adjtimex
+krb5-kinit
+keyutils
+lsof
+sudo
+powertop
+
+# INIT3: BLOCK DEVICES
+#
+hdparm
+sdparm
+#MAKEDEV
+mdadm
+lvm2
+smartmontools
+testdisk
+cfdisk
+dosfstools
+ntfsprogs
+reiserfsprogs
+xfsprogs
+jfsutils
+e2fsprogs
+unionfs-utils
+parted
+dump
+dvd+rw-tools
+cdrkit
+# For kernels < 2.6.29
+#squashfsprogs3
+squashfsprogs
+aufs2-util
+
+# INIT3: NETWORK
+#
+etcnet
+etcnet-defaults-desktop
+dhcpcd
+zcip
+xinetd
+portmap
+openssh-clients
+iftop
+lftp
+wget
+iptables
+ipset
+samba-client
+tcpdump
+bridge-utils
+
+# INIT3:  WIRELESS + FIRMAWARE
+#
+hostap-utils
+
+# INIT3: ARCHIVES
+#
+p7zip
+arj
+zip
+unzip
+tar
+cpio
+bzip2
+gzip
+lzma-utils
+unrar
+
+# INIT 5
+#
+gparted
+driconf
+xorg-x11-server
+xorg-x11-dri-*
+xorg-x11-xdm
+xorg-x11-xauth
+xorg-x11-utils
+xorg-x11-apps
+xorg-x11-extensions*
+xorg-x11-drv-wacom
+xinit
+# nvidia_glx_common
+nvidia-settings
+nvidia-xconfig
+#fglrx_glx
+x11_autosetup
+#XXX(s): ppracer
+xorg-drv-synaptics
+ntfs-3g
+fonts-ttf-liberation
+#fonts-ttf-dejavu
+xorg-xvfb
+xvfb-run
+openssh-server
+
+# ALTERATOR
+#
+alterator-net-eth
+alterator-net-general
+alterator-standalone
+alterator-profile
+alterator-browser-x11
+alterator-x11
+alterator-xkb
+# XXX(stanv):obsolete alterator-datetime alterator-tzone
+alterator-datetime
+alterator-net-pptp 
+alterator-net-pppoe 
+alterator-net-wifi
+alterator-control
+alterator-users
+alterator-root
+alterator-auth
+alterator-mkbootflash
+
+# Special purposes
+#
+# not for release:
+# Generate sorted file list for mksquashfs for speed up at boot time
+audit
+bootchart-logger
+bootchart
+
+pam_mount
+ntpdate
+vim-console
+
+
+# DOCS
+#
+man-pages-ru

@@ -1,0 +1,5 @@
+label live
+  kernel alt0/vmlinuz
+  append initrd=alt0/full.cz live fastboot lowmem vga=0x314 splash=silent splashcount=17 stagename=live showopts automatic=method:disk,label:bootFlash
+#  append initrd=alt0/full.cz live fastboot lowmem vga=0x314 splash=silent splashcount=17 stagename=live showopts automatic=method:disk,uuid:4824-271E
+

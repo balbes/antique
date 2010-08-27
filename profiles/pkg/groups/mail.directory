@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Mail Client
+X-Alterator-PackageList=mail
+X-Alterator-Required=no
+Name[ru_RU]=Электронная почта
+Categories=KDE;KDE4

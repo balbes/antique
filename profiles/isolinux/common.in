@@ -1,0 +1,10 @@
+default @ISOLINUX_DEFAULT@
+prompt 1
+timeout 200
+gfxboot bootlogo
+display boot.msg
+implicit 1
+
+label harddisk
+  localboot 0x80
+

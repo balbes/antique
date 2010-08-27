@@ -1,0 +1,27 @@
+#!/bin/sh -e
+
+[ -n "$GLOBAL_HOMEROS" ] || exit 0
+
+AUTOSTART_DIR='/home/altlinux/.config/autostart'
+
+cp -r \
+/etc/skel.homeros/.fetchmailrc \
+/etc/skel.homeros/.gconf \
+/etc/skel.homeros/.orca  \
+/home/altlinux/
+
+[ -d "$AUTOSTART_DIR" ] || mkdir -p "$AUTOSTART_DIR"
+cp /usr/share/applications/orca.desktop "$AUTOSTART_DIR/orca.desktop"
+echo 'X-GNOME-Autostart-enabled=true' >> "$AUTOSTART_DIR/orca.desktop"
+
+[ -d /home/altlinux/Desktop ] || mkdir -p /home/altlinux/Desktop
+
+cp -r \
+/usr/share/applications/firefox.desktop \
+/usr/share/applications/oowriter.desktop \
+/usr/share/applications/oocalc.desktop \
+/home/altlinux/Desktop/
+
+subst s/'orca.settings.showMainWindow = True'/'orca.settings.showMainWindow = False'/ /home/altlinux/.orca/user-settings.py
+
+chown -R altlinux:altlinux /home/altlinux/

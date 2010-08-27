@@ -1,0 +1,32 @@
+#!/bin/sh
+# simple ISO9660 image size check (so that it has a chance to fit media)
+# byte counts; might be somewhat off (185Mb, 700Mb, m4rk3ting 4.7Gb)
+  CD_SIZE=734003200
+ DVD_SIZE=4700000000
+MINI_SIZE=193986560
+
+case "$1" in
+*rescue.iso)
+	MAX_SIZE=$MINI_SIZE
+	NAME=rescue;;
+*cd.iso|installer.iso)
+	MAX_SIZE=$CD_SIZE
+	NAME=CD;;
+*livecd.iso)
+	MAX_SIZE=$CD_SIZE
+	NAME=LiveCD;;
+*dvd.iso)
+	MAX_SIZE=$DVD_SIZE
+	NAME=DVD;;
+*)
+	exit 0;;
+esac
+
+ISO_SIZE="`stat -c %s "$1"`"
+[ "$ISO_SIZE" -le "$MAX_SIZE" ] || {
+	echo "WARNING: $NAME ISO might be oversized:" >&2
+	echo "$ISO_SIZE bytes with margin being" >&2
+	echo "$MAX_SIZE bytes" >&2
+}
+
+# TODO: merge into test framework?

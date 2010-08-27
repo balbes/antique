@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Build system for Asterisk
+X-Alterator-PackageList=asterisk-devel
+Name[ru_RU]=Средства для сборки Asterisk
+

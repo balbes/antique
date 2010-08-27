@@ -1,0 +1,7 @@
+# пакеты для сборки Asterisk
+appliance-build-pbx
+gdb
+
+kernel-headers-modules-un-def
+kernel-headers-dahdi-un-def
+

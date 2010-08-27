@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Office Suite (Abiword, gnumeric)
+X-Alterator-PackageList=office-superlite
+X-Alterator-Required=no
+Name[ru_RU]=Офисный пакет (Abiword, gnumeric)
+X-Alterator-Conflicts=office
+Categories=XFCE

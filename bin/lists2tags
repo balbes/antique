@@ -1,0 +1,25 @@
+#!/bin/sh
+# a helper script to extract "# tags: ..." from package list files
+# 2009, Michael Shigorin <mike@altlinux.org>
+
+warning () { echo "warning: $*" >&2; }
+error () { echo "error: $*" >&2; exit 1; }
+
+[ $# -gt 0 ] || error "insufficient arguments (I eat package lists)"
+
+LISTDIR="$PKGDIR/lists"
+TAGDIR="$PKGDIR/tags"
+
+for list in $*; do
+	case "$list" in
+		*~|*.bak) continue;;
+		*.in) target="${list%%.in}";;
+		*) target="$list";;
+	esac
+	sed -ne 's/^# tags: \(.*\)$/\1/p' "$list" \
+	| sed -e 's/[ ,]\+/\n/g' \
+	| while read tag; do
+		mkdir -p "$TAGDIR/$tag"
+		ln -sf "$LISTDIR/$target" "$TAGDIR/$tag/$target"
+	done
+done

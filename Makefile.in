@@ -1,0 +1,112 @@
+default: all
+
+include globals.mk
+include functions.mk
+include use.mk
+include images.mk
+include clean.mk
+
+PRODUCTS = antique.cd kde.cd lite.cd slinux.cd gnome.cd minimal.cd icemaker.cd fvwm.cd \
+	test.dvd runa.dvd etersoft.dvd buildsystem.cd \
+	ltsp-kde3.cd ltsp-kde3.dvd ltsp-kde.cd ltsp-gnome.cd ltsp-slinux.cd \
+	live.cd live-gnome.cd live-lite.cd live-xlite.cd live-homeros.cd \
+	live-kde.dvd sugar.cd lxde.cd office-server.cd school-server.cd server-light.cd children.cd \
+	rescue.cd custom.cd \
+	master.dvd junior.dvd school-lite.cd1 school-lite.cd2 \
+	chainmail.cd
+
+.PHONY: $(PRODUCTS) rinse
+
+# this should build something reasonable 
+# after ./configure --with-distro={desktop,lite}
+all: @DEFAULT_ISO@
+
+# "|" in prerequisites means...
+# Quick answer: "... the rules to be invoked without forcing the target to be updated
+# if one of those rules is executed."
+# Long answer: "http://www.gnu.org/software/make/manual/make.html#Prerequisite-Types"
+
+# Mandatory actions for any product:
+$(PRODUCTS): | rinse
+
+# distro construction
+children.cd: | use-kde3-live use-children live live-cd.@IMAGETYPE@
+kde.cd: | use-kde-lite use-nm install2 main install-cd.@IMAGETYPE@
+kde.dvd: | use-kde-desktop use-kde-live use-nm use-live-restore use-freenx $(EVERYTHING) install-dvd5.@IMAGETYPE@
+gnome.dvd: |  use-gnome-live-dvd use-gnome-dvd use-nm use-live-restore use-compiz use-freenx install2 main live rescue install-dvd5.@IMAGETYPE@
+gnome-test.dvd: |  use-gnome-dvd use-compiz use-nm use-freenx install2 main install-dvd5.@IMAGETYPE@
+test.dvd: | use-kde-desktop use-nm use-freenx install2 main install-dvd5.@IMAGETYPE@
+kde3.cd: | use-kde3-lite use-nm install2 main install-cd.@IMAGETYPE@
+kde3.dvd: | use-kde3 use-nm use-freenx $(EVERYTHING)  install-dvd5.@IMAGETYPE@
+
+gnome.cd: | use-gnome use-nm use-compiz use-freenx install2 main install-cd.@IMAGETYPE@
+workbench.cd: | use-gnome-workbench use-desktop use-pkcs11 use-pkcs11-workbench install2 main install-cd.@IMAGETYPE@
+lite.cd: | use-xfce use-xdm install2 main install-cd.@IMAGETYPE@
+slinux.cd: | use-slinux use-gdm install2 main install-cd.@IMAGETYPE@
+#*********************
+console.cd: | install2 main rescue install-cd.@IMAGETYPE@
+WM-mini.cd: | use-WM-mini use-wdm install2 main install-cd.@IMAGETYPE@
+icewm-mini.cd: | use-icewm-mini use-xdm install2 main install-cd.@IMAGETYPE@
+antique.cd: | use-antique use-xdm install2 main rescue install-cd.@IMAGETYPE@
+antique-full.cd: | use-antique-base disk-antique-disk use-xdm install2 main rescue install-cd.@IMAGETYPE@
+antique-base.cd: | use-antique-base use-xdm install2 main install-cd.@IMAGETYPE@
+#*********************
+minimal.cd: | use-icewm use-xdm install2 main  install-cd.@IMAGETYPE@
+icemaker.cd: | use-icewm use-wmaker use-xdm install2 main install-cd.@IMAGETYPE@
+fvwm.cd: | use-fvwm use-xdm install2 main install-cd.@IMAGETYPE@
+lxde.cd: | use-lxde use-xdm install2 main install-cd.@IMAGETYPE@
+sugar.cd: | use-sugar use-xdm install2 main install-cd.@IMAGETYPE@
+
+custom.cd: | use-custom install2 main install-cd.@IMAGETYPE@
+rescue.cd: | rescue rescue-cd.@IMAGETYPE@
+boot-debug.cd: | use-server boot-debug-cd.@IMAGETYPE@
+
+slinux-live.cd: | use-slinux use-gdm live live-cd.@IMAGETYPE@
+live.cd: | use-kde-live use-nm live live-cd.@IMAGETYPE@
+live-custom.cd: | use-custom live-cd.@IMAGETYPE@
+live-gnome.cd: | use-gnome use-nm live live-cd.@IMAGETYPE@
+live-gnome-light.cd: use-gnome-light use-nm live live-cd.@IMAGETYPE@
+live-gnome-artist.cd: use-gnome-artist-live use-nm live live-cd.@IMAGETYPE@
+live-gnome.dvd: | use-gnome-live-dvd use-nm live live-cd.@IMAGETYPE@
+live-homeros.cd: | use-homeros live live-cd.@IMAGETYPE@
+live-xlite.cd: | use-icewm live live-cd.@IMAGETYPE@
+live-rdp.cd: | use-rdp live live-cd.@IMAGETYPE@
+live-icemaker.cd: | use-icewm use-wmaker use-autologin live live-cd.@IMAGETYPE@
+live-kde.dvd: | use-kde-live-dvd use-nm live live-cd.@IMAGETYPE@
+live-lite.cd: | use-xfce use-xdm live live-cd.@IMAGETYPE@
+
+# Experimental crypto
+crypto-flash: use-gnome-light use-nm live use-encfs-homes live-cd.@IMAGETYPE@
+
+# full contrib won't currently build from sisyphus
+#runa.dvd: | use-kde use-runa $(EVERYTHING) dvd.@IMAGETYPE@
+etersoft.cd: | use-kde-lite use-etersoft-network use-nm install2 main install-cd.@IMAGETYPE@
+etersoft.dvd: | use-kde use-kde-live use-etersoft-network use-nm install2 main live rescue contrib  install-dvd5.@IMAGETYPE@
+ltsp-kde3.cd: | use-kde3-lite use-ltsp install2 main ltsp install-cd.@IMAGETYPE@
+ltsp-kde3.dvd: | use-kde3 use-ltsp $(EVERYTHING)  ltsp install-dvd5.@IMAGETYPE@
+ltsp-gnome.cd: | use-gnome-light use-ltsp install2 main ltsp install-cd.@IMAGETYPE@
+ltsp-kde.cd: | use-kde-lite use-ltsp install2 main ltsp install-cd.@IMAGETYPE@
+ltsp-slinux.cd: | use-slinux use-ltsp install2 main ltsp install-cd.@IMAGETYPE@
+runa.dvd: | use-kde use-runa use-nm install2 main live rescue  install-dvd5.@IMAGETYPE@
+
+office-server.cd: | use-server use-office-server install2 main rescue install-cd.@IMAGETYPE@
+school-server.cd: | use-server use-office-server use-school-server install2 main rescue install-cd.@IMAGETYPE@
+backup-server.cd: | use-backup install2 main install-cd.@IMAGETYPE@
+389-server.cd: | use-389 install2 main install-cd.@IMAGETYPE@
+v12n-server.cd: | use-v12n install2 main install-cd.@IMAGETYPE@
+pbx-huge.dvd: | use-pbx-huge install2 main rescue install-cd.@IMAGETYPE@
+
+chainmail.cd: | use-chainmail install2 main rescue install-cd.@IMAGETYPE@
+
+server-light.cd: | use-server-light install2 main rescue install-cd.@IMAGETYPE@
+
+buildsystem.cd: | use-kde-lite use-buildsystem install2 main  install-cd.@IMAGETYPE@
+
+# school suite
+master.dvd: | use-pspo-kde vm-profile-master install2 main live install-dvd5.@IMAGETYPE@
+master-test.dvd: | use-pspo-kde vm-profile-master install2 main install-dvd5.@IMAGETYPE@
+junior.dvd: | use-pspo-gnome install2 main live install-dvd5.@IMAGETYPE@
+school-lite.cd1: | use-school-lite use-xfce-docs use-docs use-xfce-graphics-lite use-desktop \
+	install2 main install-cd.@IMAGETYPE@
+school-lite.cd2: | use-school-lite addon-pspo-xfce addon main addon-cd.@IMAGETYPE@
+school-terminal.dvd: | use-pspo-kde3 use-kde3 use-ltsp vm-profile-master install2 main rescue ltsp install-dvd5.@IMAGETYPE@

@@ -1,0 +1,6 @@
+firefox-opensc-pkcs11-autoload
+openct
+opensc
+openssl
+openssl-engine_pkcs11
+pam_pkcs11

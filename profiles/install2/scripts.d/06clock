@@ -1,0 +1,6 @@
+#!/bin/bash -efu
+
+cd $WORKDIR
+
+[[ "${INFO_LABEL-}" =~ "Server" ]] ||
+	sed -i 's/^UTC=true/UTC=false/' ./etc/sysconfig/clock

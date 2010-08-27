@@ -1,0 +1,40 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Update home page for firefox
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-firefox-homepage"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+word=""
+
+[ -d /lib64 ] && word=64
+
+config="/usr/lib${word}/firefox/browserconfig.properties"
+
+if [ -f "$config" ]; then
+    verbose "Modify firefox homepage..."
+    subst 's#http://en-US.start2.mozilla.com/firefox?client=firefox-a&rls=org.mozilla:en-US:official#file:///usr/share/doc/HTML/index.html#'  "$config"
+else
+    verbose "Can't modify firefox homepage. Did you install firefox?"
+fi
+
+verbose "finished"

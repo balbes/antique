@@ -1,0 +1,7 @@
+* use MKI_PACK_RESULTS instead of MKI_OUTNAME and MKI_PACKTYPE
+
+* eventually include config.mk, targets.mk instead of rules.mk [0.0.7]
+
+* default --with-branch based on available altlinux-release-* ?
+
+* icemaker.cd: remove bloat (foomatic, gcc, ...)

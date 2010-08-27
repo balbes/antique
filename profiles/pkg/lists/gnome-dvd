@@ -1,0 +1,24 @@
+# tags: gnome, dvd
+
+# nautilus extensions
+nautilus-image-converter
+nautilus-sendto
+nautilus-sendto-bluetooth
+nautilus-sendto-evolution
+nautilus-sendto-pidgin
+brasero
+
+# more applets
+gnome-applets-extra-sensors
+
+
+# compiz addons
+compizconfig-backend-gconf
+compiz-gnome
+
+#graphics
+f-spot
+
+
+java-1.6.0-sun-javaws
+gparted

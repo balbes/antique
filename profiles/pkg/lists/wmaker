@@ -1,0 +1,64 @@
+# tags: desktop, live
+WindowMaker
+wdm
+
+# monitoring
+wmCalClock
+wmclock
+wmclockmon
+
+wmmon
+wmsm
+
+WMCPULoad
+wmcube-gdk
+wmfire
+wmforkplop
+
+wmmemload
+WMMemMon
+
+wmacpi
+wmibam
+wmpower
+#wmpowersave
+
+wmcliphist
+wmgtemp
+
+wmdiskmon
+#wmfsm
+wmhdaps
+wmhdplop
+
+wmnd
+wmwifi
+
+wmweather+
+wmWeather
+
+# media
+wmvolman
+
+# multimedia
+#wmcdplay
+wmix
+WMmp
+wmusic
+
+# mail
+#WMMail.app
+#wmMultiPop3
+
+# misc
+wmpager
+wmpiki
+wmpinboard
+xxkb
+
+# useless stuff :)
+wmeyes
+wmfortune
+#wmlife
+wmMatrix
+wmupmon

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Sed setuid-root to ntfs-3g
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init1-ntfs3g-suid"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+prog="$(which ntfs-3g 2>/dev/null)"
+
+if [ -n "$prog" ]; then
+    verbose "found ntfs-3g at $prog"
+    chmod 4755 "$prog"
+else
+    verbose "can't found ntfs-3g"
+fi
+
+verbose "finished"

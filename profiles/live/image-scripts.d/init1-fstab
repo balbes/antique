@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Update /etc/fstab for rootfs
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init1-fstab"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+verbose "Add READ ONLY / to /etc/fstab"
+echo "/dev/root / auto  defaults,ro 0 0" >>/etc/fstab
+
+verbose "finished"

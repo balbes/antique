@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cat >/root/.bash_history << _EOF_
+mount-unionfs /usr/share/install2
+vitmp +G /tmp/install2.log
+chroot /mnt/destination/ bash
+_EOF_

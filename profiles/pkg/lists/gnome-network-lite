@@ -1,0 +1,12 @@
+# tags: gnome, network, cd
+
+gnome-vfs-module-sftp
+gnome-vfs-module-smb
+chestnut-dialer-gtk2
+
+# FIXME: factor these out
+alterator-net-pptp
+alterator-net-eth
+alterator-net-pppoe
+alterator-net-general
+

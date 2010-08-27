@@ -1,0 +1,33 @@
+# build images
+IMAGES=install-cd.iso install-dvd5.iso rescue-cd.iso minimal.iso live-cd.iso boot-debug-cd.iso addon-cd.iso
+FLASHIMAGES=install-cd.flash install-dvd5.flash rescue-cd.flash minimal.flash live-cd.flash
+OUTNAME_PREFIX_FULL=@BRAND@-$(INFO_VERSION)-$(DATE)-@DISTRO@-@ARCH@-@LANGUAGE@
+OUTNAME_PREFIX_LATEST=@BRAND@-$(INFO_VERSION)-latest-@DISTRO@-@ARCH@-@LANGUAGE@
+
+define image_out
+mkdir -p @OUTDIR@
+rm -rf @OUTDIR@/$(OUTNAME_PREFIX_FULL)-$@
+mv -f @OUTDIR@/$@ @OUTDIR@/$(OUTNAME_PREFIX_FULL)-$@
+ln -snf $(OUTNAME_PREFIX_FULL)-$@ @OUTDIR@/$(OUTNAME_PREFIX_LATEST)-$@
+endef
+
+define image_build
+setarch @ARCH@ make -C profiles
+endef
+
+$(IMAGES):
+	@echo '--- Building $@'
+	$(call set,MKI_OUTNAME,$@,$(AUTOCFG))
+	$(image_build)
+	tests/check-iso-size @OUTDIR@/$@
+	$(image_out)
+	$(call done,$@)
+
+$(FLASHIMAGES):
+	$(call set,MKI_OUTNAME,$@,$(AUTOCFG))
+	$(call set,GLOBAL_BOOT_TYPE,syslinux,$(AUTOCFG))
+	#(call set,GLOBAL_PROPAGATOR_MAR_MODULES,./modules-usb,$(AUTOCFG))
+	$(image_build)
+	$(image_out)
+	$(call done,$@)
+

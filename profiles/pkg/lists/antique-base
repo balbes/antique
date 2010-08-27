@@ -1,0 +1,196 @@
+# tags: antique, base
+
+#synaptic *****************************
+synaptic
+synaptic-usermode
+# aptitude
+
+#alterator ***************************
+alterator-browser-qt
+alterator-standalone
+alterator-xkb
+alterator-mkbootflash
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-nsswitch
+#alterator-packages
+#alterator-pkg
+alterator-profile
+alterator-proxy
+
+#others for system *******************
+sound-scripts
+hal-laptop
+dbus-tools
+dbus-tools-gui
+
+#features
+#*************************************
+installer-feature-xdm-reboot
+installer-feature-no-xconsole
+installer-feature-hack-version
+branding-altlinux-desktop-indexhtml
+antique-default-settings
+
+### icewm ****************************
+icewm
+icewm-startup-xxkb
+icewm-startup
+icewm-startup-update-menus
+
+# for design ***********************
+PyPanel
+gmrun
+qtrayvolman
+gkrellm
+gkrellm-launch
+gkrellm-kam
+gkrellm-xkb
+#gkrellm-gkrellmpc		-disk
+gkrellm-moon
+gkrellm-volume
+gkrellm-ibam
+#gkrellm-gkrellmms		-disk
+gkrellm-shoot
+gkrellm-alltraxclock2
+gkrellm-weather
+
+### window maker ********************
+WindowMaker
+wmsystemtray
+
+# monitoring & other applets ******
+wmCalClock
+wmclock
+wmclockmon
+wmmon
+wmsm
+WMCPULoad
+wmcube-gdk
+wmforkplop
+wmmemload
+WMMemMon
+wmacpi
+wmibam
+wmpower 
+wmcliphist
+wmgtemp
+wmdiskmon
+wmhdaps
+wmnd
+wmwifi
+wmweather+
+wmix
+wmvolman
+wmpager
+wmpiki
+wmpinboard
+wmupmon
+
+# *******************************************
+# Editors ************************
+leafpad
+xfce-mousepad
+#vim-X11-gtk2			-disk
+#vim-console		added by default
+
+# Terminals ************************
+lxde-lxterminal
+#xterm			added by default
+#uxterm			added by default
+rxvt-unicode
+
+# Media Players ********************
+#deadbeef		-disk
+moc
+#mpd			-disk
+sound-scripts
+
+# File managers **********************
+pcmanfm
+gamin
+#mc			added by default
+
+# Mathematics ************************
+galculator
+
+# Graphics ***************************
+mtpaint
+mirage
+feh
+qiv
+
+# Compression ************************
+xarchiver
+#zip			added by default
+#unzip			added by default
+unrar
+unarj
+#p7zip			added by default
+
+# Fonts ******************************
+fonts-ttf-liberation
+fonts-ttf-linuxlibertine
+fonts-ttf-oldstandard
+# other fonts		added by default
+
+# Web, Mailing, Networking ***********
+#elinks			added by default
+links2
+dillo
+wput	
+wget
+#lftp			added by default
+net-tools
+wireless-tools
+mutt1.5
+finch-mini
+
+# system monitoring ******************
+lxde-lxtask
+#htop	Запускает много процессов, сбивает с толку, хотя эффектный ?	-disk
+
+# Office *****************************
+#dayplanner		-disk
+ical
+remind
+fbreader
+ted
+stardict-gtk
+stardict-slovnyk_en-ru
+stardict-slovnyk_ru-en
+
+# Utilites ***************************
+#tk			added by default
+cdrkit-utils
+wodim
+
+# Emulators **************************
+dosemu
+dosemu-freedos
+dosemu-plugins-x-sdl
+dosemu-plugins-sound
+
+## Look & feels **********************
+tango-icon-theme
+icewm-theme-elegance
+
+# Other useful ***********************
+pcmciautils
+pm-utils
+pmount
+pam_mount
+autofs
+prelink
+minicom
+pilot-link
+man-pages-ru
+packages-info-i18n-ru
+arj
+pinfo
+hda-verb
+
+# Optional *****************************
+lxde-lxdm
+lxdm-conf

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Office Suite
+X-Alterator-PackageList=office-lite
+X-Alterator-Required=yes
+Name[ru_RU]=Офисный пакет
+X-Alterator-Conflicts=office
+Categories=XFCE

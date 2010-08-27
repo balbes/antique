@@ -1,0 +1,9 @@
+clamav
+#alterator-firewall
+alterator-net-iptables
+alterator-fbi
+
+c-icap-skf
+squid
+alterator-squid
+#alterator-ulogd

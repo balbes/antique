@@ -1,0 +1,11 @@
+@I586_ONLY@wine
+@I586_ONLY@libwine-gl
+@I586_ONLY@libwine-twain
+dosbox
+kernel-modules-kvm-@KERNEL_MOD@
+kernel-modules-virtualbox-@KERNEL@
+virtualbox
+kernel-modules-kqemu-@KERNEL_MOD@
+qtemu
+qemu
+kvm

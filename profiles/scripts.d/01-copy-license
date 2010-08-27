@@ -1,0 +1,39 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Copy distros licenses to image.
+
+
+#     REQUIRES
+#
+# Must be installed: branding-altlinux-*-notes
+
+
+#     INFO
+# 
+
+NAME="01-copy-license"
+DIR="/usr/share/alt-notes"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+if [ -d "$DIR" ]; then
+    verbose "Found directory with licenses files"
+    find "$DIR" -maxdepth 1 -type f -name "license*html" -print |
+    while read FILE; do
+        verbose "Copy $FILE"
+        cp "$FILE" $WORKDIR/
+    done
+else
+    verbose "Can't find $DIR"
+fi
+
+verbose "finished"

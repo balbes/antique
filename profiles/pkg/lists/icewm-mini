@@ -1,0 +1,27 @@
+# tags: icewm, base, cd
+icewm
+
+#synaptic
+synaptic
+synaptic-usermode
+
+#alterator
+alterator-browser-qt
+alterator-standalone
+alterator-xkb
+alterator-mkbootflash
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-nsswitch
+#alterator-packages
+#alterator-pkg
+alterator-profile
+alterator-proxy
+
+# for system
+sound-scripts
+hal-laptop
+dbus-tools
+dbus-tools-gui
+cdrkit-utils

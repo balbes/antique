@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Communications
+X-Alterator-PackageList=gnome-network-lite
+X-Alterator-Required=yes
+Name[ru_RU]=Коммуникации
+X-Alterator-Conflicts=network xfce-network-lite
+Categories=GNOME

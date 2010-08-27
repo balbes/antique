@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Remove kernel and initrd from /boot directory in squashfs image
+# We need more free space!
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init1-rm-boot-dir"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+verbose "Empty /boot directory"
+
+rm -f -- /boot/{initrd,vmlinuz}*
+
+verbose "finished"

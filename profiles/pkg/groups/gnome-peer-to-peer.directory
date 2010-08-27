@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Peer-to-peer clients
+X-Alterator-PackageList=gnome-peer-to-peer
+X-Alterator-Required=no
+Name[ru_RU]=Файлообменные сети
+Categories=GNOME

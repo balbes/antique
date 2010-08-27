@@ -1,0 +1,24 @@
+default: all
+
+SQUASHFS_VERSION=@SQUASHFS_VERSION@
+
+# Include mkimage config file with default definitions
+include @MKI_PREFIX@/usr/share/mkimage/config.mk
+
+# packagelist stuff
+include ../functions.mk
+
+IMAGE_INIT_LIST = +branding-@BRANDING@-release
+IMAGE_PACKAGES = branding-@BRANDING@-release branding-@BRANDING@-bootloader $(call list,rescue)
+
+MKI_PACKTYPE = squash
+MKI_OUTNAME = rescue
+
+# Include mkimage targets definitions
+include @MKI_PREFIX@/usr/share/mkimage/targets.mk
+
+all: build-image run-image-scripts run-scripts pack-image
+	# FIXME: this kludge should be fixed along with main/'s one
+	# by moving .base generation where it belongs, to software/
+	@mkdir -p `dirname $(call list,.base)`
+	@touch $(call list,.base)

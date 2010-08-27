@@ -1,0 +1,13 @@
+etercifs=3.6.1-alt0.M41.1
+haspd=2.0-alt0.M41.12
+haspd-modules=2.0-alt0.M41.12
+libwine=1.0.9-alt0.M41.32
+libwine-gl=1.0.9-alt0.M41.32
+libwine-twain=1.0.9-alt0.M41.32
+wine=1.0.9-alt0.M41.32
+wine-etersoft-networklite=1.0.9-alt0.M41.11
+
+dosemu
+dosemu-freedos
+qemu
+

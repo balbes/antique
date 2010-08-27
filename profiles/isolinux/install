@@ -1,0 +1,8 @@
+label linux
+  kernel alt0/vmlinuz
+    append initrd=alt0/full.cz changedisk ramdisk_size=65536 lang=ru_RU vga=0x314 splash=silent noeject splashcount=17 xdriver=auto showopts
+
+label failsafe
+  kernel alt0/vmlinuz
+    append initrd=alt0/full.cz changedisk ramdisk_size=65536 lang=ru_RU  showopts noapic pci=nomsi noeject acpi=off noload=ahci
+

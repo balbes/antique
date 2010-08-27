@@ -1,0 +1,45 @@
+# tags: antique, wm
+
+# window maker ********************
+WindowMaker
+wmsystemtray
+
+wmaker-theme-lumen_blue
+
+# monitoring & other applets ******
+wmCalClock
+wmclock
+wmclockmon
+wmmon
+wmsm
+WMCPULoad
+wmcube-gdk
+wmforkplop
+wmmemload
+WMMemMon
+wmacpi
+wmibam
+wmpower 
+wmcliphist
+wmgtemp
+wmdiskmon
+wmhdaps
+wmnd
+wmwifi
+wmweather+
+wmix
+wmvolman
+wmpager
+wmpiki
+wmpinboard
+wmupmon
+
+# some applets ********************************
+wmfire
+wmhdplop
+wmWeather
+WMmp
+wmusic
+wmeyes
+wmfortune
+wmMatrix

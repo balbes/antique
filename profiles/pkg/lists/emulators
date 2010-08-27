@@ -1,0 +1,11 @@
+wine
+libwine-gl
+libwine-twain
+dosbox
+kernel-modules-kvm-un-def
+kernel-modules-virtualbox-un-def
+virtualbox
+kernel-modules-kqemu-un-def
+qtemu
+qemu
+kvm

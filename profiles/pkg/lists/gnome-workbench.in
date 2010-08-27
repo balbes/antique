@@ -1,0 +1,41 @@
+# tags: gnome
+
+# base gnome
+metacity-gnome
+branding-@BRANDING@-graphics
+branding-@BRANDING@-gnome-settings
+#minimal gnome
+gnome-session
+gnome-desktop
+gnome-panel
+gnome-control-center
+yelp
+gnome-applets-drivemount
+gnome-applets-gswitchit
+gnome-search-tool
+gucharmap
+gnome-calculator
+nautilus
+gnome-mount-nautilus-properties
+file-roller
+gedit
+gnome-icon-theme
+gnome-theme-clearlooks
+metacity-theme-clearlooks
+screen-saver-frontend 
+gnome-games
+#minimal minimal
+gdm
+gnome-screensaver
+pulseaudio-daemon
+alsa-plugins-pulse
+gnome-keyring
+gnome-applets-gswitchit-plugins
+evince
+notification-daemon
+nautilus-cd-burner
+hunspell-ru
+flags
+firefox-ru
+openoffice.org-langpack-ru
+openoffice.org-gnome

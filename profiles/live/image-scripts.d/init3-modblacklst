@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Disable loading buggy kernel modules
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init3-modblacklst"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+CFG="/etc/modprobe.d/blacklist"
+
+verbose "Add snd_pcsp module to $CFG"
+echo "# Add for LiveCD: with snd-pcsp KDE using pc speaker as output device" >> "$CFG"
+echo "blacklist snd-pcsp" >> "$CFG"
+
+verbose "finished"

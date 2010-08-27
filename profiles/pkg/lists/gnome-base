@@ -1,0 +1,13 @@
+# tags: gnome, base
+
+# base gnome
+metacity-gnome
+gnome-default
+gnome-screensaver
+pulseaudio-daemon
+alsa-plugins-pulse
+gnome-mobile
+mozilla-plugin-adobe-flash
+firefox-ru
+blueman
+branding-altlinux-desktop-gnome-settings

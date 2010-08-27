@@ -1,0 +1,47 @@
+# tags: gnome, contrib, cd
+
+# games
+blockout2
+ppracer
+
+# TV
+tvtime
+
+# Synchronization utility
+#conduit
+
+# CAD
+qcad
+qcad-partlibrary
+
+# Video
+avidemux
+dvdrip
+dvdstyler
+
+# for Gimp
+# + some plugins & scripts
+
+# editors
+bluefish
+conglomerate
+emacs22-X11-gtk
+vim-X11-gnome2
+lyx
+lyx-rusdoc
+lyx-gost
+TeXmacs
+scribus
+
+# Search
+beagle-gui
+
+# QIP like ICQ client
+qutim
+
+# financial
+#gnucash
+
+planner
+
+enconvmv

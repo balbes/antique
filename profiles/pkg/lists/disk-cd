@@ -1,0 +1,58 @@
+# tags: disk, cd
+
+#altlinux-release
+
+#to not fetch lynx
+firefox
+
+vim-enhanced
+
+# devel
+bc
+strace
+xdelta
+
+# fs
+dosfstools
+ntfsprogs
+quota
+
+
+# network tools
+tcptraceroute
+telnet
+
+
+
+# hasher repo reqs
+setup filesystem rpm 
+basesystem 
+
+# spt repo reqs
+mkisofs
+rsync
+
+# misc
+acct
+adjtimex
+cpuburn
+fhs
+mtree
+vlock
+xauth
+
+# etc
+dnet
+expat
+isoutils
+kbdrate
+libjpeg-utils
+libtiff-utils
+look
+nfs-clients
+pam0_timestamp
+
+pptp-client
+
+alterator-fbi
+

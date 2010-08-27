@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Video editing
+X-Alterator-PackageList=gtk-video-editing
+X-Alterator-Required=no
+Name[ru_RU]=Обработка видео
+Categories=GNOME

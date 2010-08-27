@@ -1,0 +1,3 @@
+#!/bin/sh
+# http://lists.altlinux.ru/pipermail/devel/2007-February/054127.html
+sed -i 's/^\(HOTPLUGRC=\).*/\1"cpu.rc sound.rc acpi.rc"/' /etc/sysconfig/hotplug

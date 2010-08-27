@@ -1,0 +1,37 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Set keyboard setting for user altlinux for X sessions.
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-xkb"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+mkdir -p /home/altlinux/.xsession.d
+
+cat << EOF > /home/altlinux/.xsession.d/xkb
+setxkbmap -layout 'us,ru'
+setxkbmap -model pc105
+setxkbmap -variant ',winkeys'
+setxkbmap -option grp:ctrl_shift_toggle
+EOF
+chmod +x /home/altlinux/.xsession.d/xkb
+
+verbose "finished"

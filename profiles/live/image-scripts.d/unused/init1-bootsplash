@@ -1,0 +1,11 @@
+#!/bin/sh
+
+RESOLUTION_DEFAULT="800x600"
+
+if [ -d "/etc/bootsplash/themes/current/config" -a -x "/sbin/splash" ]; then
+	mkdir -p /.splash
+	themefile="/etc/bootsplash/themes/current/config/bootsplash-$RESOLUTION_DEFAULT.cfg"
+	if [ -f "$themefile" ]; then
+    	    /sbin/splash -f -s "$themefile" > /.splash/bootsplash
+	fi
+fi

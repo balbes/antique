@@ -1,0 +1,37 @@
+# interactivesystem
+
+
+sudo
+etcnet-defaults-server
+
+# kernel and modules
+
+# network tools
+dhcpcd
+bind-utils
+
+# disk tools
+jfsutils
+reiserfsprogs
+
+# debug
+tcpdump
+
+# docs
+man-pages
+altlinux-desktop-indexhtml
+#alt-docs-apache2
+#docs-issue-school-server
+
+alterator-lilo
+alterator-net-domain
+alterator-net-eth
+
+quota
+
+#nfs-clients
+#nfs-server
+bridge-utils
+etckeeper
+
+screen

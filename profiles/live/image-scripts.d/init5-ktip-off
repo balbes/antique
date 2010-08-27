@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Turn off autostart ktip at startup
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-ktip-off"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+verbose "remove ktip at start"
+
+rm -rf /usr/share/autostart/ktip.desktop
+
+verbose "finished"

@@ -1,0 +1,12 @@
+#!/bin/sh
+# a script to output paths to package lists having
+# *all* of the tags specified on command line
+# 2009, Michael Shigorin <mike@altlinux.org>
+
+(for tag in $*; do ls "$TAGDIR/$tag/"; done) \
+| sort \
+| uniq -c \
+| while read count pkglist; do
+	[ "$count" = $# ] && echo $pkglist
+done
+:

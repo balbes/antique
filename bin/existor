@@ -1,0 +1,13 @@
+#!/bin/sh
+# script to determine if files on stdin with given suffix(es)
+# exist; output any existing combinations
+
+[ $# = 0 ] && cat && exit
+
+tr ' ' '\n' \
+| while read file; do
+	echo $file
+	for suffix in $*; do
+		[ ! -f "$file.$suffix" ] || echo $file.$suffix
+	done
+done

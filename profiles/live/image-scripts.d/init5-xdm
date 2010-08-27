@@ -1,0 +1,80 @@
+#!/bin/sh -efu
+
+[ -d /etc/X11/xdm ] || exit 0
+
+cat > /etc/X11/xdm/Xsetup_0 <<'__EOF__'
+#!/bin/sh
+# (C) MandrakeSoft
+# Chmouel Boudjnah <chmouel@mandrakesoft.com>
+# Modified by Anton V Boyarshinov <boyarsh@altlinux.org>
+
+# Source function library.
+. /etc/init.d/functions
+
+SourceIfNotEmpty /etc/profile.d/kde.sh
+
+[ -n "$KDEDIR" ] || KDEDIR=/usr
+
+xsetroot -solid "#7cd3fb"
+
+/usr/X11R6/bin/xsetbg  /usr/share/xfce4/backdrops/xdm.png
+
+pidfile=/var/run/xdm-buttons.pid
+
+/usr/bin/wish <<EOF &
+#!/usr/bin/wish
+wm geometry . -50-0
+button .halt -background #DBE9EB -foreground #000000 -highlightbackground #86CBED -borderwidth 0 -text shutdown \
+-command {exec /sbin/shutdown -h -P now}
+button .reboot -background #DBE9EB -foreground #000000 -highlightbackground #86CBED -borderwidth 0 -text reboot \
+-command {exec /sbin/shutdown -r now}
+pack .halt .reboot -side left -fill both
+EOF
+ 
+echo $!>$pidfile
+
+ExecIfExecutable /etc/X11/xinit/fixkeyboard
+__EOF__
+
+cat > /etc/X11/xdm/Xresources <<'__EOF__'
+! $XConsortium: Xresources /main/8 1996/11/11 09:24:46 swick $
+xlogin*login.translations: #override\
+	Ctrl<Key>R: abort-display()\n\
+	<Key>F1: set-session-argument(failsafe) finish-field()\n\
+	Ctrl<Key>Return: set-session-argument(failsafe) finish-field()\n\
+	<Key>Return: set-session-argument() finish-field()
+
+xlogin*geometry: 500x300
+xlogin*greeting: Welcome to Lite Linux!
+xlogin*namePrompt: Login:\040
+xlogin*fail: Login incorrect
+
+xlogin*borderWidth:1
+xlogin*frameWidth: 1
+xlogin*innerFramesWidth:1
+
+xlogin*greetColor: #1427b9
+xlogin*failColor: #f6064f
+xlogin*Foreground: black
+xlogin*Background: #DBE9EB
+
+XConsole.verbose:	true
+XConsole*iconic:	true
+XConsole*font:		fixed
+
+Chooser*allowShellResize:	false
+Chooser*viewport.forceBars:	true
+Chooser*label.label:		XDMCP Host Menu  from CLIENTHOST
+
+xlogin*greetFace:       DeJavu Serif-20
+xlogin*face:            DeJavu Serif-20
+xlogin*promptFace:      DeJavu Serif-20
+xlogin*failFace:        DeJavu Serif-16
+
+Chooser*face:           DeJavu Serif-16
+
+Xcursor.theme:	jimmac
+Xcursor.size: 18
+__EOF__
+
+echo -e '\n /sbin/start-stop-daemon --stop -p /var/run/xdm-buttons.pid' >> /etc/X11/xdm/GiveConsole

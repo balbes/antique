@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Modify /etc/inittab go to "run level 5" (X session) at startup.
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-inittab"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+#setup runlevel 
+[ -z "$runlevel" ] && runlevel=5 
+subst "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," /etc/inittab 
+ 
+verbose "finished"

@@ -1,0 +1,4 @@
+label rescue
+  kernel alt0/vmlinuz
+  append initrd=alt0/full.cz live lowmem fastboot stagename=rescue showopts automatic=method:disk,label:bootFlash
+#  append initrd=alt0/full.cz live lowmem fastboot stagename=rescue showopts automatic=method:disk,uuid:4824-271E

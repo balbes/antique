@@ -1,0 +1,46 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Turn off kwallet
+
+
+#     REQUIRES
+#
+# branding-altlinux-desktop-kde4-settings
+
+
+#     INFO
+#
+
+NAME="init5-kwallet-turnoff"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+CFGDIR="/home/altlinux/.kde4/share/config"
+CONFIG="$CFGDIR/kwalletrc"
+
+if ! [ -d "$CFGDIR" ]; then
+    verbose "Can't find $CFGDIR, please install branding-altlinux-desktop-kde4-settings"
+    exit 0
+fi
+
+cat << EOF > "$CONFIG"
+[Wallet]
+Close When Idle=false
+Enabled=false
+First Use=false
+Use One Wallet=true
+EOF
+
+chmod 600 "$CONFIG"
+chown altlinux:altlinux "$CONFIG"
+
+verbose "finished"

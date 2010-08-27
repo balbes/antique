@@ -1,0 +1,9 @@
+kernel-image-@KERNEL@
+kernel-modules-alsa-@KERNEL_MOD@
+#kernel-modules-heci-@KERNEL_MOD@
+kernel-modules-igb-@KERNEL_MOD@
+kernel-modules-kvm-@KERNEL_MOD@
+#kernel-modules-ndiswrapper-@KERNEL_MOD@
+#kernel-modules-rt2860-@KERNEL_MOD@
+kernel-modules-tp_smapi-@KERNEL_MOD@
+kernel-modules-v4l-@KERNEL_MOD@

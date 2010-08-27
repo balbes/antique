@@ -1,0 +1,34 @@
+default: all
+
+SQUASHFS_VERSION=4
+
+# Include mkimage config file with default definitions
+include /usr/share/mkimage/config.mk
+
+# packagelist stuff
+include ../functions.mk
+
+CHROOT_PACKAGES = apt-utils rsync
+
+# FIXME: seems we've got *two* similar lists already
+# (the only reason to keep this one separate is sizing it to media)
+GLOBAL_CONTRIB_PACKAGE_LISTS = install2 live rescue disk-cd \
+			       icewm xfce kde-lite kde3 kde3-lite gnome-base gnome-addons lxde sugar
+
+IMAGE_INIT_LIST = +branding-altlinux-desktop-release
+
+# FIXME: branding will be optimized out being in main IIRC
+IMAGE_PACKAGES = branding-altlinux-desktop-release \
+                 $(call list,$(GLOBAL_CONTRIB_PACKAGE_LISTS))
+
+MKI_DESTDIR = ALTLinux/RPMS.contrib
+
+MKI_PACKTYPE = data
+
+INFO_NAME	= ALT Linux Addon
+INFO_LABEL	= Antique 
+
+# Include mkimage targets definitions
+include /usr/share/mkimage/targets.mk
+
+all: copy-packages pack-image

@@ -1,0 +1,78 @@
+#!/bin/sh
+
+host_find=/.host/find
+
+mv -f -- /etc/inittab.rescue /etc/inittab
+
+# stage1 need this
+mkdir -p /image
+
+#remove all docs
+rm -rf /usr/share/{license,gfxboot}
+
+# remove icons
+rm -rf /usr/share/icons
+
+rm -rf /lib/modules/*/kernel/drivers/atm
+rm -rf /lib/modules/*/kernel/drivers/char/watchdog
+rm -rf /lib/modules/*/kernel/drivers/cpufreq
+rm -rf /lib/modules/*/kernel/drivers/edac
+rm -rf /lib/modules/*/kernel/drivers/firmware
+rm -rf /lib/modules/*/kernel/drivers/hwmon
+rm -rf /lib/modules/*/kernel/drivers/infiniband
+rm -rf /lib/modules/*/kernel/drivers/input/{gameport,joy*}
+rm -rf /lib/modules/*/kernel/drivers/isdn
+rm -rf /lib/modules/*/kernel/drivers/media
+rm -rf /lib/modules/*/kernel/drivers/mmc
+rm -rf /lib/modules/*/kernel/drivers/mtd*
+rm -rf /lib/modules/*/kernel/drivers/net/irda
+rm -rf /lib/modules/*/kernel/drivers/rtc
+rm -rf /lib/modules/*/kernel/drivers/spi
+rm -rf /lib/modules/*/kernel/drivers/telephony
+rm -rf /lib/modules/*/kernel/drivers/usb/{misc,mon}
+rm -rf /lib/modules/*/kernel/drivers/video
+rm -rf /lib/modules/*/kernel/drivers/w1
+rm -rf /lib/modules/*/kernel/net/*/netfilter
+rm -rf /lib/modules/*/kernel/net/netfilter
+rm -rf /lib/modules/*/kernel/sound
+
+# remove blacklisted kernel modules
+sed -n 's/^blacklist[[:space:]]\+\([^[:space:]]\+\).*/\1/p' /etc/modprobe.d/* |
+	while read i; do
+		$host_find /lib/modules/ -type f -name "$i.ko" -delete
+	done
+
+# remove rpm db
+rm -rf /var/lib/rpm/*
+
+# remove apt data files
+rm -rf /var/cache/apt /var/lib*/apt
+
+# remove unneeded translations
+$host_find /usr/share/locale/ -type f -delete
+
+# run depmod
+for i in /lib*/modules/*; do
+    /sbin/depmod -a -F /boot/System.map-${i##*/} ${i##*/}
+done
+
+# remove ogfs
+rm -f /lib*/evms/*/ogfs*
+
+# udev needed this 
+ln -sf /proc/mounts /etc/mtab
+
+
+# enable portmap
+chkconfig portmap on
+sed -i 's,#\(PORTMAP_ARGS="-l".*\),\1,' /etc/sysconfig/portmap
+
+# remove unwanted startup scripts
+find /etc/rc.d/rc{2,3,4,5}.d/ -type l -name 'S*' \
+	-not -name '*logd' \
+	-not -name '*network' \
+	-not -name '*portmap' \
+	-not -name '*random' \
+	-not -name '*sysreport' \
+	-not -name '*udev*' \
+	-delete -print

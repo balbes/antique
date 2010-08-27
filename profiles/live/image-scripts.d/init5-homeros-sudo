@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+[ -n "$GLOBAL_HOMEROS" ] || exit 0
+
+echo 'altlinux ALL=NOPASSWD:ALL' > /etc/sudo.d/altlinux
+chmod 400 /etc/sudo.d/altlinux

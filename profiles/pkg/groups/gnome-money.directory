@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Personal Finances Manager
+X-Alterator-PackageList=gnome-money
+X-Alterator-Required=no
+Name[ru_RU]=Личные финансы
+Categories=GNOME

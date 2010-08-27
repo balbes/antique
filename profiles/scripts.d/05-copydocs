@@ -1,0 +1,88 @@
+#!/bin/sh -efu
+
+#     DESCRIPTION
+#
+# 1. Copy documentation to disk
+# 2. Create index.html files in disk's root dir and docs dir
+
+
+#     REQUIRES
+#
+# Installed packages:
+# - branding-altlinux-desktop-indexhtml
+# - docs- (optional)
+
+
+#     INFO
+#
+
+NAME="05-copydocs"
+disk_docs_dir="docs"
+
+verbose()
+{
+  if [ -n "$GLOBAL_VERBOSE" ]; then
+    echo "HOOK: $NAME: $@"
+  fi
+}
+
+verbose "started"
+
+# copy indexhtml file (branding-altlinux-desktop-indexhtml package)
+indexhtml_file=/usr/share/doc/indexhtml/index.html
+if [ -f "$indexhtml_file" ]; then
+  verbose "indexhtml file found"
+  LANG=ru_RU /usr/sbin/indexhtml-update
+  mkdir -p "$WORKDIR/$disk_docs_dir/alt-docs"
+  cp -r `dirname "$indexhtml_file"` "$WORKDIR/$disk_docs_dir/"
+else
+  verbose "$indexhtml_file file not found"
+  verbose "nothing to do. finished"
+  exit 0
+fi
+
+# create index.html file (root dir)
+verbose "create index.html (root dir)"
+cat > "$WORKDIR/index.html"  << EOF
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="refresh" content="0; url=./$disk_docs_dir/indexhtml/index.html">
+  <title>redirect</title>
+</head>
+<body>
+  <p>redirect</p>
+</body>
+</html
+EOF
+
+# create index.html file (docs dir)
+verbose "create index.html ($disk_docs_dir dir)"
+sed "s/\.\/$disk_docs_dir/\./g" < "$WORKDIR/index.html" > "$WORKDIR/$disk_docs_dir/index.html"
+
+# copy docs (docs- package)
+copy_docs()
+{
+  documentation_dir=/usr/share/doc/documentation
+  if [ -d "$documentation_dir" ]; then
+    verbose "documentation dir found"
+    cp -r "$documentation_dir/" "$WORKDIR/$disk_docs_dir/"
+  else
+    verbose "$documentation_dir not found"
+  fi
+}
+
+#copy_docs
+
+# replace symlinks with hardlinks
+verbose "replace symlinks with hardlinks"
+find "$WORKDIR/$disk_docs_dir/" -type l |while read link; do
+	target="$(readlink -f -- "$link")"
+	rm -f -- "$link"
+	cp -al -- "$target" "$link"
+done
+
+verbose "finished"

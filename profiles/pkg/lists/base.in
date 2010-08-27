@@ -1,0 +1,118 @@
+# tags: base, cd, dvd, desktop, server
+
+# interactivesystem
+anacron
+apt-conf-@APTCONF_PACKAGE@
+apt
+glibc-gconv-modules
+glibc-locales
+glibc-nss
+glibc-utils
+interactivesystem
+kbd
+setarch
+shadow-suite
+#sound-scripts # using alsa-set-initial-mixer instead
+alsa-set-initial-mixer
+sysklogd
+udev
+# scanners support
+udev-extras
+
+ifplugd
+
+# boot
+#bootsplash
+lilo
+memtest86+
+
+# editor
+vim-console
+
+# network tools
+curl
+#elinks
+etcnet
+hostinfo
+iptables
+iputils
+###lftp
+###mailx
+netcat
+netlist
+openssh-clients
+rsync
+traceroute
+vlan-utils
+
+# disk tools
+eject
+hdparm
+###lvm2
+###mdadm
+mtools
+ntfs-3g
+sfdisk
+usbutils
+xfsprogs
+###smartmontools
+reiserfsprogs
+jfsutils
+
+#samba
+###samba
+
+# servers
+###openssh-server
+###postfix
+openntpd
+
+# security
+openssl
+audit
+
+# debug
+###strace
+
+# alterator
+alterator-auth
+alterator-control
+alterator-datetime
+alterator-logs
+alterator-net-iptables
+alterator-services
+###alterator-updates
+branding-@BRANDING@-alterator
+installer-distro-@INSTALLER@-stage3
+installer-feature-copy-udev-rules-stage3
+#installer-feature-resolver-bind-stage3
+installer-feature-setup-network-stage3
+
+# ldap
+nss_ldap
+pam_ldap
+
+# haldbus :(
+hal
+dbus
+
+# mc :(
+mc
+
+# kernel/firmware
+lm_sensors
+###update-kernel
+
+# compression
+cpio
+p7zip
+tar
+unzip
+zip
+
+# misc
+alsa-utils
+screen
+acpid
+###mkbootflash
+rp-pppoe-base

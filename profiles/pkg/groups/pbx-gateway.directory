@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=E1/FXS/FXO<->SIP/IAX2 gateway
+X-Alterator-PackageList=pbx-gateway
+

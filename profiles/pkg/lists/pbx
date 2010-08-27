@@ -1,0 +1,32 @@
+pbx-music-signate-mozart
+
+appliance-base-glibc
+appliance-base-admin-hn
+appliance-pbx-hardware
+appliance-rescue-static
+
+# other
+syskeeper-hn
+tig
+ncftp
+
+screen
+sysstat
+
+alterator
+alterator-l10n
+alterator-fbi
+alterator-net-eth dhcpcd
+alterator-root
+alterator-datetime
+alterator-logs
+alterator-root
+alterator-sysconfig
+alterator-sysinfo
+
+# bind (according to installer-feature-resolver-bind-stage3)
+bind
+
+# SysV Shared Memory defaults (for e.g. PostgreSQL)
+installer-feature-shm-defaults-stage3
+

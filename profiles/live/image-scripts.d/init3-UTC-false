@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#     DESCRIPTION
+#
+# Set system time to no UTC
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#     # UTC=true indicates that the clock is set to UTC;
+#     # anything else indicates that it is set to local time.
+
+NAME="init3-UTC-false"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+CONFIG="/etc/sysconfig/clock"
+
+verbose "set UTC=false at $CONFIG"
+subst 's/^UTC=true/UTC=false/' "$CONFIG"
+
+verbose "finished"

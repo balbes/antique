@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# rpm -qf /etc/init.d/halt
+# startup-0.9.8.18-alt1
+
+
+subst 's/tmpfs/nofs/g' /etc/init.d/halt
+chmod +x /etc/init.d/halt

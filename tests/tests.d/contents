@@ -1,0 +1,47 @@
+#!/bin/bash
+
+filelist=
+
+exit_handler(){
+	rm -f $filelist
+}
+
+trap exit_handler HUP PIPE INT QUIT TERM EXIT
+
+
+filelist=`mktemp`
+isoinfo -i $1 -R -f > $filelist
+
+kernel="kernel-image-un-def"
+modules="kernel-modules-alsa--.*.[a-z_0-9]*.rpm"
+names_no='RPMS.base/apt-conf-server'
+
+
+case $2 in
+	dvd) names="/altinst /RPMS.base /RPMS.disk /RPMS.contrib /live /rescue $kernel $modules"
+	;;
+	lite-cd) names="/altinst /RPMS.base /RPMS.disk /RPMS.base/design-bootsplash-lite $kernel $modules"
+	;;
+	live) names="/live"
+esac
+
+for name in $names; do
+	grep -q $name $filelist  || echo "No $name"
+done
+
+for name in $names_no; do
+	grep -q $name $filelist  && echo "$name found"
+done
+
+# TODO: sysv test scriptlets?
+# Bonobo in lite
+if [ "$2" = 'lite-cd' ] &&  grep -q bonobo  $filelist ; then
+	echo "Bonobo found"
+fi
+
+# design-server in lite
+if [ "$2" = 'lite-cd' ] &&  grep -q bootsplash-server  $filelist ; then
+	echo "bootsplash-server found"
+fi
+
+:

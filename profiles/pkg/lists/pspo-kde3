@@ -1,0 +1,44 @@
+# tags: pspo, kde
+
+############################################################## -*- text -*-
+
+kdeedu
+kdeaddons-kate
+
+#kchmviewer -- FIXME: rebuild kchmviewer-3.1-alt4.src.rpm?
+xchm
+
+# see also pspo-desktop
+kdenetwork-kdict
+qmtcc
+
+# qt4 software
+qstardict
+recordmydesktop-qt
+qdevelop
+qt4-devel
+qgit4
+
+kdegames
+kdenetwork-kppp
+
+# kde3 software
+kdegraphics-kpovmodeler
+kdevelop
+kdevelop-for-debug
+kdevelop-for-pascal
+kdevelop-for-kde
+kdevelop-for-qt
+kdevelop-for-misc
+# kdevelop-for-php
+kdevelop-for-python
+kdewebdev-kommander
+kdewebdev-kfilereplace
+kdewebdev-kimagemapeditor
+kdewebdev-klinkstatus
+kdewebdev-kxsldbg
+kdewebdev-quanta
+kdesdk-kompare
+kdesdk-umbrello
+qt3-sql
+celestia-kde

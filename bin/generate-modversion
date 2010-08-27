@@ -1,0 +1,17 @@
+#!/bin/sh
+# parse apt-style ALT Linux kernel version from stdin,
+# provide components or reassembled package name part
+
+sed 's/\([^=]*\)=\([^-]*\)-alt\(.*\)/\1 \2 \3/;s/\([^=]*\)=\([^-]*\)//' |
+(
+	read flavour version release
+	case "$1" in
+		-v) echo "$version";;
+		-f) echo "$flavour";;
+		-R) echo "$release";;
+		-r) echo "${release:+alt$release}";;
+		*)  [ -n "$version" -a -n "$release" ] \
+		    && echo "$version-$flavour-alt$release" \
+		    || echo "$flavour";;
+	esac
+)

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Documentation
+X-Alterator-PackageList=xfce-docs
+X-Alterator-Required=yes
+
+Name[ru_RU]=Документация
+Categories=XFCE

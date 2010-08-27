@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+cd "$WORKDIR"
+cat >RPM-GPG-KEY <<__EOF
+The following public key block can be used to verify RPM packages
+built and signed by ALT Linux Team members, using \`rpmsign -K' using
+the GNU GPG package.  Questions about this key block should be sent
+to security@altlinux.com.
+
+$(GNUPGHOME=/usr/lib/alt-gpgkeys gpg --export --armor)
+__EOF
+bzip2 -9 RPM-GPG-KEY

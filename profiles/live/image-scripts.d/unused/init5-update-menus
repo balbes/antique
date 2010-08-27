@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# XXX: ask zerg
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-update-menus"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+unset DURING_INSTALL
+[ ! -x /usr/bin/update-menus ] || /usr/bin/update-menus --nofork -v
+[ ! -f /etc/firsttime.d/menu ] || rm -f /etc/firsttime.d/menu
+
+verbose "finished"

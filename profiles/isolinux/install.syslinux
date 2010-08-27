@@ -1,0 +1,10 @@
+label linux
+  kernel alt0/vmlinuz
+    append initrd=alt0/full.cz lowmem fastboot live lang=ru_RU vga=0x314 splash=silent splashcount=17 stagename=altinst xdriver=auto showopts automatic=method:disk,label:bootFlash
+#    append initrd=alt0/full.cz lowmem fastboot live lang=ru_RU vga=0x314 splash=silent splashcount=17 stagename=altinst xdriver=auto showopts automatic=method:disk,label:MYLABEL
+#   append initrd=alt0/full.cz lowmem lang=ru_RU vga=0x314 splash=silent splashcount=17 stagename=altinst xdriver=auto showopts automatic=method:disk,uuid:4824-271E
+
+label failsafe
+  kernel alt0/vmlinuz
+    append initrd=alt0/full.cz lowmem live lang=ru_RU stagename=altinst showopts automatic=method:disk,label:installFlash noapic pci=nomsi acpi=off noload=ahci
+

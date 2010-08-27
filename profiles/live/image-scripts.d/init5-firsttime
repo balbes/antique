@@ -1,0 +1,35 @@
+#!/bin/sh
+
+#     DESCRIPTION
+# Run scripts from /etc/firsttime.d/
+
+
+#     REQUIRES
+#
+
+
+#     INFO
+#
+
+NAME="init5-firsttime"
+dir="/etc/firsttime.d"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+if [ -d "$dir" ]; then
+    find "$dir" -type f -perm /111 -print |
+    while read file; do
+        verbose "Run $file..."
+        "$file"
+        test "$?" = "0" && verbose "$file: success" || verbose "$file: fail"
+    done
+fi
+
+verbose "finished"

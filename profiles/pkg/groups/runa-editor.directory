@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=RunaWFE Editor 
+X-Alterator-PackageList=runa-editor
+X-Alterator-Conflicts=runa-botstation
+
+
+Name[ru_RU]=RunaWFE Редактор
+Categories=KDE;KDE4

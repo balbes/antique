@@ -1,0 +1,42 @@
+# tags: pspo, kde
+
+############################################################## -*- text -*-
+
+kde4edu
+kde4sdk-kate
+
+kchmviewer
+
+# see also pspo-desktop
+plasma-applet-dict
+qstardict
+qmtcc
+recordmydesktop-qt
+
+qdevelop
+qt4-devel
+qgit4
+
+kde4games
+kde4network-kppp
+
+# kde3 software missing kde4 ports
+kdegraphics-kpovmodeler
+kdevelop
+kdevelop-for-debug
+kdevelop-for-pascal
+#kdevelop-for-kde # requires evil kdebase-wm
+kdevelop-for-qt
+kdevelop-for-misc
+# kdevelop-for-php
+kdevelop-for-python
+kdewebdev-kommander
+kdewebdev-kfilereplace
+kdewebdev-kimagemapeditor
+kdewebdev-klinkstatus
+kdewebdev-kxsldbg
+kdewebdev-quanta
+kdesdk-kompare
+kdesdk-umbrello
+qt3-sql
+celestia-kde

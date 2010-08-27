@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Asterisk-based SOHO PBX
+Name[ru_RU]=Офисная АТС на базе Asterisk
+X-Alterator-PackageList=pbx-office
+

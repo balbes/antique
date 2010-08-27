@@ -1,0 +1,11 @@
+# tags: disk, ltsp, cd, dvd
+
+# ltsp
+ltsp-client-full
+
+kernel-image-tmc-tc
+kernel-modules-drm-tmc-tc
+kernel-modules-alsa-tmc-tc
+kernel-modules-fglrx-tmc-tc
+kernel-modules-nvidia-tmc-tc
+kernel-modules-compcache-tmc-tc

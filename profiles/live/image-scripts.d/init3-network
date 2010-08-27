@@ -1,0 +1,64 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Setup network settings
+# 1. Truncate /etc/resolv.conf
+# 2. Init /etc/hosts with "127.0.0.1 localhost"
+# 3. Set hostname, domainname
+# 4. Set defaults for NetworkManager.
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+# At startup time hostname may be changed by live-hostname package.
+
+. shell-config
+
+NAME="init3-network"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+DOMAINNAME="localdomain"
+HOSTNAME="localhost.localdomain"
+
+verbose "Init /etc/hosts with 127.0.0.1 localhost"
+/bin/echo "127.0.0.1 localhost" > /etc/hosts
+
+verbose "Truncate /etc/resolv.conf"
+/bin/echo >/etc/resolv.conf
+
+netcfg="/etc/sysconfig/network"
+
+verbose "Enable networking, disable FORWARD_IPV4, set hostname to $HOSTNAME, domainname to $DOMAINNAME"
+shell_config_set "$netcfg" NETWORKING yes
+shell_config_set "$netcfg" FORWARD_IPV4 false
+shell_config_set "$netcfg" HOSTNAME "$HOSTNAME" 
+shell_config_set "$netcfg" DOMAINNAME "$DOMAINNAME" 
+
+verbose "Setup defaults for NetworkManager"
+
+shell_config_set /etc/net/ifaces/default/options-eth BOOTPROTO dhcp
+
+if  [ -f /usr/sbin/NetworkManager ] ; then
+    shell_config_set /etc/net/ifaces/default/options NM_CONTROLLED yes
+    shell_config_set /etc/net/ifaces/default/options DISABLED yes
+    #subst 's/NM_CONTROLLED=no/NM_CONTROLLED=yes/' /etc/net/ifaces/*/options ||:
+else
+    verbose "Did you install NetworkManager? Can't find them."
+    # Don't assign configuration to interfaces, untill ifplugd detects cable presence
+    subst 's/USE_IFPLUGD=no/USE_IFPLUGD=yes/' /etc/net/ifaces/default/options-eth
+fi
+
+verbose "finished"
