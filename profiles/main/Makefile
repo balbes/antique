@@ -10,7 +10,7 @@ include /usr/share/mkimage/config.mk
 -include stage-autocfg.mk
 
 # packagelist stuff
-TOPDIR=/home/inter/mkiso/antique/mkimage-profiles-desktop_antique
+TOPDIR=/home/inter/mkiso/boyrsh/mkimage-profiles-desktop
 include ../functions.mk
 
 CHROOT_PACKAGES = apt-utils rsync
@@ -26,7 +26,7 @@ IMAGE_PACKAGES = .base \
 		 $(call list,$(GLOBAL_BASE_PACKAGE_LISTS)) \
 		 $(call list,$(GLOBAL_DISK_PACKAGE_LISTS)) \
 		 $(GLOBAL_DISK_PACKAGES) \
-		 $(call list,$(GLOBAL_PKG_GROUPS)) \
+		 $(call list,$(shell  grep X-Alterator-PackageList /dev/null $(call group,$(GLOBAL_PKG_GROUPS)) | cut -d= -f2)) \
 		 $(call tagged,$(GLOBAL_BASE_TAGS)) \
 		 $(call tagged,$(GLOBAL_DISK_TAGS))
 

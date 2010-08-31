@@ -6,7 +6,7 @@
 #     to add a named package list to main/live subprofiles
 
 DE_TARGETS = \
-	use-gnome use-gnome-dvd use-gnome-light use-gnome-live use-gnome-live-dvd use-gnome-workbench \
+	use-gnome use-gnome-dvd use-gnome-light use-gnome-live use-gnome-workbench \
 	use-kde-live-dvd use-kde3-lite use-kde3-live use-kde3 \
 	use-kde-desktop use-kde-lite use-kde-live \
 	use-lxde \
@@ -34,7 +34,7 @@ FEATURE_TARGETS = \
 	use-encfs-homes
 
 DESKTOP_TARGETS = $(DE_TARGETS) $(WM_TARGETS) $(FEATURE_TARGETS)
-SERVER_TARGETS = use-server use-server-light
+SERVER_TARGETS = use-server use-server-light use-centaurus use-pbx-office use-pbx-huge
 
 $(SERVER_TARGETS):  | $(AUTOCFG)
 $(DESKTOP_TARGETS): | $(AUTOCFG) use-xorg
@@ -67,35 +67,37 @@ use-alterator-desktop:
 ### implicit rules
 
 # install by default and put on live
-use-%::
+use-%:
 	echo GLOBAL_BASE_PACKAGE_LISTS+='$(subst use-,,$@)' >> "$(call scfg,main)"
 	echo GLOBAL_LIVE_PACKAGE_LISTS+='$(subst use-,,$@)' >> "$(call scfg,live)"
 	@echo "*** added $(subst use-,,$@) to main/live" >&2
 # put on second disk
-addon-%::
+addon-%:
 	echo GLOBAL_ADDON_PACKAGE_LISTS+='$(subst addon-,,$@)' >> "$(call scfg,addon)"
 	@echo "*** added $(subst addon-,,$@) to addon" >&2
 # put on first disk, but don't install by default
-disk-%::
+disk-%:
 	echo GLOBAL_DISK_PACKAGE_LISTS+='$(subst disk-,,$@)' >> "$(call scfg,main)"
 	@echo "*** added $(subst disk-,,$@) to main" >&2
 # install by default
-base-%::
+base-%:
 	echo GLOBAL_BASE_PACKAGE_LISTS+='$(subst base-,,$@)' >> "$(call scfg,main)"
 	@echo "*** added $@ to main" >&2
 # put on first disk, but don't install by default
-group-%::
+group-%:
 	echo GLOBAL_PKG_GROUPS+='$(subst group-,,$@)' >> $(AUTOCFG)
 	@echo "*** added $@ to main" >&2
 # put on live
-live-%::
+live-%:
 	echo GLOBAL_LIVE_PACKAGE_LISTS+='$(subst live-,,$@)' >> "$(call scfg,live)"
 	@echo "*** added $@ to live" >&2
 
-# put on live
-vm-profile-%::
+# put volumes-profile into install2 
+vm-profile-%:
 	echo GLOBAL_INSTALL2_PACKAGES+='volumes-profile-$(subst vm-profile-,,$@)' >> "$(call scfg,install2)"
 	@echo "*** added $@ to install2" >&2
+	echo GLOBAL_LIVE_PACKAGES+='volumes-profile-$(subst vm-profile-,,$@)' >> "$(call scfg,live)"
+	@echo "*** added $@ to live" >&2
 
 # catch-all rule transforming --with-features into package list names used
 use-custom:
@@ -109,13 +111,17 @@ use-custom:
 ### explicit rules
 
 # moderately beefy/managed desktop
-use-antique:
-	echo GLOBAL_BASE_PACKAGE_LISTS+='antique' >> "$(call scfg,main)"
-	echo GLOBAL_PKG_GROUPS+='antique-modul antique-admin antique-full antique-multimedia antique-office antique-wm antique-mini' >> $(AUTOCFG)
-	$(call done,$@)
-
 use-desktop: use-xorg use-alterator-desktop
 	echo GLOBAL_BASE_PACKAGE_LISTS+='desktop' >> "$(call scfg,main)"
+	echo GLOBAL_BASE_PACKAGE_LISTS+='kernel-wifi' >> "$(call scfg,main)"
+	echo GLOBAL_BASE_PACKAGE_LISTS+='kernel-video' >> "$(call scfg,main)"
+	echo GLOBAL_BASE_PACKAGE_LISTS+='kernel-desktop' >> "$(call scfg,main)"
+	$(call done,$@)
+
+use-antique:
+	echo GLOBAL_BASE_PACKAGE_LISTS+='antique' >> "$(call scfg,main)"
+	echo GLOBAL_PKG_GROUPS+='antique-modul antique-admin antique-full antique-multimedia \
+	antique-office antique-wm antique-icewm antique-mini' >> $(AUTOCFG)
 	$(call done,$@)
 
 use-live-restore:
@@ -148,7 +154,7 @@ use-kde3:
 use-kde-desktop:
 	# NB: see also a test in use-compiz target
 	echo GLOBAL_BASE_PACKAGE_LISTS+='kde' >> "$(call scfg,main)"
-	echo GLOBAL_DISK_PACKAGE_LISTS+='disk-dvd science' >> "$(call scfg,main)"
+	echo GLOBAL_DISK_PACKAGE_LISTS+='disk-dvd disk-dvd-kde science' >> "$(call scfg,main)"
 	echo GLOBAL_PKG_GROUPS+='docs  edu games graphics-editing \
 		video-editing sound-editing scanning peer-to-peer \
 		dictionary emulators publishing 3d money blogs dial-up phone' >> $(AUTOCFG)
@@ -227,6 +233,27 @@ use-homeros:
 	echo GLOBAL_HOMEROS=1 >> "$(call scfg,live)"
 	$(call done,$@)
 
+use-centaurus:
+	echo GLOBAL_BASE_PACKAGE_LISTS+='centaurus-base kernel-video' >> "$(call scfg,main)"
+	echo GLOBAL_DISK_PACKAGE_LISTS+='disk-dvd disk-dvd-gnome gnome-addons \
+		gnome-network-lite science docs clasters pgu' >> "$(call scfg,main)"
+	echo xterm > profiles/pkg/lists/centaurus-gnome
+	for name in alterator-desktop gnome-base gnome-office ;\
+		do cat profiles/pkg/lists/$$name >> profiles/pkg/lists/centaurus-gnome; \
+	done
+	subst 's/etcnet-defaults-desktop//' profiles/pkg/lists/xorg
+	echo GLOBAL_DISK_PACKAGES+='gnome-full gnome-a11y' >> "$(call scfg,main)"
+	echo GLOBAL_PKG_GROUPS+='centaurus-desktop centaurus-xorg centaurus-gnome centaurus-dev \
+		emulators publishing gnome-phone gtk-dictionary blogs \
+		 gtk-video-editing sound-editing scanning 3d \
+		 graphics-editing gnome-peer-to-peer' >> $(AUTOCFG)
+	echo GLOBAL_PKG_GROUPS+='ftp-server-a dhcp-server-a \
+	dns-server-a mail-server-a virtualization-a netinst ganeti samba-server \
+	alterator server-apps \
+		centaurus-dev eclipse buildsystem' >> $(AUTOCFG)
+	echo GLOBAL_INSTALL2_PACKAGES+='installer-feature-autoxorg installer-feature-vm-ofs-stage2 installer-feature-desktop-other-fs-stage2' >> $(AUTOCFG)
+	$(call done,$@)
+
 use-xfce:
 	# FIXME: need to rethink package lists flexibility limit
 	echo GLOBAL_BASE_PACKAGES+='xfce-settings-antique' \
@@ -248,6 +275,7 @@ use-xfce-school:
 	echo GLOBAL_BASE_PACKAGES+='branding-altlinux-desktop-xfce-settings' \
 		>> "$(call scfg,main)"
 	echo GLOBAL_BASE_PACKAGE_LISTS+='xfce' >> "$(call scfg,main)"
+	echo GLOBAL_DISK_PACKAGE_LISTS+='disk-cd' >> "$(call scfg,main)"
 	echo GLOBAL_PKG_GROUPS+='xfce-office-lite office-superlite pspo-teacher' >> $(AUTOCFG)
 	$(call done,$@)
 
@@ -261,19 +289,24 @@ use-slinux:
 	echo GLOBAL_PKG_GROUPS+='gnome-peer-to-peer xfce-docs slinux-games slinux-graphics slinux-multimedia slinux-network slinux-office ' >> $(AUTOCFG)
 	$(call done,$@)
 
+# TODO: add pspo-desktop and pspo-services
 use-pspo: base-pspo base-pspo-desktop group-pspo-teacher \
 	base-3d base-eclipse base-emulators base-graphics-editing \
 	base-publishing base-sound-editing \
 	use-desktop use-docs use-freenx-server use-live-restore use-nm
+	echo "Target $@ done"
 
 use-pspo-kde: use-pspo base-pspo-kde base-pspo-desktop base-pspo-services \
 	use-kde use-kde-live base-scanning base-video-editing
+	echo "Target $@ done"
 
 use-pspo-gnome: use-pspo base-pspo-gnome live-pspo-gnome \
 	base-docs base-gnome-base base-gnome-dvd base-gnome-office base-gtk-video-editing \
 	disk-gnome-addons use-compiz use-gnome-live-dvd
+	echo "Target $@ done"
 
 use-school-lite: use-xfce-school use-xdm use-freenx-server
+	echo "Target $@ done"
 
 use-autologin:
 	echo GLOBAL_LIVE_PACKAGES+='installer-feature-autologin-stage3' \
@@ -317,14 +350,6 @@ use-ltsp: use-freenx
 	#echo GLOBAL_DISK_PACKAGE_LISTS+='disk-ltsp' >> "$(call scfg,main)"
 	$(call done,$@)
 
-use-custom:
-	# iterate over --with-features list, add to base/live
-	for i in $(shell echo  | tr ',' ' '); do \
-		echo GLOBAL_BASE_PACKAGE_LISTS+=$$i >> "$(call scfg,main)"; \
-		echo GLOBAL_LIVE_PACKAGE_LISTS+=$$i >> "$(call scfg,live)"; \
-	done
-	$(call done,$@)
-
 use-rdp:
 	echo GLOBAL_LIVE_PACKAGES+=autordp >> "$(call scfg,live)"
 	$(call done,$@)
@@ -343,16 +368,35 @@ use-clamav:
 	$(call done,$@)
 
 use-server:
+	echo LOCAL_BASE_PACKAGE_LISTS='base kernel-server'  >> "$(call scfg,main)"
 	echo GLOBAL_BASE_PACKAGE_LISTS+='server docs' >> "$(call scfg,main)"
 	echo GLOBAL_DISK_PACKAGE_LISTS+='disk-server' >> "$(call scfg,main)"
 	$(call done,$@)
 
-use-server-light:
+use-school-server:
+	echo GLOBAL_BASE_PACKAGE_LISTS+='skf' >> "$(call scfg,main)"
+	echo GLOBAL_DISK_PACKAGES+='twclass' >> "$(call scfg,main)"
+	$(call done,$@)
+
+use-school-master:
+	echo GLOBAL_BASE_PACKAGE_LISTS+='skf' >> "$(call scfg,main)"
+	$(call done,$@)
+
+use-server-light: use-kernel-wifi
 	echo LOCAL_BASE_PACKAGE_LISTS='base-server kernel-server'  >> "$(call scfg,main)"
 	echo NODOCS='#'  >> "$(call scfg,main)"
 	echo GLOBAL_BASE_PACKAGE_LISTS+='server-light' >> "$(call scfg,main)"
 	echo GLOBAL_DISK_PACKAGE_LISTS+='disk-server-light' >> "$(call scfg,main)"
-	echo GLOBAL_PKG_GROUPS+='dns-server http-server ftp-server kvm-server ipmi mysql-server dhcp-server mail-server' >> $(AUTOCFG)
+	echo GLOBAL_PKG_GROUPS+='dns-server http-server ftp-server kvm-server' >> $(AUTOCFG)
+	echo GLOBAL_PKG_GROUPS+='ipmi mysql-server dhcp-server mail-server' >> $(AUTOCFG)
+	echo GLOBAL_PKG_GROUPS+='monitoring diag-tools' >> $(AUTOCFG)
+
+use-pbx-office: disk-asterisk-devel use-asterisk-1.6.2
+	echo LOCAL_BASE_PACKAGE_LISTS='base-server kernel-server kernel-pbx'  >> "$(call scfg,main)"
+	echo NODOCS='#'  >> "$(call scfg,main)"
+	echo GLOBAL_BASE_PACKAGE_LISTS+='pbx' >> "$(call scfg,main)"
+	#echo GLOBAL_DISK_PACKAGE_LISTS+='disk-server-light' >> "$(call scfg,main)"
+	#echo GLOBAL_PKG_GROUPS+='dns-server http-server ftp-server mysql-server dhcp-server mail-server' >> $(AUTOCFG)
 
 use-pbx-huge:
 	echo LOCAL_BASE_PACKAGE_LISTS='base-server kernel-server kernel-pbx'  >> "$(call scfg,main)"

@@ -102,8 +102,7 @@ gparted
 
 #office
 openoffice.org
-# while openoffice.org-kde4 not fixed
-openoffice.org-kde
+openoffice.org-kde4
 openoffice.org-langpack-ru
 openoffice.org-langpack-uk
 docs-ooo_infra

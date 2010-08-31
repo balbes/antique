@@ -3,15 +3,15 @@
 [ -z "$1" ] && echo -e "Usage: make-distro <distro-name> <additional arguments to configure>\n\tdistro names: desktop, lite, gnome-desktop etc" && exit 1
 
 branch=Sisyphus
-version=1.0.1
+version=5.9.9
 archs=${archs:-"i586 x86_64"}
 
 autoconf && ./configure &> /dev/null
 for arch in $archs; do
 
 	make distclean &> /dev/null
-	./configure --with-aptconf=$HOME/$branch-$arch.conf --with-version=$version --with-distro=$@ --with-arch=$arch &> /dev/null
+	./configure --with-aptconf=$HOME/$branch-$arch.conf --with-version=$version --with-distro=$@ --with-arch=$arch &> $1-conf.$arch.log
 
-	make &> $1.$arch.log && echo $1 $arch
+	make &> $1.$arch.log && echo $1 $arch || exit
 	make distclean &> /dev/null
 done

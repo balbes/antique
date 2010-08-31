@@ -3,6 +3,7 @@ Encoding=UTF-8
 Type=Directory
 Name=Emulators
 X-Alterator-PackageList=emulators
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Эмуляторы
 X-Alterator-Conflicts=wine-local
 Categories=KDE;KDE4;GNOME

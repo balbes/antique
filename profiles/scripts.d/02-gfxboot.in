@@ -11,6 +11,7 @@ fi
 cd "$WORKDIR"
 mkdir -p syslinux
 cd syslinux
+cp /usr/lib/syslinux/gfxboot.com ./
 
 # unpack
 cpio -iduV <"$bootlogo"

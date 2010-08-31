@@ -49,10 +49,6 @@ nut
 opensc
 openct
 
-ananas
-ananas-extensions
-ananas-inventory
-
 alterator-fbi
 
 recoll
@@ -72,9 +68,7 @@ kdenetwork-krdc
 xgnokii
 
 # wacom driver and utilities
-xorg-x11-drv-wacom
-linuxwacom
-libwacomxi
+xorg-drv-wacom
 
 bridge-utils
  
@@ -90,3 +84,5 @@ rsync
 screen
 perl-Crypt-Rijndael
 
+#needed for crypto
+lsb

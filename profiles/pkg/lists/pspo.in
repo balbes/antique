@@ -191,10 +191,12 @@ geany-data
 codeblocks 
 codeblocks-contrib
 
+nano
+lsb
+apt-rsync
 
 fpc
 lazarus
-lazarus-tools
 lazarus-examples
 lazarus-docs
 octave
@@ -210,6 +212,9 @@ tuxpaint-stamps
 gnucap
 geomview
 teachercp
+
+scratch
+scratch-plugins
 
 scilab
 wxMaxima
@@ -259,3 +264,10 @@ itest
 
 thunderbird-ru
 thunderbird
+
+chromium-browser
+chromium-browser-codecs
+
+# Set available online repository and some useful utilites from /sbin
+installer-feature-symlinks-from-sbin
+installer-feature-online-repo

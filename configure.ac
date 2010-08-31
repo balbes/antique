@@ -96,22 +96,40 @@ AC_ARG_WITH(distro,
 					LABEL="Lite"
 					INSTALLER=${with_installer:-"junior"}
 					DEFAULT_ISO=${with_image:-"school-lite.cd1 school-lite.cd2"};;
+				    school-terminal)
+					BRANDING=${with_branding:-"school-terminal"}
+					DOCS=${with_docs:-"desktop"}
+					INSTALLER=${with_installer:-"desktop"}
+					LABEL="Terminal"
+					DEFAULT_ISO=${with_image:-"school-terminal.dvd"};;
 				    office-server*)
 					BRANDING=${with_branding:-"altlinux-office-server"}
 					DOCS=${with_docs:-"office-server"}
 					INSTALLER=${with_installer:-"office-server"}
 					LABEL="OfficeServer"
-					DEFAULT_ISO="office-server.cd";;
+					DEFAULT_ISO="office-server.cd"
+				 	KERNEL="ovz-smp" # apt-style
+				 	KERNEL_MOD=`echo "ovz-smp" | bin/generate-modversion ` # 2.6.18-std-smp-alt12
+				    	with_squashfs_version=3
+				    	;;
 				    server-light*)
-					BRANDING=${with_branding:-"branding-sisyphus-server-light"}
+					BRANDING=${with_branding:-"sisyphus-server-light"}
 					DOCS=
 					NODOCS="#"
 					INSTALLER=${with_installer:-"server-light"}
 					LABEL="Server"
-					APTCONF_PACKAGE="sisyphus"
+				        APTCONF_PACKAGE="sisyphus"
 					DEFAULT_ISO="server-light.cd"
 					KERNEL="un-def"
 					KERNEL_MOD="un-def";;
+				    centaurus)
+					BRANDING=${with_branding:-"altlinux-centaurus"}
+					DOCS=
+					NODOCS="#"
+					INSTALLER=${with_installer:-"centaurus"}
+					LABEL="Server"
+				        APTCONF_PACKAGE="sisyphus"
+					DEFAULT_ISO=${with_image:-"centaurus.dvd"};;
 				    school-server*)
 					BRANDING=${with_branding:-"altlinux-school-server"}
 					DOCS=${with_docs:-"school-server"}
@@ -136,6 +154,12 @@ AC_ARG_WITH(distro,
 					INSTALLER=${with_installer:-"v12n-server"}
 					LABEL="V12n Server"
 					DEFAULT_ISO="v12n-server.cd";;
+				    pbx-office*)
+					BRANDING=${with_branding:-"altlinux-office-server"}
+					DOCS=${with_docs:-"server"}
+					INSTALLER=${with_installer:-"v12n-server"}
+					LABEL="PBX"
+					DEFAULT_ISO="pbx-office.cd";;
 				    pbx-huge*)
 					BRANDING=${with_branding:-"altlinux-office-server"}
 					DOCS=${with_docs:-"server"}
@@ -154,13 +178,13 @@ AC_ARG_WITH(distro,
 					INSTALLER=${with_installer:-"chainmail"}
 					LABEL="Chainmail"
 					DEFAULT_ISO="chainmail.cd";;
-			    	    workbench)
+				    workbench)
 					BRANDING=${with_branding:-"altlinux-workbench"}
 					INSTALLER=${with_installer:-"workbench"}
 					DOCS=${with_docs:-"desktop"}
 					LABEL="Workbench"
 					DEFAULT_ISO=${with_image:-"workbench.cd"};;
-			    	    gnome-desktop*)
+				    gnome-desktop*)
 					BRANDING=${with_branding:-"altlinux-gnome-desktop"}
 					INSTALLER=${with_installer:-"desktop"}
 					DOCS=${with_docs:-"desktop"}
@@ -199,7 +223,12 @@ AC_ARG_WITH(distro,
 				    *)
 					BRANDING=${with_branding:-"altlinux-desktop"}
 					INSTALLER=${with_installer:-"desktop"}
-					DOCS=${with_docs:-"desktop"}
+					if test -n "$with_docs"; then
+						DOCS="$with_docs"
+					else
+						DOCS="NONE"
+						NODOCS="#"
+					fi
 					LABEL="Desktop"
 					DEFAULT_ISO="kde.dvd";;
 				    esac
@@ -217,7 +246,7 @@ AC_ARG_WITH(distro,
                                         DESIGN=$(echo "$BRANDING" | cut -d- -f2-)
 					DOCS="desktop"
 					LABEL="Desktop"
-				        APTCONF_PACKAGE="branch"
+				        APTCONF_PACKAGE="desktop"
 					DEFAULT_ISO="kde.dvd"
 				     ])
 
@@ -238,8 +267,8 @@ AC_ARG_WITH(version,
 			    AC_MSG_RESULT([** version: $with_version])
 			    ],
 			    [
-			     BRANCH="5.1"
-			     VERSION="5.1"
+			     BRANCH="5.0"
+			     VERSION="5.0"
 			     ])
 
 
@@ -403,6 +432,17 @@ AC_ARG_WITH(squashfs-version,
 				     )
 SQUASHFS_VERSION=${with_squashfs_version:-4}
 
+AC_ARG_WITH(internal,
+	    AC_HELP_STRING([--with-internal],
+			   [use packages that not destributable or doesn't exists in public repositories]),
+			   [
+				INTERNAL=''
+			    ],
+			    [
+			    INTERNAL='#'
+			    ])
+
+
 AS_VAR_SET([TOPDIR], [`dirname $(realpath $0)`])
 
 AC_SUBST(APTCONF)
@@ -418,6 +458,7 @@ AC_SUBST(KERNEL_FLAVOUR)
 AC_SUBST(KERNEL_RELEASE)
 AC_SUBST(KERNEL_REL)
 AC_SUBST(I586_ONLY)
+AC_SUBST(INTERNAL)
 
 AC_SUBST(LANGUAGE)
 AC_SUBST(LOCALE)
@@ -461,10 +502,13 @@ AC_CONFIG_FILES([
 		 profiles/contrib/Makefile
 		 profiles/rescue/Makefile
 		 profiles/ltsp/Makefile
+		 profiles/pkg/lists/alterator-server
 		 profiles/pkg/lists/asterisk-devel
 		 profiles/pkg/lists/base
 		 profiles/pkg/lists/base-server
+		 profiles/pkg/lists/base-mithraenpbx
 		 profiles/pkg/lists/contrib
+		 profiles/pkg/lists/centaurus-dev
 		 profiles/pkg/lists/disk-dvd
 		 profiles/pkg/lists/disk-dvd-gnome
 		 profiles/pkg/lists/disk-dvd-kde
@@ -482,7 +526,12 @@ AC_CONFIG_FILES([
 		 profiles/pkg/lists/kde3-lite
 		 profiles/pkg/lists/kde-lite
 		 profiles/pkg/lists/kernel
+		 profiles/pkg/lists/kernel-desktop
+		 profiles/pkg/lists/kernel-installer
 		 profiles/pkg/lists/kernel-pbx
+		 profiles/pkg/lists/kernel-pbx-wanpipe
+		 profiles/pkg/lists/kernel-video
+		 profiles/pkg/lists/kernel-wifi
 		 profiles/pkg/lists/kernel-server
 		 profiles/pkg/lists/network
 		 profiles/pkg/lists/office-superlite

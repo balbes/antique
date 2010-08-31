@@ -1,5 +1,4 @@
 xorg-drv-intel
-xorg-drv-i810
 xorg-drv-video
 alterator-x11
 alterator-backend-x11
@@ -7,7 +6,6 @@ xorg-server
 @I586_ONLY@xorg-drv-apm
 @I586_ONLY@xorg-drv-ark
 xorg-drv-ati
-@I586_ONLY@xorg-drv-chips
 xorg-drv-cirrus
 xorg-drv-evdev
 xorg-drv-fbdev
@@ -15,14 +13,11 @@ xorg-drv-fbdev
 xorg-drv-joystick
 xorg-drv-mga
 xorg-drv-multimedia
-@I586_ONLY@xorg-drv-neomagic
 xorg-drv-nv
-@I586_ONLY@xorg-drv-rendition
 @I586_ONLY@xorg-drv-s3
 @I586_ONLY@xorg-drv-s3virge
 @I586_ONLY@xorg-drv-savage
-@I586_ONLY@xorg-drv-siliconmotion
-@I586_ONLY@xorg-drv-sis
+xorg-drv-sis
 xorg-drv-synaptics
 xorg-drv-tdfx
 @I586_ONLY@xorg-drv-trident
@@ -33,16 +28,16 @@ xorg-drv-keyboard
 xorg-drv-mouse
 #@I586_ONLY@xorg-drv-vboxmouse
 #@I586_ONLY@xorg-drv-vboxvideo
-@I586_ONLY@xorg-drv-vmware
-@I586_ONLY@xorg-drv-void
+#xorg-drv-vmware
+xorg-drv-void
 xorg-dri-*
 xauth
 xorg-utils
 xorg-extensions*
-fglrx_glx
 xorg-drv-wacom
 xinit
 wm-select
+fvwm-base
 
 #fonts
 #fonts-ttf-liberation

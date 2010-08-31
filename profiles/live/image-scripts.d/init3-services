@@ -27,6 +27,8 @@ verbose "has started"
 /sbin/chkconfig portmap on ||:
 /sbin/chkconfig random on ||:
 /sbin/chkconfig livecd-setlocale on ||:
+subst 's/chkconfig: - 95 05/chkconfig: - 04 05/' /etc/init.d/alteratord #should run before setlocale
+/sbin/chkconfig alteratord on ||:
 /sbin/chkconfig clamd off ||:
 /sbin/chkconfig dhcpd off ||:
 /sbin/chkconfig sshd off ||:

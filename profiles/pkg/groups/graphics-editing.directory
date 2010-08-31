@@ -4,5 +4,6 @@ Type=Directory
 Name=Graphics editing
 X-Alterator-PackageList=graphics-editing
 X-Alterator-Required=yes
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Обработка графики
 Categories=KDE;KDE4;GNOME

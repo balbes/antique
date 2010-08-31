@@ -322,7 +322,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile globals.mk images.mk use.mk profiles/Makefile profiles/addon/Makefile profiles/live/Makefile profiles/main/Makefile profiles/kernel-pae/Makefile profiles/install2/Makefile profiles/isolinux/common profiles/isolinux/install profiles/contrib/Makefile profiles/rescue/Makefile profiles/ltsp/Makefile profiles/pkg/lists/asterisk-devel profiles/pkg/lists/base profiles/pkg/lists/base-server profiles/pkg/lists/contrib profiles/pkg/lists/disk-dvd profiles/pkg/lists/disk-dvd-gnome profiles/pkg/lists/disk-dvd-kde profiles/pkg/lists/disk-server profiles/pkg/lists/disk-server-light profiles/pkg/lists/docs profiles/pkg/lists/emulators profiles/pkg/lists/gnome-base profiles/pkg/lists/gnome-addons profiles/pkg/lists/gnome-workbench profiles/pkg/lists/graphics-editing profiles/pkg/lists/install2 profiles/pkg/lists/kde profiles/pkg/lists/kde3 profiles/pkg/lists/kde3-lite profiles/pkg/lists/kde-lite profiles/pkg/lists/kernel profiles/pkg/lists/kernel-pbx profiles/pkg/lists/kernel-server profiles/pkg/lists/network profiles/pkg/lists/office-superlite profiles/pkg/lists/office-server profiles/pkg/lists/school-server profiles/pkg/lists/pspo profiles/pkg/lists/pspo-kde profiles/pkg/lists/pspo-gnome profiles/pkg/lists/rescue profiles/pkg/lists/server profiles/pkg/lists/server-light profiles/pkg/lists/slinux-network profiles/pkg/lists/xfce profiles/pkg/lists/xfce-network-lite profiles/pkg/lists/xfce-office-lite profiles/pkg/lists/xorg profiles/scripts.d/02-gfxboot profiles/scripts.d/05-copydocs tests/tests.d/contents tests/Makefile"
+config_files=" Makefile globals.mk images.mk use.mk profiles/Makefile profiles/addon/Makefile profiles/live/Makefile profiles/main/Makefile profiles/kernel-pae/Makefile profiles/install2/Makefile profiles/isolinux/common profiles/isolinux/install profiles/contrib/Makefile profiles/rescue/Makefile profiles/ltsp/Makefile profiles/pkg/lists/alterator-server profiles/pkg/lists/asterisk-devel profiles/pkg/lists/base profiles/pkg/lists/base-server profiles/pkg/lists/base-mithraenpbx profiles/pkg/lists/contrib profiles/pkg/lists/centaurus-dev profiles/pkg/lists/disk-dvd profiles/pkg/lists/disk-dvd-gnome profiles/pkg/lists/disk-dvd-kde profiles/pkg/lists/disk-server profiles/pkg/lists/disk-server-light profiles/pkg/lists/docs profiles/pkg/lists/emulators profiles/pkg/lists/gnome-base profiles/pkg/lists/gnome-addons profiles/pkg/lists/gnome-workbench profiles/pkg/lists/graphics-editing profiles/pkg/lists/install2 profiles/pkg/lists/kde profiles/pkg/lists/kde3 profiles/pkg/lists/kde3-lite profiles/pkg/lists/kde-lite profiles/pkg/lists/kernel profiles/pkg/lists/kernel-desktop profiles/pkg/lists/kernel-installer profiles/pkg/lists/kernel-pbx profiles/pkg/lists/kernel-pbx-wanpipe profiles/pkg/lists/kernel-video profiles/pkg/lists/kernel-wifi profiles/pkg/lists/kernel-server profiles/pkg/lists/network profiles/pkg/lists/office-superlite profiles/pkg/lists/office-server profiles/pkg/lists/school-server profiles/pkg/lists/pspo profiles/pkg/lists/pspo-kde profiles/pkg/lists/pspo-gnome profiles/pkg/lists/rescue profiles/pkg/lists/server profiles/pkg/lists/server-light profiles/pkg/lists/slinux-network profiles/pkg/lists/xfce profiles/pkg/lists/xfce-network-lite profiles/pkg/lists/xfce-office-lite profiles/pkg/lists/xorg profiles/scripts.d/02-gfxboot profiles/scripts.d/05-copydocs tests/tests.d/contents tests/Makefile"
 
 ac_cs_usage="\
 \`$as_me' instantiates files from templates according to the
@@ -353,7 +353,7 @@ Copyright (C) 2008 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/inter/mkiso/antique/mkimage-profiles-desktop_antique'
+ac_pwd='/home/inter/mkiso/boyrsh/mkimage-profiles-desktop'
 srcdir='.'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
@@ -451,10 +451,13 @@ do
     "profiles/contrib/Makefile") CONFIG_FILES="$CONFIG_FILES profiles/contrib/Makefile" ;;
     "profiles/rescue/Makefile") CONFIG_FILES="$CONFIG_FILES profiles/rescue/Makefile" ;;
     "profiles/ltsp/Makefile") CONFIG_FILES="$CONFIG_FILES profiles/ltsp/Makefile" ;;
+    "profiles/pkg/lists/alterator-server") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/alterator-server" ;;
     "profiles/pkg/lists/asterisk-devel") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/asterisk-devel" ;;
     "profiles/pkg/lists/base") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/base" ;;
     "profiles/pkg/lists/base-server") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/base-server" ;;
+    "profiles/pkg/lists/base-mithraenpbx") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/base-mithraenpbx" ;;
     "profiles/pkg/lists/contrib") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/contrib" ;;
+    "profiles/pkg/lists/centaurus-dev") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/centaurus-dev" ;;
     "profiles/pkg/lists/disk-dvd") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/disk-dvd" ;;
     "profiles/pkg/lists/disk-dvd-gnome") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/disk-dvd-gnome" ;;
     "profiles/pkg/lists/disk-dvd-kde") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/disk-dvd-kde" ;;
@@ -472,7 +475,12 @@ do
     "profiles/pkg/lists/kde3-lite") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kde3-lite" ;;
     "profiles/pkg/lists/kde-lite") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kde-lite" ;;
     "profiles/pkg/lists/kernel") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel" ;;
+    "profiles/pkg/lists/kernel-desktop") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-desktop" ;;
+    "profiles/pkg/lists/kernel-installer") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-installer" ;;
     "profiles/pkg/lists/kernel-pbx") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-pbx" ;;
+    "profiles/pkg/lists/kernel-pbx-wanpipe") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-pbx-wanpipe" ;;
+    "profiles/pkg/lists/kernel-video") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-video" ;;
+    "profiles/pkg/lists/kernel-wifi") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-wifi" ;;
     "profiles/pkg/lists/kernel-server") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-server" ;;
     "profiles/pkg/lists/network") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/network" ;;
     "profiles/pkg/lists/office-superlite") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/office-superlite" ;;
@@ -552,15 +560,15 @@ echo 'BEGIN {' >"$tmp/subs1.awk" &&
 cat >>"$tmp/subs1.awk" <<\_ACAWK &&
 S["LTLIBOBJS"]=""
 S["LIBOBJS"]=""
-S["TOPDIR"]="/home/inter/mkiso/antique/mkimage-profiles-desktop_antique"
+S["TOPDIR"]="/home/inter/mkiso/boyrsh/mkimage-profiles-desktop"
 S["SQUASHFS_VERSION"]="4"
 S["IMAGETYPE"]="iso"
 S["APTCONF_PACKAGE"]="branch"
 S["NODOCS"]="#"
 S["DOCS"]=""
 S["INSTALLER"]="desktop"
-S["VERSION"]="5.1"
-S["BRANCH"]="5.1"
+S["VERSION"]="5.0"
+S["BRANCH"]="5.0"
 S["ISOLINUX_DEFAULT"]="harddisk"
 S["DEFAULT_ISO"]="antique.cd"
 S["FEATURES"]=""
@@ -571,6 +579,7 @@ S["DISTRO"]="antique"
 S["LABEL"]="Antique"
 S["LOCALE"]="ru_RU"
 S["LANGUAGE"]="ru"
+S["INTERNAL"]="#"
 S["I586_ONLY"]=""
 S["KERNEL_REL"]=""
 S["KERNEL_RELEASE"]=""

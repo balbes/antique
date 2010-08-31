@@ -8,7 +8,7 @@ INFO_ARCH=i586
 TARGET=i586
 INFO_LABEL=Antique
 
-INFO_VERSION=5.1
+INFO_VERSION=5.0
 
 # FIXME: INFO_* won't fall through to profiles/*/Makefile
 GLOBAL_RELEASE=$(INFO_RELEASE)
@@ -16,7 +16,7 @@ GLOBAL_RELEASE=$(INFO_RELEASE)
 GLOBAL_BOOT_LANG=ru_RU
 GLOBAL_HSH_APT_CONFIG=/etc/apt/apt.conf
 
-GLOBAL_TOPDIR=/home/inter/mkiso/antique/mkimage-profiles-desktop_antique
+GLOBAL_TOPDIR=/home/inter/mkiso/boyrsh/mkimage-profiles-desktop
 GLOBAL_WORKROOT=$(TMP)
 
 DATE=$(shell date +%Y%m%d)

@@ -19,7 +19,7 @@ tcpdump
 
 # docs
 man-pages
-@BRANDING@-indexhtml
+branding-@BRANDING@-indexhtml
 #alt-docs-apache2
 #docs-issue-school-server
 

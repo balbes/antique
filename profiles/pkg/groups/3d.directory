@@ -4,5 +4,6 @@ Type=Directory
 Name=3D Modeller
 X-Alterator-PackageList=3d
 X-Alterator-Required=no
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Трёхмерное моделирование
 Categories=KDE;KDE4

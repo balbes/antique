@@ -1,7 +1,7 @@
 # must correspond to existing profile/*/ for image parts
 #EVERYTHING=contrib install2 main live rescue kernel-pae
-EVERYTHING=install2 main live rescue #kernel-pae
-COMPONENTS=$(EVERYTHING) ltsp addon #live-lite
+EVERYTHING=install2 main live rescue
+COMPONENTS=$(EVERYTHING) ltsp addon
 
 # All existing stages
 STAGES = $(EVERYTHING) ltsp addon

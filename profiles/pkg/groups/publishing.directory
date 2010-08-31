@@ -5,4 +5,5 @@ Name=Publishing
 X-Alterator-PackageList=publishing
 X-Alterator-Required=no
 Name[ru_RU]=Издательская система
+X-Alterator-Parent=centaurus-desktop
 Categories=KDE;KDE4;GNOME

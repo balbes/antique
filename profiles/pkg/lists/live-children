@@ -23,7 +23,7 @@ xorg-x11-extensions*
 xorg-x11-drv-wacom
 xinit
 pmount
-lm_sensors
+lm_sensors3
 etcnet
 x11_autosetup
 livecd-setlocale

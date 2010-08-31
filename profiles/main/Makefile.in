@@ -26,7 +26,7 @@ IMAGE_PACKAGES = .base \
 		 $(call list,$(GLOBAL_BASE_PACKAGE_LISTS)) \
 		 $(call list,$(GLOBAL_DISK_PACKAGE_LISTS)) \
 		 $(GLOBAL_DISK_PACKAGES) \
-		 $(call list,$(GLOBAL_PKG_GROUPS)) \
+		 $(call list,$(shell  grep X-Alterator-PackageList /dev/null $(call group,$(GLOBAL_PKG_GROUPS)) | cut -d= -f2)) \
 		 $(call tagged,$(GLOBAL_BASE_TAGS)) \
 		 $(call tagged,$(GLOBAL_DISK_TAGS))
 

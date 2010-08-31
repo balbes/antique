@@ -92,9 +92,13 @@ Footnotes
 References
 ~~~~~~~~~~
 
+Please note that www.altlinux.org holds content in Russian,
+English translations are at en.altlinux.org (mkimage docs
+are rather missing as of Dec 2009).
+
 * http://www.altlinux.org/Mkimage:
   short intro page for mkimage
-* http://www.altlinux.org/Mkimage/Desktop:
+* http://www.altlinux.org/Mkimage/Profiles/Desktop
   crash course into mkimage-profiles-desktop
 * http://www.altlinux.org/WhiteLabel:
   refactoring considerations
@@ -103,6 +107,7 @@ Blame
 ~~~~~
 
 * Alexey Gladkov <legion@altlinux> for mkimage
-* Anton Boyarshonov <boyarsh@altlinux> for mkimage-profiles-desktop
+* Anton Boyarshinov <boyarsh@altlinux> for mkimage-profiles-desktop
 * Michael Shigorin <mike@altlinux> for wiki pages referenced above,
   casual havoc during profile rewrites, and this text too
+* numerous contributors to this and that ;-)

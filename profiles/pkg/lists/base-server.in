@@ -1,3 +1,6 @@
+# 3ware RAID monitoring software
+@INTERNAL@tw_cli
+
 # interactivesystem
 anacron
 apt-conf-@APTCONF_PACKAGE@
@@ -10,15 +13,16 @@ interactivesystem
 kbd
 setarch
 shadow-suite
-#sound-scripts (hal required, using alsa-set-initial-mixer)
-#alsa-set-initial-mixer
+bc
 sysklogd
 udev
 
+make-initrd
+
 # boot
 bootsplash
-lilo
 memtest86+
+os-prober
 
 # editor
 vim-console
@@ -55,9 +59,12 @@ xfsprogs
 smartmontools
 reiserfsprogs
 jfsutils
+multipath-tools
 
-#printing
-#printer-drivers-base
+# scsi
+sdparm
+sg3_utils
+
 
 # servers
 openssh-server
@@ -95,16 +102,7 @@ mc
 
 #alsa-utils
 
-# kernel/firmware
-firmware-ipw2100
-firmware-ipw2200
-firmware-iwl3945
-firmware-iwl4965
-firmware-iwl5000
-firmware-acx100
-firmware-prism54
-firmware-rt73
-lm_sensors
+lm_sensors3
 update-kernel
 
 # compression
@@ -113,8 +111,11 @@ p7zip
 tar
 unzip
 zip
+xz
 
 bridge-utils
 
 gpm
 expect
+
+system-report

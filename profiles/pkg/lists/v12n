@@ -20,3 +20,4 @@ bind
 
 # SysV Shared Memory defaults (for e.g. PostgreSQL)
 installer-feature-shm-defaults-stage3
+

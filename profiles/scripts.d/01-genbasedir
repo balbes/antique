@@ -11,7 +11,7 @@ verbose started
 [ -d "$WORKDIR/ALTLinux" ] || exit 0
 cd "$WORKDIR/ALTLinux"
 
-set -- contrib-main addon-main
+set -- contrib-main addon-main ltsp-main
 for pair; do
 	slave=${pair%-*}
 	master=${pair#*-}

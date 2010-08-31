@@ -4,5 +4,6 @@ Type=Directory
 Name=Peer-to-peer clients
 X-Alterator-PackageList=gnome-peer-to-peer
 X-Alterator-Required=no
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Файлообменные сети
 Categories=GNOME

@@ -2,8 +2,7 @@
 
 #altlinux-release
 
-#to not fetch lynx
-firefox
+chromium-browser
 
 vim-enhanced
 

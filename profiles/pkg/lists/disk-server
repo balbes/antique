@@ -118,7 +118,7 @@ bind-doc
 bzip2-doc
 bzlib-devel-static
 cfdisk
-db4.4-utils
+db4.7-utils
 dnet
 dovecot-doc
 evms-cli
@@ -315,3 +315,6 @@ unreal unreal-doc
 389-admin-console
 389-console
 389-ds-console
+
+#needed for crypto
+lsb

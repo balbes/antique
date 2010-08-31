@@ -4,5 +4,6 @@ Type=Directory
 Name=Scanning
 X-Alterator-PackageList=scanning
 X-Alterator-Required=no
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Поддержка сканеров
 Categories=KDE;KDE4;GNOME;XFCE

@@ -1,5 +1,8 @@
 # tags: base, cd, dvd, desktop, server
 
+# 3ware RAID monitoring software
+@INTERNAL@tw_cli
+
 # interactivesystem
 anacron
 apt-conf-@APTCONF_PACKAGE@
@@ -12,19 +15,22 @@ interactivesystem
 kbd
 setarch
 shadow-suite
-#sound-scripts # using alsa-set-initial-mixer instead
+bc
 alsa-set-initial-mixer
 sysklogd
 udev
+udev-rule-generator
 # scanners support
 udev-extras
+
+make-initrd
 
 ifplugd
 
 # boot
 #bootsplash
-lilo
 memtest86+
+os-prober
 
 # editor
 vim-console
@@ -36,35 +42,40 @@ etcnet
 hostinfo
 iptables
 iputils
-###lftp
-###mailx
+#lftp
+#mailx
 netcat
 netlist
 openssh-clients
 rsync
 traceroute
 vlan-utils
+tcpdump
+rp-pppoe-base
+pptp-client
+net-tools
+ethtool
 
 # disk tools
 eject
 hdparm
-###lvm2
-###mdadm
+#lvm2
+#mdadm
 mtools
 ntfs-3g
 sfdisk
 usbutils
 xfsprogs
-###smartmontools
+#smartmontools
 reiserfsprogs
 jfsutils
 
 #samba
-###samba
+#samba
 
 # servers
-###openssh-server
-###postfix
+#openssh-server
+#postfix
 openntpd
 
 # security
@@ -72,7 +83,7 @@ openssl
 audit
 
 # debug
-###strace
+#strace
 
 # alterator
 alterator-auth
@@ -81,7 +92,7 @@ alterator-datetime
 alterator-logs
 alterator-net-iptables
 alterator-services
-###alterator-updates
+#alterator-updates
 branding-@BRANDING@-alterator
 installer-distro-@INSTALLER@-stage3
 installer-feature-copy-udev-rules-stage3
@@ -100,8 +111,8 @@ dbus
 mc
 
 # kernel/firmware
-lm_sensors
-###update-kernel
+lm_sensors3
+#update-kernel
 
 # compression
 cpio
@@ -114,5 +125,4 @@ zip
 alsa-utils
 screen
 acpid
-###mkbootflash
-rp-pppoe-base
+xz

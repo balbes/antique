@@ -20,6 +20,7 @@ $(IMAGES):
 	$(call set,MKI_OUTNAME,$@,$(AUTOCFG))
 	$(image_build)
 	tests/check-iso-size /home/inter/out/antique/$@
+#	isohybrid /home/inter/out/antique/$@
 	$(image_out)
 	$(call done,$@)
 

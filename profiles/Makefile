@@ -13,7 +13,7 @@ include /usr/share/mkimage/config.mk
 GLOBAL_PKGDIR = $(CURDIR)/pkg
 
 # packagelist stuff
-TOPDIR=/home/inter/mkiso/antique/mkimage-profiles-desktop_antique
+TOPDIR=/home/inter/mkiso/boyrsh/mkimage-profiles-desktop
 include functions.mk
 
 PROFILE=1
@@ -27,6 +27,7 @@ CHROOT_PACKAGES = apt-utils rsync \
 		  memtest86+ \
 		  branding-altlinux-desktop-bootloader \
 		  branding-altlinux-desktop-bootsplash \
+		  syslinux \
 		  findutils \
 		  bootsplash \
 		  branding-altlinux-desktop-notes \
@@ -95,7 +96,7 @@ loader-cfg: rm-loader
 # see also alterator-pkg
 isofiles/Metadata/pkg-groups.tar: \
 	$(call list,.base) \
-	$(call list,$(GLOBAL_PKG_GROUPS)) \
+	$(call list,$(shell  grep X-Alterator-PackageList /dev/null $(call group,$(GLOBAL_PKG_GROUPS)) | cut -d= -f2)) \
 	$(call group,$(GLOBAL_PKG_GROUPS)) \
 	| isofiles/Metadata
 	tar -cf $@ -C $(GLOBAL_PKGDIR) $(^:$(GLOBAL_PKGDIR)/%=%)

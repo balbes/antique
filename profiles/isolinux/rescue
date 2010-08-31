@@ -1,4 +1,4 @@
 label rescue
   kernel alt0/vmlinuz
-  append initrd=alt0/full.cz live ramdisk_size=65536 fastboot stagename=rescue showopts
+  append initrd=alt0/full.cz live ramdisk_size=@rescue_size@ fastboot stagename=rescue showopts
 

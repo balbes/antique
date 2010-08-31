@@ -4,5 +4,6 @@ Type=Directory
 Name=Blogs Clients
 X-Alterator-PackageList=blogs
 X-Alterator-Required=no
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Ведение блогов
 Categories=KDE;KDE4

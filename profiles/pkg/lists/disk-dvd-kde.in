@@ -16,6 +16,8 @@ NetworkManager-openvpn-gnome
 NetworkManager-pptp-gnome
 NetworkManager-vpnc-gnome
 
+rp-pppoe-gui
+
 chromium-browser
 chromium-browser-codecs
 
@@ -26,7 +28,5 @@ vlc-maxi
 vlc-mini
 
 skanlite
-
-openoffice.org-kde4
 
 cuneiform-qt

@@ -4,6 +4,7 @@ Type=Directory
 Name=DHCP Server
 X-Alterator-PackageList=dhcp-server
 X-Alterator-Required=no
+X-Alterator-Parent=server-apps
 Name[ru_RU]=Сервер DHCP
 Categories=Server;Networking
 

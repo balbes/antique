@@ -4,5 +4,6 @@ Type=Directory
 Name=IP Phone
 X-Alterator-PackageList=gnome-phone
 X-Alterator-Required=no
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Интернет-телефон
 Categories=GNOME

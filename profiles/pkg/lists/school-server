@@ -6,3 +6,10 @@ moodle-local-mysql
 moodle-lang-ru_utf8
 
 installed-db-office-server
+
+clamav
+clamav-db
+
+# Set available online repository and some useful utilites from /sbin
+installer-feature-symlinks-from-sbin
+installer-feature-online-repo

@@ -28,13 +28,6 @@ installer-feature-hack-version
 branding-altlinux-desktop-indexhtml
 antique-default-settings
 
-### icewm ****************************
-icewm
-icewm-startup-xxkb
-icewm-startup
-icewm-startup-update-menus
-icewm-theme-elegance
-
 # Fonts ******************************
 fonts-ttf-liberation
 fonts-ttf-linuxlibertine
@@ -47,9 +40,6 @@ net-tools
 # Utilites ***************************
 cdrkit-utils
 wodim
-
-## Look & feels **********************
-tango-icon-theme
 
 # Other useful ***********************
 pcmciautils

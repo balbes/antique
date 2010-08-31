@@ -10,6 +10,9 @@ branding-altlinux-desktop-bootloader
 
 
 
+
+
+
 anacron
 apt-conf-branch
 apt
@@ -21,22 +24,25 @@ interactivesystem
 kbd
 setarch
 shadow-suite
-
+bc
 alsa-set-initial-mixer
 sysklogd
 udev
+udev-rule-generator
 
 udev-extras
+
+make-initrd
 
 ifplugd
 
 
 
-lilo
-memtest86+
+
+os-prober
 
 
-vim-console
+
 
 
 curl
@@ -47,12 +53,17 @@ iptables
 iputils
 
 
-netcat
-netlist
-openssh-clients
+
+
+
 rsync
-traceroute
-vlan-utils
+
+
+
+
+
+
+
 
 
 eject
@@ -74,24 +85,24 @@ jfsutils
 
 
 
-openntpd
+
 
 
 openssl
-audit
 
 
 
 
 
-alterator-auth
-alterator-control
-alterator-datetime
-alterator-logs
-alterator-net-iptables
-alterator-services
 
-branding-altlinux-desktop-alterator
+
+
+
+
+
+
+
+
 installer-distro-desktop-stage3
 installer-feature-copy-udev-rules-stage3
 
@@ -109,7 +120,7 @@ dbus
 mc
 
 
-lm_sensors
+lm_sensors3
 
 
 
@@ -120,37 +131,17 @@ unzip
 zip
 
 
-alsa-utils
-screen
-acpid
 
-rp-pppoe-base
+
+acpid
+xz
 kernel-image-un-def
 kernel-modules-alsa-un-def
 
-kernel-modules-drm-un-def
-
-
-
-
-
-
-kernel-modules-omnibook-un-def
-
-kernel-modules-tp_smapi-un-def
-kernel-modules-v4l-un-def
+kernel-modules-igb-un-def
 
 
 kernel-modules-lirc-un-def
-
-
-
-
-
-
-
-
-
 
 
 
@@ -159,15 +150,15 @@ synaptic
 synaptic-usermode
 
 
-alterator-browser-qt
-alterator-standalone
-alterator-xkb
-alterator-net-pppoe
-alterator-net-pptp
-alterator-net-openvpn
-alterator-nsswitch
-alterator-profile
-alterator-proxy
+
+
+
+
+
+
+
+
+
 
 
 hal-laptop
@@ -183,27 +174,17 @@ branding-altlinux-desktop-indexhtml
 antique-default-settings
 
 
-icewm
-icewm-startup-xxkb
-icewm-startup
-icewm-startup-update-menus
-icewm-theme-elegance
-
-
 fonts-ttf-liberation
 fonts-ttf-linuxlibertine
 fonts-ttf-oldstandard
 
 
-wget
-net-tools
 
 
-cdrkit-utils
-wodim
 
 
-tango-icon-theme
+
+
 
 
 pcmciautils
@@ -216,7 +197,6 @@ packages-info-i18n-ru
 pinfo
 hda-verb
 xorg-drv-intel
-xorg-drv-i810
 xorg-drv-video
 alterator-x11
 alterator-backend-x11
@@ -224,7 +204,6 @@ xorg-server
 xorg-drv-apm
 xorg-drv-ark
 xorg-drv-ati
-xorg-drv-chips
 xorg-drv-cirrus
 xorg-drv-evdev
 xorg-drv-fbdev
@@ -232,13 +211,10 @@ xorg-drv-i740
 xorg-drv-joystick
 xorg-drv-mga
 xorg-drv-multimedia
-xorg-drv-neomagic
 xorg-drv-nv
-xorg-drv-rendition
 xorg-drv-s3
 xorg-drv-s3virge
 xorg-drv-savage
-xorg-drv-siliconmotion
 xorg-drv-sis
 xorg-drv-synaptics
 xorg-drv-tdfx
@@ -250,16 +226,16 @@ xorg-drv-keyboard
 xorg-drv-mouse
 
 
-xorg-drv-vmware
+
 xorg-drv-void
 xorg-dri-*
 xauth
 xorg-utils
 xorg-extensions*
-fglrx_glx
 xorg-drv-wacom
 xinit
 wm-select
+fvwm-base
 
 
 

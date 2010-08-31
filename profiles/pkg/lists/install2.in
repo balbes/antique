@@ -22,13 +22,12 @@ pcmciautils
 shadow-groups
 
 installer-distro-@INSTALLER@-stage2
-installer-feature-add-memtest-stage2
 installer-feature-autohostname-stage2
 installer-feature-setup-bootloader-stage2
 installer-feature-setup-network-stage2
 installer-feature-rm-slideshow
 
-fonts-ttf-liberation
+fonts-ttf-droid
 bootsplash
 
 #fglrx_glx

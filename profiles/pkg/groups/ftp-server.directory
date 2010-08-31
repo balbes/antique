@@ -4,6 +4,7 @@ Type=Directory
 Name=FTP Server
 X-Alterator-PackageList=ftp-server
 X-Alterator-Required=no
+X-Alterator-Parent=server-apps
 Name[ru_RU]=Сервер ftp
 Categories=Server;Networking
 

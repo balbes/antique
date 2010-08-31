@@ -1,4 +1,2 @@
 kernel-modules-dahdi-@KERNEL_MOD@
-kernel-modules-wanpipe-@KERNEL_MOD@
-kernel-modules-cronyx-@KERNEL_MOD@
 

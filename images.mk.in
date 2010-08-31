@@ -20,6 +20,7 @@ $(IMAGES):
 	$(call set,MKI_OUTNAME,$@,$(AUTOCFG))
 	$(image_build)
 	tests/check-iso-size @OUTDIR@/$@
+#	isohybrid @OUTDIR@/$@
 	$(image_out)
 	$(call done,$@)
 

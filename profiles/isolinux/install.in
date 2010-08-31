@@ -1,8 +1,8 @@
 label linux
   kernel alt0/vmlinuz
-    append initrd=alt0/full.cz changedisk ramdisk_size=65536 lang=@LOCALE@ vga=0x314 splash=silent noeject splashcount=17 xdriver=auto showopts
+    append initrd=alt0/full.cz changedisk ramdisk_size=@altinst_size@ lang=@LOCALE@ vga=0x314 splash=silent noeject splashcount=17 xdriver=auto quiet=1 showopts
 
 label failsafe
   kernel alt0/vmlinuz
-    append initrd=alt0/full.cz changedisk ramdisk_size=65536 lang=@LOCALE@  showopts noapic pci=nomsi noeject acpi=off noload=ahci
+    append initrd=alt0/full.cz changedisk ramdisk_size=@altinst_size@ lang=@LOCALE@  showopts noapic pci=nomsi noeject acpi=off noload=ahci
 

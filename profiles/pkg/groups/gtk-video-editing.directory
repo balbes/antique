@@ -4,5 +4,6 @@ Type=Directory
 Name=Video editing
 X-Alterator-PackageList=gtk-video-editing
 X-Alterator-Required=no
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Обработка видео
 Categories=GNOME

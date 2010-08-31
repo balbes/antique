@@ -8,9 +8,15 @@ exec >syslinux/$INFO_BOOT_TYPE.cfg
 
 cat ../.in/isolinux/common
 
-[ -r altinst ] && cat ../.in/isolinux/install$LOADER_SUFFIX
+if [ -r altinst ] ; then
+	size=$[ $(stat -c%s altinst) / 1000 +1 ]
+	cat ../.in/isolinux/install$LOADER_SUFFIX | sed "s/@altinst_size@/$size/g"
+fi
 
-[ -r rescue ] && cat ../.in/isolinux/rescue$LOADER_SUFFIX
+if [ -r rescue ] ; then
+	size=$[ $(stat -c%s rescue) / 1000 +1 ]
+	cat ../.in/isolinux/rescue$LOADER_SUFFIX |  sed "s/@rescue_size@/$size/g"
+fi
 
 [ -r live ] && cat ../.in/isolinux/live$LOADER_SUFFIX
 

@@ -35,16 +35,12 @@ alterator-fbi
 
 alterator-bacula
 alterator-ca
-alterator-ddns
-alterator-dhcp
 alterator-firsttime
 alterator-kdc
 alterator-ldap-groups
 alterator-ldap-users
 alterator-lilo
 alterator-mirror
-alterator-mkve
-alterator-net-domain
 alterator-net-eth
 alterator-net-pppoe
 alterator-net-pptp
@@ -56,7 +52,6 @@ alterator-squid
 alterator-squidmill
 alterator-quota
 alterator-trust
-alterator-vsftpd
 alterator-xinetd
 alterator-postfix-dovecot
 alterator-ulogd

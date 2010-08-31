@@ -621,6 +621,7 @@ DISTRO
 LABEL
 LOCALE
 LANGUAGE
+INTERNAL
 I586_ONLY
 KERNEL_REL
 KERNEL_RELEASE
@@ -690,6 +691,7 @@ with_mkimage
 with_clamavdb
 with_imagetype
 with_squashfs_version
+with_internal
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1355,6 +1357,8 @@ Optional Packages:
                           select squashfs version; e.g
                           '--with-squashfs-version=3'
 
+  --with-internal         use packages that not destributable or doesn't
+                          exists in public repositories
 
 Report bugs to <http://bugzilla.altlinux.ru >.
 _ACEOF
@@ -1905,22 +1909,40 @@ if test "${with_distro+set}" = set; then
 					LABEL="Lite"
 					INSTALLER=${with_installer:-"junior"}
 					DEFAULT_ISO=${with_image:-"school-lite.cd1 school-lite.cd2"};;
+				    school-terminal)
+					BRANDING=${with_branding:-"school-terminal"}
+					DOCS=${with_docs:-"desktop"}
+					INSTALLER=${with_installer:-"desktop"}
+					LABEL="Terminal"
+					DEFAULT_ISO=${with_image:-"school-terminal.dvd"};;
 				    office-server*)
 					BRANDING=${with_branding:-"altlinux-office-server"}
 					DOCS=${with_docs:-"office-server"}
 					INSTALLER=${with_installer:-"office-server"}
 					LABEL="OfficeServer"
-					DEFAULT_ISO="office-server.cd";;
+					DEFAULT_ISO="office-server.cd"
+				 	KERNEL="ovz-smp" # apt-style
+				 	KERNEL_MOD=`echo "ovz-smp" | bin/generate-modversion ` # 2.6.18-std-smp-alt12
+				    	with_squashfs_version=3
+				    	;;
 				    server-light*)
-					BRANDING=${with_branding:-"branding-sisyphus-server-light"}
+					BRANDING=${with_branding:-"sisyphus-server-light"}
 					DOCS=
 					NODOCS="#"
 					INSTALLER=${with_installer:-"server-light"}
 					LABEL="Server"
-					APTCONF_PACKAGE="sisyphus"
+				        APTCONF_PACKAGE="sisyphus"
 					DEFAULT_ISO="server-light.cd"
 					KERNEL="un-def"
 					KERNEL_MOD="un-def";;
+				    centaurus)
+					BRANDING=${with_branding:-"altlinux-centaurus"}
+					DOCS=
+					NODOCS="#"
+					INSTALLER=${with_installer:-"centaurus"}
+					LABEL="Server"
+				        APTCONF_PACKAGE="sisyphus"
+					DEFAULT_ISO=${with_image:-"centaurus.dvd"};;
 				    school-server*)
 					BRANDING=${with_branding:-"altlinux-school-server"}
 					DOCS=${with_docs:-"school-server"}
@@ -1945,6 +1967,12 @@ if test "${with_distro+set}" = set; then
 					INSTALLER=${with_installer:-"v12n-server"}
 					LABEL="V12n Server"
 					DEFAULT_ISO="v12n-server.cd";;
+				    pbx-office*)
+					BRANDING=${with_branding:-"altlinux-office-server"}
+					DOCS=${with_docs:-"server"}
+					INSTALLER=${with_installer:-"v12n-server"}
+					LABEL="PBX"
+					DEFAULT_ISO="pbx-office.cd";;
 				    pbx-huge*)
 					BRANDING=${with_branding:-"altlinux-office-server"}
 					DOCS=${with_docs:-"server"}
@@ -1963,13 +1991,13 @@ if test "${with_distro+set}" = set; then
 					INSTALLER=${with_installer:-"chainmail"}
 					LABEL="Chainmail"
 					DEFAULT_ISO="chainmail.cd";;
-			    	    workbench)
+				    workbench)
 					BRANDING=${with_branding:-"altlinux-workbench"}
 					INSTALLER=${with_installer:-"workbench"}
 					DOCS=${with_docs:-"desktop"}
 					LABEL="Workbench"
 					DEFAULT_ISO=${with_image:-"workbench.cd"};;
-			    	    gnome-desktop*)
+				    gnome-desktop*)
 					BRANDING=${with_branding:-"altlinux-gnome-desktop"}
 					INSTALLER=${with_installer:-"desktop"}
 					DOCS=${with_docs:-"desktop"}
@@ -2008,7 +2036,12 @@ if test "${with_distro+set}" = set; then
 				    *)
 					BRANDING=${with_branding:-"altlinux-desktop"}
 					INSTALLER=${with_installer:-"desktop"}
-					DOCS=${with_docs:-"desktop"}
+					if test -n "$with_docs"; then
+						DOCS="$with_docs"
+					else
+						DOCS="NONE"
+						NODOCS="#"
+					fi
 					LABEL="Desktop"
 					DEFAULT_ISO="kde.dvd";;
 				    esac
@@ -2029,7 +2062,7 @@ else
                                         DESIGN=$(echo "$BRANDING" | cut -d- -f2-)
 					DOCS="desktop"
 					LABEL="Desktop"
-				        APTCONF_PACKAGE="branch"
+				        APTCONF_PACKAGE="desktop"
 					DEFAULT_ISO="kde.dvd"
 
 fi
@@ -2055,8 +2088,8 @@ $as_echo "** version: $with_version" >&6; }
 
 else
 
-			     BRANCH="5.1"
-			     VERSION="5.1"
+			     BRANCH="5.0"
+			     VERSION="5.0"
 
 fi
 
@@ -2266,6 +2299,20 @@ fi
 
 SQUASHFS_VERSION=${with_squashfs_version:-4}
 
+
+# Check whether --with-internal was given.
+if test "${with_internal+set}" = set; then
+  withval=$with_internal;
+				INTERNAL=''
+
+else
+
+			    INTERNAL='#'
+
+fi
+
+
+
 TOPDIR=`dirname $(realpath $0)`
 
 
@@ -2308,7 +2355,8 @@ TOPDIR=`dirname $(realpath $0)`
 
 
 
-ac_config_files="$ac_config_files Makefile globals.mk images.mk use.mk profiles/Makefile profiles/addon/Makefile profiles/live/Makefile profiles/main/Makefile profiles/kernel-pae/Makefile profiles/install2/Makefile profiles/isolinux/common profiles/isolinux/install profiles/contrib/Makefile profiles/rescue/Makefile profiles/ltsp/Makefile profiles/pkg/lists/asterisk-devel profiles/pkg/lists/base profiles/pkg/lists/base-server profiles/pkg/lists/contrib profiles/pkg/lists/disk-dvd profiles/pkg/lists/disk-dvd-gnome profiles/pkg/lists/disk-dvd-kde profiles/pkg/lists/disk-server profiles/pkg/lists/disk-server-light profiles/pkg/lists/docs profiles/pkg/lists/emulators profiles/pkg/lists/gnome-base profiles/pkg/lists/gnome-addons profiles/pkg/lists/gnome-workbench profiles/pkg/lists/graphics-editing profiles/pkg/lists/install2 profiles/pkg/lists/kde profiles/pkg/lists/kde3 profiles/pkg/lists/kde3-lite profiles/pkg/lists/kde-lite profiles/pkg/lists/kernel profiles/pkg/lists/kernel-pbx profiles/pkg/lists/kernel-server profiles/pkg/lists/network profiles/pkg/lists/office-superlite profiles/pkg/lists/office-server profiles/pkg/lists/school-server profiles/pkg/lists/pspo profiles/pkg/lists/pspo-kde profiles/pkg/lists/pspo-gnome profiles/pkg/lists/rescue profiles/pkg/lists/server profiles/pkg/lists/server-light profiles/pkg/lists/slinux-network profiles/pkg/lists/xfce profiles/pkg/lists/xfce-network-lite profiles/pkg/lists/xfce-office-lite profiles/pkg/lists/xorg profiles/scripts.d/02-gfxboot profiles/scripts.d/05-copydocs tests/tests.d/contents tests/Makefile"
+
+ac_config_files="$ac_config_files Makefile globals.mk images.mk use.mk profiles/Makefile profiles/addon/Makefile profiles/live/Makefile profiles/main/Makefile profiles/kernel-pae/Makefile profiles/install2/Makefile profiles/isolinux/common profiles/isolinux/install profiles/contrib/Makefile profiles/rescue/Makefile profiles/ltsp/Makefile profiles/pkg/lists/alterator-server profiles/pkg/lists/asterisk-devel profiles/pkg/lists/base profiles/pkg/lists/base-server profiles/pkg/lists/base-mithraenpbx profiles/pkg/lists/contrib profiles/pkg/lists/centaurus-dev profiles/pkg/lists/disk-dvd profiles/pkg/lists/disk-dvd-gnome profiles/pkg/lists/disk-dvd-kde profiles/pkg/lists/disk-server profiles/pkg/lists/disk-server-light profiles/pkg/lists/docs profiles/pkg/lists/emulators profiles/pkg/lists/gnome-base profiles/pkg/lists/gnome-addons profiles/pkg/lists/gnome-workbench profiles/pkg/lists/graphics-editing profiles/pkg/lists/install2 profiles/pkg/lists/kde profiles/pkg/lists/kde3 profiles/pkg/lists/kde3-lite profiles/pkg/lists/kde-lite profiles/pkg/lists/kernel profiles/pkg/lists/kernel-desktop profiles/pkg/lists/kernel-installer profiles/pkg/lists/kernel-pbx profiles/pkg/lists/kernel-pbx-wanpipe profiles/pkg/lists/kernel-video profiles/pkg/lists/kernel-wifi profiles/pkg/lists/kernel-server profiles/pkg/lists/network profiles/pkg/lists/office-superlite profiles/pkg/lists/office-server profiles/pkg/lists/school-server profiles/pkg/lists/pspo profiles/pkg/lists/pspo-kde profiles/pkg/lists/pspo-gnome profiles/pkg/lists/rescue profiles/pkg/lists/server profiles/pkg/lists/server-light profiles/pkg/lists/slinux-network profiles/pkg/lists/xfce profiles/pkg/lists/xfce-network-lite profiles/pkg/lists/xfce-office-lite profiles/pkg/lists/xorg profiles/scripts.d/02-gfxboot profiles/scripts.d/05-copydocs tests/tests.d/contents tests/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -2933,10 +2981,13 @@ do
     "profiles/contrib/Makefile") CONFIG_FILES="$CONFIG_FILES profiles/contrib/Makefile" ;;
     "profiles/rescue/Makefile") CONFIG_FILES="$CONFIG_FILES profiles/rescue/Makefile" ;;
     "profiles/ltsp/Makefile") CONFIG_FILES="$CONFIG_FILES profiles/ltsp/Makefile" ;;
+    "profiles/pkg/lists/alterator-server") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/alterator-server" ;;
     "profiles/pkg/lists/asterisk-devel") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/asterisk-devel" ;;
     "profiles/pkg/lists/base") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/base" ;;
     "profiles/pkg/lists/base-server") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/base-server" ;;
+    "profiles/pkg/lists/base-mithraenpbx") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/base-mithraenpbx" ;;
     "profiles/pkg/lists/contrib") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/contrib" ;;
+    "profiles/pkg/lists/centaurus-dev") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/centaurus-dev" ;;
     "profiles/pkg/lists/disk-dvd") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/disk-dvd" ;;
     "profiles/pkg/lists/disk-dvd-gnome") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/disk-dvd-gnome" ;;
     "profiles/pkg/lists/disk-dvd-kde") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/disk-dvd-kde" ;;
@@ -2954,7 +3005,12 @@ do
     "profiles/pkg/lists/kde3-lite") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kde3-lite" ;;
     "profiles/pkg/lists/kde-lite") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kde-lite" ;;
     "profiles/pkg/lists/kernel") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel" ;;
+    "profiles/pkg/lists/kernel-desktop") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-desktop" ;;
+    "profiles/pkg/lists/kernel-installer") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-installer" ;;
     "profiles/pkg/lists/kernel-pbx") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-pbx" ;;
+    "profiles/pkg/lists/kernel-pbx-wanpipe") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-pbx-wanpipe" ;;
+    "profiles/pkg/lists/kernel-video") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-video" ;;
+    "profiles/pkg/lists/kernel-wifi") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-wifi" ;;
     "profiles/pkg/lists/kernel-server") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/kernel-server" ;;
     "profiles/pkg/lists/network") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/network" ;;
     "profiles/pkg/lists/office-superlite") CONFIG_FILES="$CONFIG_FILES profiles/pkg/lists/office-superlite" ;;

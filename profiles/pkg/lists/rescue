@@ -47,7 +47,6 @@ sdparm
 sfdisk
 smartmontools
 testdisk
-mkbootflash
 mtools
 
 ### Applications

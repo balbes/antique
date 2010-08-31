@@ -6,14 +6,15 @@ include use.mk
 include images.mk
 include clean.mk
 
-PRODUCTS = antique.cd kde.cd lite.cd slinux.cd gnome.cd minimal.cd icemaker.cd fvwm.cd \
+PRODUCTS = kde.cd lite.cd slinux.cd gnome.cd minimal.cd icemaker.cd fvwm.cd \
 	test.dvd runa.dvd etersoft.dvd buildsystem.cd \
 	ltsp-kde3.cd ltsp-kde3.dvd ltsp-kde.cd ltsp-gnome.cd ltsp-slinux.cd \
 	live.cd live-gnome.cd live-lite.cd live-xlite.cd live-homeros.cd \
 	live-kde.dvd sugar.cd lxde.cd office-server.cd school-server.cd server-light.cd children.cd \
 	rescue.cd custom.cd \
 	master.dvd junior.dvd school-lite.cd1 school-lite.cd2 \
-	chainmail.cd
+	centaurus.dvd centaurus-test.dvd \
+	chainmail.cd school-terminal.dvd antique.cd
 
 .PHONY: $(PRODUCTS) rinse
 
@@ -94,6 +95,7 @@ school-server.cd: | use-server use-office-server use-school-server install2 main
 backup-server.cd: | use-backup install2 main install-cd.iso
 389-server.cd: | use-389 install2 main install-cd.iso
 v12n-server.cd: | use-v12n install2 main install-cd.iso
+pbx-office.cd: | use-pbx-office install2 main rescue install-cd.iso
 pbx-huge.dvd: | use-pbx-huge install2 main rescue install-cd.iso
 
 chainmail.cd: | use-chainmail install2 main rescue install-cd.iso
@@ -102,10 +104,13 @@ server-light.cd: | use-server-light install2 main rescue install-cd.iso
 
 buildsystem.cd: | use-kde-lite use-buildsystem install2 main  install-cd.iso
 
+centaurus.dvd:	|  use-server-light  use-centaurus use-live-restore use-gnome-live-dvd install2 main rescue live install-dvd5.iso
+centaurus-test.dvd:	|  use-server-light  use-centaurus use-live-restore use-gnome-live-dvd install2 main install-dvd5.iso
+
 # school suite
-master.dvd: | use-pspo-kde vm-profile-master install2 main live install-dvd5.iso
+master.dvd: | use-pspo-kde use-school-master vm-profile-master install2 main live install-dvd5.iso
 master-test.dvd: | use-pspo-kde vm-profile-master install2 main install-dvd5.iso
-junior.dvd: | use-pspo-gnome install2 main live install-dvd5.iso
+junior.dvd: | use-pspo-gnome vm-profile-master install2 main live install-dvd5.iso
 school-lite.cd1: | use-school-lite use-xfce-docs use-docs use-xfce-graphics-lite use-desktop \
 	install2 main install-cd.iso
 school-lite.cd2: | use-school-lite addon-pspo-xfce addon main addon-cd.iso

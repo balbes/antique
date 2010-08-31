@@ -21,7 +21,9 @@ IMAGE_PACKAGES = branding-@BRANDING@-release \
 		 branding-@BRANDING@-slideshow \
 		 $(GLOBAL_INSTALL2_PACKAGES) \
 		 $(call list,$(GLOBAL_INSTALL2_PACKAGE_LISTS)) \
-		 $(call list,install2)
+		 $(call list,install2) \
+		 $(call list,kernel) \
+		 $(call list,kernel-installer)
 
 MKI_PACK_RESULTS = squash:altinst
 

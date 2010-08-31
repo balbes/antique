@@ -4,6 +4,7 @@ Type=Directory
 Name=Dictionary
 X-Alterator-PackageList=gtk-dictionary
 X-Alterator-Required=yes
+X-Alterator-Parent=centaurus-desktop
 Name[ru_RU]=Словарь
 Categories=GNOME;XFCE
 

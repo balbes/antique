@@ -27,6 +27,7 @@ CHROOT_PACKAGES = apt-utils rsync \
 		  memtest86+ \
 		  branding-@BRANDING@-bootloader \
 		  branding-@BRANDING@-bootsplash \
+		  syslinux \
 		  findutils \
 		  bootsplash \
 		  branding-@BRANDING@-notes \
@@ -95,7 +96,7 @@ loader-cfg: rm-loader
 # see also alterator-pkg
 isofiles/Metadata/pkg-groups.tar: \
 	$(call list,.base) \
-	$(call list,$(GLOBAL_PKG_GROUPS)) \
+	$(call list,$(shell  grep X-Alterator-PackageList /dev/null $(call group,$(GLOBAL_PKG_GROUPS)) | cut -d= -f2)) \
 	$(call group,$(GLOBAL_PKG_GROUPS)) \
 	| isofiles/Metadata
 	tar -cf $@ -C $(GLOBAL_PKGDIR) $(^:$(GLOBAL_PKGDIR)/%=%)
