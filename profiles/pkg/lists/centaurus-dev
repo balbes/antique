@@ -1,0 +1,4 @@
+^eclipse*
+
+kernel-headers-un-def
+kernel-headers-modules-un-def

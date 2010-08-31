@@ -1,0 +1,14 @@
+syskeeper-hn
+asterisk1.6.2-complete
+screen
+perl-Asterisk-FastAGI
+perldoc
+perl-unicore
+perltidy
+tig
+tshark
+mithraen-agi
+make
+
+#asterisk1.6.2-chan_skype
+#asterisk-sounds-ru-wav

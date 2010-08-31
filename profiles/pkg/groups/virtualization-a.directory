@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Virtualization
+X-Alterator-PackageList=virtualization-a
+X-Alterator-Parent=alterator
+X-Alterator-Depends=kvm-server
+X-Alterator-Required=yes
+Name[ru_RU]=Виртуализация
+Categories=Server;Networking

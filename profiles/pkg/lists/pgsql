@@ -1,0 +1,16 @@
+apt
+basesystem
+sysklogd
+etcnet
+glibc-nss
+glibc-gconv-modules
+glibc-i18ndata
+glibc-locales
+less
+openssh-server
+passwd
+pgpool-II
+postgresql8.3
+postgresql8.3-contrib
+postgresql8.3-perl
+postgresql8.3-server

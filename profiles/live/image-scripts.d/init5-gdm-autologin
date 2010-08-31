@@ -1,0 +1,35 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# Autologin at kdm to user "altlinux"
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-gdm-autologin"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+
+# default runlevel
+# FIXME: use installer-feature?
+[ -z "$runlevel" ] && runlevel=5 
+subst "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," /etc/inittab 
+
+[ -f /etc/X11/gdm/custom.conf ] || exit
+#setup autologin
+subst 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=altlinux\n/' /etc/X11/gdm/custom.conf

@@ -1,0 +1,2 @@
+kernel-modules-drm-@KERNEL_MOD@
+kernel-modules-nvidia-@KERNEL_MOD@

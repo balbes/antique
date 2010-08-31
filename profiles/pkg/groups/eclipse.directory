@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Eclipse IDE
+X-Alterator-PackageList=eclipse
+X-Alterator-Parent=centaurus-dev
+X-Alterator-Required=no
+Name[ru_RU]=Интегрированная среда Eclipse

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Server
+X-Alterator-PackageList=office-server
+X-Alterator-Required=yes
+Name[ru_RU]=Сервер

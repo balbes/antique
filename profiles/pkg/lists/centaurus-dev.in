@@ -1,0 +1,4 @@
+^eclipse*
+
+kernel-headers-@KERNEL@
+kernel-headers-modules-@KERNEL@

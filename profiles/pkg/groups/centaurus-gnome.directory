@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=GNOME desktop enviroment
+X-Alterator-PackageList=centaurus-gnome
+X-Alterator-Parent=centaurus-desktop
+X-Alterator-Required=yes
+Name[ru_RU]=Среда GNOME

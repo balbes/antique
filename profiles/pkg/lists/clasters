@@ -1,0 +1,89 @@
+# servers
+heartbeat
+
+# monitoring
+sysstat
+
+#cluster tools: addons
+torque-server
+torque-client
+torque-scheduler
+torque-docs
+torque-mom
+libibverbs-devel
+maui
+libmaui-devel
+
+#slurm
+slurm-blcr
+slurm-master
+slurm-plugins
+slurm-slave
+slurm-slurmdbd
+slurm-sview
+slurm-utils
+libtorque-devel
+libganglia-devel
+lam
+lam-devel
+
+#xCAT
+xCAT
+xCAT-server
+xCAT-client
+xCAT-netboot-alt
+xCAT-nbroot-core-x86
+xCAT-nbroot-core-ppc64
+xCAT-nbroot-core-x86_64
+xCATsn
+MySQL-server
+
+# ldap support
+pam_ldap
+nss_ldap
+openldap-clients
+openldap-doc
+openldap-servers
+openldap-clients
+
+# hasher repo reqs
+setup
+filesystem
+rpm
+fakeroot
+basesystem
+rpm-build
+kernel-headers-common
+sisyphus_check
+
+# mkimage repo reqs
+mkisofs
+rsync
+glibc-utils
+mar
+mkisofs
+propagator
+rsync
+squashfsprogs
+syslinux
+
+
+# hpc kernel
+kernel-headers-modules-hpc-skif
+kernel-headers-hpc-skif
+
+
+# monitoring: addons
+apache2-httpd-prefork
+ganglia-web
+ganglia-gmetad
+ganglia-gmond
+libganglia-devel
+
+# other
+ipmitool
+
+#gcc openMP support files
+libgomp4.1
+libgomp4.1-devel
+

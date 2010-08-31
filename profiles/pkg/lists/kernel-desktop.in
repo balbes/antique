@@ -1,0 +1,4 @@
+kernel-modules-omnibook-@KERNEL_MOD@
+kernel-modules-tp_smapi-@KERNEL_MOD@
+kernel-modules-v4l-@KERNEL_MOD@
+kernel-modules-lirc-@KERNEL_MOD@

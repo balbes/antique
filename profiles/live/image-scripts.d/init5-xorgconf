@@ -1,0 +1,29 @@
+#!/bin/sh
+
+#     DESCRIPTION
+#
+# remove /etc/X11/xorg.conf
+
+
+#     REQUIRES
+#
+# Nothing
+
+
+#     INFO
+#
+
+NAME="init5-xorgconf"
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: $NAME: $@"
+    fi
+}
+
+verbose "has started"
+
+rm -f /etc/X11/xorg.conf
+
+verbose "finished"

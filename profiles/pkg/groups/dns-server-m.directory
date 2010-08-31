@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Management interface
+X-Alterator-PackageList=dns-server-m
+X-Alterator-Parent=dns-server-g
+X-Alterator-Depends=dns-server
+X-Alterator-Required=no
+Name[ru_RU]=Интерфейс управления
+Categories=Server;Networking
