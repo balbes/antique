@@ -267,8 +267,8 @@ AC_ARG_WITH(version,
 			    AC_MSG_RESULT([** version: $with_version])
 			    ],
 			    [
-			     BRANCH="5.0"
-			     VERSION="5.0"
+			     BRANCH="5.1"
+			     VERSION="5.1"
 			     ])
 
 
