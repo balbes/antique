@@ -2088,8 +2088,8 @@ $as_echo "** version: $with_version" >&6; }
 
 else
 
-			     BRANCH="5.0"
-			     VERSION="5.0"
+			     BRANCH="5.1"
+			     VERSION="5.1"
 
 fi
 

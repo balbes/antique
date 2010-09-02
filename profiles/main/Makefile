@@ -10,7 +10,7 @@ include /usr/share/mkimage/config.mk
 -include stage-autocfg.mk
 
 # packagelist stuff
-TOPDIR=/home/inter/mkiso/boyrsh/mkimage-profiles-desktop
+TOPDIR=/home/inter/mkiso/github/antique
 include ../functions.mk
 
 CHROOT_PACKAGES = apt-utils rsync

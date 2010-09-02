@@ -13,7 +13,7 @@ include /usr/share/mkimage/config.mk
 GLOBAL_PKGDIR = $(CURDIR)/pkg
 
 # packagelist stuff
-TOPDIR=/home/inter/mkiso/boyrsh/mkimage-profiles-desktop
+TOPDIR=/home/inter/mkiso/github/antique
 include functions.mk
 
 PROFILE=1

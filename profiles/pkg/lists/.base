@@ -38,11 +38,11 @@ ifplugd
 
 
 
-
+memtest86+
 os-prober
 
 
-
+vim-console
 
 
 curl
@@ -53,17 +53,17 @@ iptables
 iputils
 
 
-
-
-
+netcat
+netlist
+openssh-clients
 rsync
-
-
-
-
-
-
-
+traceroute
+vlan-utils
+tcpdump
+rp-pppoe-base
+pptp-client
+net-tools
+ethtool
 
 
 eject
@@ -85,24 +85,24 @@ jfsutils
 
 
 
-
+openntpd
 
 
 openssl
+audit
 
 
 
 
 
+alterator-auth
+alterator-control
+alterator-datetime
+alterator-logs
+alterator-net-iptables
+alterator-services
 
-
-
-
-
-
-
-
-
+branding-altlinux-desktop-alterator
 installer-distro-desktop-stage3
 installer-feature-copy-udev-rules-stage3
 
@@ -131,8 +131,8 @@ unzip
 zip
 
 
-
-
+alsa-utils
+screen
 acpid
 xz
 kernel-image-un-def
@@ -150,15 +150,15 @@ synaptic
 synaptic-usermode
 
 
-
-
-
-
-
-
-
-
-
+alterator-browser-qt
+alterator-standalone
+alterator-xkb
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-nsswitch
+alterator-profile
+alterator-proxy
 
 
 hal-laptop
@@ -179,12 +179,12 @@ fonts-ttf-linuxlibertine
 fonts-ttf-oldstandard
 
 
+wget
+net-tools
 
 
-
-
-
-
+cdrkit-utils
+wodim
 
 
 pcmciautils
