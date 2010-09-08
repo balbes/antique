@@ -9,7 +9,7 @@ DE_TARGETS = \
 	use-gnome use-gnome-dvd use-gnome-light use-gnome-live use-gnome-workbench \
 	use-kde-live-dvd use-kde3-lite use-kde3-live use-kde3 \
 	use-kde-desktop use-kde-lite use-kde-live \
-	use-lxde \
+	use-lxde use-lxde-lite \
 	use-sugar \
 	use-xfce use-xfce-school \
 	use-slinux
@@ -20,6 +20,7 @@ WM_TARGETS = \
 	use-wmaker \
 	use-wdm \
 	use-xdm \
+	use-lxdm \
 	use-gdm
 
 FEATURE_TARGETS = \
@@ -58,6 +59,10 @@ use-wdm:
 
 use-gdm:
 	echo GLOBAL_BASE_PACKAGES+='gdm2.20' >> "$(call scfg,main)"
+	$(call done,$@)
+
+use-lxdm:
+	echo GLOBAL_BASE_PACKAGES+='lxde-lxdm lxdm-theme-abstraction' >> "$(call scfg,live)"
 	$(call done,$@)
 
 use-alterator-desktop:

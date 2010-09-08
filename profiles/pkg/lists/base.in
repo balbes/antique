@@ -28,7 +28,7 @@ make-initrd
 ifplugd
 
 # boot
-#bootsplash
+bootsplash
 memtest86+
 os-prober
 

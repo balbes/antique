@@ -1,12 +1,12 @@
 # tags: antique, wm
 
-# window maker ********************
+# window maker
 WindowMaker
 wmsystemtray
 
 wmaker-theme-lumen_blue
 
-# monitoring & other applets ******
+# monitoring & other applets
 wmCalClock
 wmclock
 wmclockmon
@@ -34,7 +34,7 @@ wmpiki
 wmpinboard
 wmupmon
 
-# some applets ********************************
+# some applets
 wmfire
 wmhdplop
 wmWeather
@@ -43,3 +43,7 @@ wmusic
 wmeyes
 wmfortune
 wmMatrix
+
+wmfon
+wmxkbru
+wmaker-theme-lumen_blue
