@@ -48,7 +48,7 @@ slinux.cd: | use-slinux use-gdm install2 main install-cd.iso
 console.cd: | install2 main rescue install-cd.iso
 WM-mini.cd: | use-WM-mini use-wdm install2 main install-cd.iso
 icewm-mini.cd: | use-icewm-mini use-xdm install2 main install-cd.iso
-antique.cd: | use-antique use-xdm install2 main rescue install-cd.iso
+antique.cd: | use-antique use-gdm install2 main rescue install-cd.iso
 antique-full.cd: | use-antique-base disk-antique-disk use-xdm install2 main rescue install-cd.iso
 antique-base.cd: | use-antique-base use-xdm install2 main install-cd.iso
 #*********************

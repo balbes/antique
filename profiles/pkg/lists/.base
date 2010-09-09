@@ -5,7 +5,7 @@ branding-altlinux-desktop-notes
 branding-altlinux-desktop-alterator
 indexhtml-common
 branding-altlinux-desktop-indexhtml
-xdm
+gdm2.20
 branding-altlinux-desktop-bootloader
 
 
@@ -37,7 +37,7 @@ make-initrd
 ifplugd
 
 
-
+bootsplash
 memtest86+
 os-prober
 
@@ -101,11 +101,11 @@ alterator-datetime
 alterator-logs
 alterator-net-iptables
 alterator-services
-
+alterator-updates
 branding-altlinux-desktop-alterator
 installer-distro-desktop-stage3
 installer-feature-copy-udev-rules-stage3
-
+installer-feature-resolver-bind-stage3
 installer-feature-setup-network-stage3
 
 
@@ -121,7 +121,7 @@ mc
 
 
 lm_sensors3
-
+update-kernel
 
 
 cpio
@@ -165,7 +165,6 @@ hal-laptop
 dbus-tools
 dbus-tools-gui
 tk
-wmhalt
 
 
 installer-feature-xdm-reboot

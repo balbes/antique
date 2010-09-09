@@ -20,7 +20,6 @@ hal-laptop
 dbus-tools
 dbus-tools-gui
 tk
-wmhalt
 
 #features
 installer-feature-xdm-reboot

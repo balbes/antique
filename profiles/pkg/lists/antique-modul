@@ -3,16 +3,15 @@
 kernel-modules-fglrx-un-def
 kernel-modules-nvidia-un-def
 #kernel-modules-ndiswrapper-un-def
-#kernel-modules-igb-un-def
 #kernel-modules-rt2860-un-def
 kernel-modules-oss-un-def
 
-firmware-ipw2100
-firmware-ipw2200
-firmware-iwl3945
-firmware-iwl4965
-firmware-iwl5000
-firmware-iwl5150
-firmware-acx100
-firmware-prism54
-firmware-rt73
+#firmware-ipw2100
+#firmware-ipw2200
+#firmware-iwl3945
+#firmware-iwl4965
+#firmware-iwl5000
+#firmware-iwl5150
+#firmware-acx100
+#firmware-prism54
+#firmware-rt73

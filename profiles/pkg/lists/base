@@ -28,7 +28,7 @@ make-initrd
 ifplugd
 
 # boot
-#bootsplash
+bootsplash
 memtest86+
 os-prober
 
@@ -92,11 +92,11 @@ alterator-datetime
 alterator-logs
 alterator-net-iptables
 alterator-services
-#alterator-updates
+alterator-updates
 branding-altlinux-desktop-alterator
 installer-distro-desktop-stage3
 installer-feature-copy-udev-rules-stage3
-#installer-feature-resolver-bind-stage3
+installer-feature-resolver-bind-stage3
 installer-feature-setup-network-stage3
 
 # ldap
@@ -112,7 +112,7 @@ mc
 
 # kernel/firmware
 lm_sensors3
-#update-kernel
+update-kernel
 
 # compression
 cpio

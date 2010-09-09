@@ -4,8 +4,6 @@
 WindowMaker
 wmsystemtray
 
-wmaker-theme-lumen_blue
-
 # monitoring & other applets
 wmCalClock
 wmclock
@@ -44,6 +42,8 @@ wmeyes
 wmfortune
 wmMatrix
 
-wmfon
-wmxkbru
-wmaker-theme-lumen_blue
+wmhalt
+#wmfon
+#wmxkbru
+#wmaker-theme-lumen_blue
+#wmpower
