@@ -120,8 +120,7 @@ use-desktop: use-xorg use-alterator-desktop
 
 use-antique:
 	echo GLOBAL_BASE_PACKAGE_LISTS+='antique' >> "$(call scfg,main)"
-	echo GLOBAL_PKG_GROUPS+='antique-modul antique-admin antique-full antique-multimedia \
-	antique-office antique-wm antique-icewm antique-mini' >> $(AUTOCFG)
+	echo GLOBAL_PKG_GROUPS+='antique-wm antique-icewm antique-mini' >> $(AUTOCFG)
 	$(call done,$@)
 
 use-live-restore:

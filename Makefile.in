@@ -14,7 +14,7 @@ PRODUCTS = kde.cd lite.cd slinux.cd gnome.cd minimal.cd icemaker.cd fvwm.cd \
 	rescue.cd custom.cd \
 	master.dvd junior.dvd school-lite.cd1 school-lite.cd2 \
 	centaurus.dvd centaurus-test.dvd \
-	chainmail.cd school-terminal.dvd antique.cd
+	chainmail.cd school-terminal.dvd antique-minimal.cd antique.cd
 
 .PHONY: $(PRODUCTS) rinse
 
@@ -49,6 +49,7 @@ console.cd: | install2 main rescue install-cd.@IMAGETYPE@
 WM-mini.cd: | use-WM-mini use-wdm install2 main install-cd.@IMAGETYPE@
 icewm-mini.cd: | use-icewm-mini use-xdm install2 main install-cd.@IMAGETYPE@
 antique.cd: | use-antique use-xdm install2 main rescue install-cd.@IMAGETYPE@
+antique-minimal.cd: | use-antique use-xdm install2 main install-cd.@IMAGETYPE@
 antique-full.cd: | use-antique-base disk-antique-disk use-xdm install2 main rescue install-cd.@IMAGETYPE@
 antique-base.cd: | use-antique-base use-xdm install2 main install-cd.@IMAGETYPE@
 #*********************
